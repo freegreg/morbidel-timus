@@ -1,0 +1,1 @@
+testall.bat funnyg 11 1000

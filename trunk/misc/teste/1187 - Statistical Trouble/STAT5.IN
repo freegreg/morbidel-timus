@@ -1,0 +1,39 @@
+New Year Phone Survey for ACM ICPC
+Q01 Hello!
+ H Hello!
+ Y Yes!
+ * Uhm...
+ . (silence)
+ @ (other)
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+Q03 Are you getting drunk there?
+ Y Yes
+ N No
+ W Well...
+ @ (other)
+BYE Happy New Year!
+ Y You too.
+ * (censored)
+ @ (other)
+ . (hang up)
+#
+.@@.
+HH@@
+.@@.
+YFYY
+HQW*
+H@W.
+YYYY
+.HW@
+HFYY
+HH@@
+#
+Q01 Q02 Health vs greeting style
+Q03 Q01 Alcohol influence on greeting
+Q02 BYE Politeness matrix
+#

@@ -1,0 +1,18 @@
+ F is a file variable of any file type, and
+String is a string-type expression or an
+expression of type Pchar if extended syntax is
+enabled. All further
+operations on F operate
+on the external file with the file
+name Name.
+
+After a call to Assign, the association
+between F and the external file continues to
+exist until another Assign is done on F.
+
+A file name consists of a path of zero
+or more
+directory names separated by backslashes,
+
+followed by the actual file name:
+
