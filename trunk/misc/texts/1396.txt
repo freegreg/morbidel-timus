@@ -1,0 +1,25 @@
+Maximum. Version 2
+Time Limit: 1.0 second
+Memory Limit: 16 MB
+Consider the sequence of numbers a[i], i = 0, 1, 2, ..., which satisfies the following requirments: 
+ a[0] = 0
+ a[1] = 1
+ a[2i] = a[i]
+ a[2i+1] = a[i] + a[i+1]
+for every i=1, 2, 3, ... . 
+Write a program which for a given value of N (0 < N < 1018) finds the largest number among the numbers a[0], a[1], ..., a[N]. 
+Input
+Input contains not more than 10000 lines containing one number N. The last line contains 0. 
+Output
+For every N in the input write the coresponding maximum value found. 
+Sample Input
+5
+10
+0
+Sample Output
+3
+4
+Hint
+This problem is the same as “Maximum” but with bigger limitations. 
+________________________________________
+Problem Author: Prepared by Vladimir Yakovlev

@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: 1405 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP15C.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/1405.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Administrator\Desktop\timus\1405\1405.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP15C.tmp" 
+<h3>Output Window</h3>
+Compiling...
+1405.cpp
+c:\documents and settings\administrator\desktop\timus\1405\1405.cpp(33) : error C2065: 'Solve' : undeclared identifier
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+1405.obj - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

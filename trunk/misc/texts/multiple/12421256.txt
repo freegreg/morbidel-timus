@@ -1,0 +1,484 @@
+1242. Werewolf
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Knife. Moonlit night. Rotten stump with a short black-handled knife in it. Those who know will understand. Disaster in the village. Werewolf.
+There are no so many residents in the village. Many of them are each other's relatives. Only this may help to find the werewolf. The werewolf is merciless, but his descendants never become his victims. The werewolf can drown the village in blood, but he never kills his ancestors.
+It is known about all the villagers who is the child of whom. Also, the sad list of the werewolf's victims is known. Your program should help to determine the suspects. It would be a hard task, if a very special condition would not hold. Namely, citizens of the village are not used to leave it. If some ancestor of some citizen lives in the village, then also his immediate ancestor does. It means, that, for example, if the father of the mother of some citizen still lives in the village, than also his mother still lives.
+Input
+The firsd line of the input file contains an integer N, 1 < N <= 1000, which is the number of the villagers. The villagers are assigned numbers from 1 to N. Further is the description of the relation "child - parent": a sequence of strings, each of which contains two numbers separated with a space; the first number in each string is the number of a child and the second number is the number of the child's parent. The data are correct Ö for each of the residents there are no more than two parents, and there are no cycles. The list is followed by the word "BLOOD" written with capital letters in a separate string. After this word there is the list of the werewolf's victims, one number in each string. The input is ended by the end of the file.
+Output
+The output should contain the numbers of the residents who may be the werewolf. The numbers must be in the ascending order and separated with a space. If there are no suspects, the output should contain the only number 0.
+Sample Input
+Sample input #1
+8
+1 3
+3 6
+4 5
+6 2
+4 6
+8 1
+BLOOD
+3
+8
+
+Sample input #2
+6
+1 2
+3 2
+1 4
+3 4
+2 6
+5 2
+5 4
+BLOOD
+2
+5
+Sample Output
+Sample output #1
+4 5 7
+
+Sample output #2
+0
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Leonid Volkov
+
+
+1243. Divorce of the seven dwarfs
+Time Limit: 1 second
+Memory Limit: 1000K
+
+After the Snow White with her bridegroom had left the house of the seven dwarfs, their peaceful and prosperous life has come to an end. Each dwarf blames others to be the reason of the Snow White's leave. To stop everlasting quarrels, the dwarfs decided to part. According to an ancient law, their common possessions should be divided in the most fair way, which means that all the dwarfs should get equal parts. Everything that the dwarfs cannot divide in a fair way they give to the Snow White. For example, after dividing 26 old boots, each dwarf got 3 old boots, and the Snow White got the remaining 5 old boots. Some of the numbers are very large, for example, the dwarfs have 123456123456 poppy seeds, so it is not easy to calculate that the Snow White gets only one seed. To speed up the divorce, help the dwarfs to determine quickly the Snow White's part.
+Input
+The only line of the input file contains an integer N that represents the number of similar items that the dwarfs want to divide (1<=N<=1050)
+Output
+You should output the number of items that pass into the possession of the Snow White.
+Sample Input
+123456123456
+Sample Output
+1
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Stanislav Vasilyev
+
+
+1244. Gentlemen
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Once a gentleman said to another gentleman:
+- What if we play cards?
+- You know, I haven't played cards for ten years...
+- And I haven't played for fifteen years...
+So, little by little, they decided to resurrect their youth. The first gentleman asked a servant to bring a pack of cards, and before starting playing out weighed in his hand the pack.
+- It seems to me, one card is missing from the pack... - he said and gave the pack to the other gentleman.
+- Yes, the nine of spades, - the man agreed.
+An incomplete pack of cards is given. The program should determine which cards are missing.
+Input
+The first line of the input file contains an integer, which is the weight in milligrams of the given (incomplete) pack. The second line contains an integer N, 1 < N <= 100 - the number of cards in the complete pack. In the next N lines there are integers from 1 to 1000, which are the weights of the cards in milligrams.
+Output
+If there is no solution, then the output file should contain the single number 0. If there are more than one solutions, then you should write -1 in the output file. Finally, if it is possible to determine unambiguously which cards are missing in the incomplete pack as compared to the complete one, then the output file should contain the numbers of the missing cards separated with a space.
+Sample Input
+Sample input #1
+270
+4
+100
+110
+170
+200
+
+Sample input #2
+270
+4
+100
+110
+160
+170
+
+Sample input #3
+270
+4
+100
+120
+160
+180
+Sample Output
+Sample output #1
+2 4
+
+Sample output #2
+-1
+
+Sample output #3
+0
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Alexander Petrov
+
+
+1245. Pictures
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Artist Ivanov (not the famous Ivanov who painted "Christ's apparition to people", but one of the many namesakes) once managed to rent inexpensively an excellent studio. Alas, as he soon discovered, the inexpensiveness was caused by objective reasons. A murder happened long ago in the house where he rented the room, and now the ghost living in the house each night renews blood spots on the walls of all the rooms. Ivanov's studio did not escape this damnation.
+Nevertheless, being a creative person, Ivanov quickly found a simple solution to the problem. He decided to paint one or two pictures and hang them on the (single) wall where the spots appear each night so that the spots would be covered by the pictures. Of course, he does not want to spend too much time doing this work. That is why he plans to use not more than two pictures and wants the total square of the pictures to be minimal.
+All the blood spots are circles. Each picture has a rectangular form with sides parallel to the axes, and the minimally possible size of a picture in each of the dimensions is 100 millimeters. If it is necessary to paint two pictures, then they should be hanged to the wall without overlaying. Each spot must be covered by exactly one picture.
+Input
+The first line of the input file contains the number of the spots N, 0 < N <= 1000. Each of the next N lines contains the description of the corresponding spot. A spot is described by three positive integers; they are the radius of the spot and the Cartesian coordinates of the center of the spot. Everything is measured in millimeters and all these numbers do not exceed 10000.
+Output
+The output file should contain an intege2, which is the minimal total square (in square millimeters) of the pictures (not more than two) necessary to cover all the spots.
+Sample Input
+3
+50 50 50
+50 250 50
+10 150 250
+Sample Output
+40000
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Aleksandr Petrov (text - Leonid Volkov)
+
+
+1246. A tethered dog
+Time Limit: 5 second
+Memory Limit: 1000K
+
+A dog is tethered to a pole with a rope. The pole is located inside a fenced polygon (not necessarily convex) with nonzero area. The fence has no self-crosses. The Olympian runs along the fence bypassing the vertices of the polygon in a certain order which is not broken during the jog. A dog pursues him inside the fenced territory and barks. Your program is to determine how (clockwise or counter-clockwise) the rope will wind after several rounds of the Olympian's jog.
+Input
+The first input line contains a number N - that is the number of the polygon vertices. (it's known that 3 <= N <= 200000). The next N lines consist of the vertices plane coordinates, given in an order of Olympian's jog. The coordinates are a pair of real numbers separated with a space. The absolute value of each coordinate doesn't exceed 10200. The coordinates may be given in an exponential form.
+Output
+You are to output "cw", if the rope is winded in a clockwise order and "ccw" otherwise.
+Sample Input
+4
+0 0
+0 1
+1 1
+1 0
+Sample Output
+cw
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Evgeny Kobzev
+
+
+1247. Check a sequence
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There is a sequence A1, A2,...,AS, and a positive integer N. It's known that all the elements of the sequence {Ai} satisfy the restriction 0 <= Ai <= 100. Moreover, it's known that the sum of all the elements of the sequence is equal to S+N. You are to write a program that given a sequence {Ai} and a number N will answer the question:
+Is it right that for all 1 <= i <= j <= S the following inequality holds:
+Ai + A)-1 + ... + Aj <= (j - i + 1) + N?
+Input
+The first input line contains two separated with a space positive numbers S and N that do not exceed 30000. Then follow S lines with one number in a line that are elements of the sequence {Ai}.
+Output
+Output "YES", if the mentioned above inequality holds for all the values of the parameters i and j, and "NO" otherwise.
+Sample Input
+Sample input #1
+4 3
+2
+3
+0
+2
+
+Sample input #2
+4 5
+1
+0
+5
+3
+Sample Output
+Sample output #1
+YES
+
+Sample output #2
+NO
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Alexander Mironenko
+
+
+1248. A sequence sum
+Time Limit: 1 second
+Memory Limit: 1000K
+
+You are given a sequence of real numbers. And you ought to sum them all. And don't forget to output the result.
+Input
+The first input line contains a number of the sequence elements N (N  = 1000). The next N lines contain the elements in exponential notation with 19 significant digits in mantissa. All the numbers are contained in a range from 10-100 to 10100.
+Output
+You are to output the only number - the sum of all the input numbers. Those numbers are to be presented in an exponential notation with 19 correct digits in mantissa.
+Sample Input
+2
+1.5e3
+1.5e-3
+Sample Output
+1.500001500000000000e3
+
+
+Problem Source: Ural State University Personal Programming Contest, March 1, 2003
+Author: Alexander Klepinin
+
+
+
+1249. Ancient Necropol
+Time Limit: 12 second
+Memory Limit: 1000K
+
+Aerophotography data provide a bitmap picture of a hard-to-reach region. According to the suggestions of scientists, this region is a cemetery of an extinct civilization. Indeed, the picture, having been converted to a binary form, shows distinctly visible areas, dark (marked with symbols 1) and light (marked with 0). It seems that the dark areas are tombstones. It's easy to either confirm or reject the hypothesis since the race that lived in the region knew astronomy, so tombstones were always oriented along the Earth's parallels and meridians. That is why the dark areas in the picture should have the form of rectangles with the sides parallel to the axes. If it is so, then we indeed have a picture of a cemetery of an extinct race. Otherwise, new hypotheses should be suggested.
+Input
+The first input line contains two integers N and M, which are the dimensions of the picture provided by the aerophotography. Each of the next N lines contains M zeros or ones separated with a space. The numbers N and Ì do not exceed 3000.
+Output
+The output should contain the word "Yes" (without quotation marks) if all connected dark areas in the picture are rectangles and the word "No" otherwise.
+Sample Input
+Sample input #1
+2 2
+0 1
+1 1
+
+Sample input #2
+3 3
+0 0 1
+1 1 0
+1 1 0
+Sample Output
+Sample output #1
+No
+
+Sample output #2
+Yes
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Nikita Shamgunov, Leonid Volkov
+
+
+1250. Sea Burial
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There is Archipelago in the middle of a shoreless ocean. An ancient tribe of cannibals lives there. Shamans of this race have been communicating with gods and admonishing people for ages. They could generate a rain during a drought and clear the sky in a raining season. A long time ago the first shaman of the tribe jumped into one of the seas and drowned while being in a sacred trance. Since then all the land inside this sea is regarded as sacred. According to an ancient law, all shamans must be buried on a sacred land. However, souls of dead shamans cannot get on with each other, so each shaman must be buried on a separate island. An old prophecy says that if two shamans are buried on the same land, then a dreadful time will come and the tribe will perish.
+How many shamans will the tribe outlive? This problem bothered all the chiefs of the tribe who were coming into power. So one of the chiefs ordered to compile a map of Archipelago. The cannibals toiled for a whole year and coped with the task. But the map was too large and complicated to count all the sacred islands. So the tribe's shaman appealed to gods and asked them to help with counting the islands. And the tribe was blessed with a Programmer and a Computer, which came down to earth in a cloud of light and fire. Yes, you are this Programmer, and you are destined to live with these cannibals until you have counted the islands; then you'll be transferred back home. Remember that there may be seas inside islands, and islands inside those seas.
+Input
+The first input line contains four integers W, H, X and Y, separated with one or several spaces. 1<=W,H<=500 are respectively the width and the height of the map. 1<=X<=W and 1<=Y<=H are the coordinates of the point where the first shaman drowned. The next H lines contain description of the map. Each line contains W symbols describing correspondent fragments of the map. Symbol "." stands for a sea fragment and symbol "#" stands for a land fragment. Two fragments belong to the same sea if they are adjacent horizontally, vertically, or diagonally. Two fragments belong to the same island if they are adjacent horizontally or vertically (but not diagonally). Land fragments that are adjacent to the map's border are not considered as islands. Coordinates are counted from the left upper corner.
+Output
+The output should contain a single integer, which is the number of the islands inside the sacred sea.
+Sample Input
+Sample input #1
+9 7 1 1
+........#
+.#######.
+.#.....#.
+.#.#.#.#.
+.#.....#.
+.#######.
+#........
+
+Sample input #2
+9 7 3 3
+........#
+.#######.
+.#.....#.
+.#.#.#.#.
+.#.....#.
+.#######.
+#........
+Sample Output
+Sample output #1
+3
+
+Sample output #2
+2
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Stanislav Skorb (prepared by Ivan Dashkevich)
+
+
+
+1251. Cemetery Manager
+Time Limit: 3 second
+Memory Limit: 1000K
+
+There is a tradition at the USU championships to call the most hard-to-solve problems coffins. But to distribute coffins is also a very difficult problem. Consider a cemetery with places arranged in the form of a rectangle having N rows and M columns (1 <= N, M <= 100). At the initial moment of time (t = 0) the cemetery is empty. Incoming coffins are put in the row with empty places that has a minimal number; if there are several empty spaces in this row, then the column with the minimal number is chosen. From time to time the cemetery's clients are visited by their living friends and relatives; it is considered to be a pleasure for the clients. But it's only a headache for the cemetery manager, since because of these visitors he cannot give to new clients places that have been used. Happily, visitors are not perfect, so after some time they forget where their friends have been lying. That is why if a client was not visited for more than successive 1000 days, then on the 1001st day the manager regards the grave as empty. However, relatives of the adjacent clients (of those for whom the differences in the numbers of rows and columns are not greater than 1) may notice strange changes, so the manager puts a new client on a used place only if all the neighboring graves have not been visited for the last 100 days (this is a period of time sufficient for a neighbor's friends to forget who was lying next to him or her). If, notwithstanding all the efforts of the manager, there is no place where he can put a new client, then the client is sent to a crematorium.
+We have a complete list of arriving clients and coming visitors for some period starting from the foundation of the cemetery. Basing on this information, you should determine how many clients have been sent to a crematorium.
+Input
+The first input line contains numbers N and M that describe the size of the cemetery. Each of the next lines of the input file describes an event. A description starts with the time of the event measured in days from the foundation of the cemetery. Then the type of the event is given: either d (arrival of a new client) or v (a visit of friends or relatives) followed with the number of the client who has visitors. The events are ordered according to their time. The input contains not more than 15000 events, and not more than 10000 of them describe arrivals of new clients.
+Output
+The program should find the number of clients that have been sent to a crematorium.
+Sample Input
+2 2
+1 d
+1 d
+1 d
+1 d
+300 d
+500 v 2
+1001 d
+1002 d
+1002 d
+1003 v 3
+1003 d
+1003 d
+1236 v 2
+2032 v 2
+2033 d
+Sample Output
+3
+Hint
+1.      Each tomb has 2 to 8 neighbors.
+2.      If a client was buried on day T then the tomb may be dug over on day T+1001 and may not be dug over on day T+1000.
+3.      If a tomb was visited on day T then its neighbors may be dug over on day T+101 and may not be dug over on day T+100.
+4.      A tomb is dug over as soon as there is an opportunity (see items 2 and 3).
+5.      During a funeral relatives notice nothing including the neighbors.
+6.      If 1000 days since the funeral passed and the tomb is not dug over then the forgetful relatives wouldn't find the tomb and wouldn't see its neighbors.
+7.      The clients are numbered in the the order that they arrive, i.e. the clients number is the number d in the input.
+8.      If there is already no tomb or the client has been sent to the crematorium immediately or there is no client with the required number then a visit affects nothing.
+9.      The next in turn client may be always burried in an empty tomb inspite of the neighbor tombs visits (the neighbors' relatives wouldn't be surprised having found out that the adjacent empty tomb is already occupied).
+
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Stanislav Vasilyev
+
+
+
+1252. Sorting the tombstones
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There is time to throw stones and there is time to sort stones...
+An old desolate cemetery is a long dismal row of nameless tombstones There are N tombstones of various shapes. The weights of all the stones are different. People have decided to make the cemetery look more presentable, sorting the tombstone according to their weight. The local custom allows to transpose stones if there are exactly K other stones between them (0 <= K < N).
+Input
+The first input line contains an integer N (1 <= N <= 130000). Each of the next N lines contains an integer X - the weight of a stone in grams (1 <= X <= 130000).
+Output
+The output should contain the single integer - the maximal value of K, that makes possible the sorting of the stones according to their weights.
+Sample Input
+5
+30
+21
+56
+40
+17
+Sample Output
+1
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Alexey Lakhtin
+
+
+1253. Necrologues
+Time Limit: 1 second
+Memory Limit: 1000K
+
+You know that many necrologues even the most heartfelt are very similar. Our partners from the ACM Company (Advanced Cemetery Management), which is a sponsor of today's thematic problem s%t, decided to disclose some secrets of skill. As soon as we got into the workshop of the word-painters we found out that:
+1.      There are N (1 <= N < 10) sample necrologues;
+2.      Each sample necrologue has not more than 1000 symbols (capital and small Latin letters, digits, punctuation marks, spaces and carriage return marks);
+3.      Each sample may contain not more than 10 references to other samples (the reference is marked by *, which is followed by a number of a sample that is referred to; the *-mark is used in the samples in no other way but as a reference mark).
+A reference may be activated at a client's pleasure: the sequence *M is substituted with the sample necrologue number M (with all its references).
+This system worked properly up to the moment that a very rich client entered the workshop. He wanted to add a stone to his mother's-in-law cairn and wished a necrologue according to the sample number 1 with all the references activated (including the ones that can appear after activating the references in the first sample, and so on).
+It's necessary to write a program in order to understand if it's possible to fulfill the wishes of the client and what will appear in this necrologue.
+Input
+The first input line contains a number N - an amount of the necrologues samples. Than follow the samples texts. Each samples starts from a new line and ends with the # symbol.
+Output
+Consider the necrologue forming procedure that starts from the first sample, activates all the references than activates all the references in the result of the previous step and so on ad infinitum. If such a procedure leads to the text not longer than 106 symbols (spaces and line feeds are considered as symbols) you should output the necrologue text. You should output # otherwise.
+Sample Input
+7
+She w*7s *7 *2 wom*7n.
+*3#
+wonderful#
+Everyone loved her *5.
+We will miss her *5.#
+Some text *6#
+very much#
+Another text *4#
+a#
+Sample Output
+She was a wonderful woman.
+Everyone loved her very much.
+We will miss her very much.
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Leonid Volkov
+
+
+1254. Die Hard
+Time Limit: 20 second
+Memory Limit: 1000K
+
+
+There is a city with a grid of square blocks of the N × M size. There are buildings in some blocks, some blocks are blank. John is in the block (x0,y0). He may move from a block to an adjacent one in horizontal, vertical or diagonal direction with velocity V. He is told over the radio the list of points where bombs are located. John is to disarm them in the same order that they follow in the list or he will die hard with a vengeance. If he can't reach some bomb he moves to the next one. All the bombs are located outside the buildings.
+What minimal time will John need to finish his job if he disarms a bomb immediately?
+
+
+Input
+The first line contains numbers N, M, K (an amount of bombs) and V, separated with a space, satisfying the restrictions 1 <= N, M <= 75, l <= K <= 1000, 0.01 < V < 10.00. Then a city map follows - M lines of N symbols. The symbol '.' means a blank block, '#' stands for a building. Then follow the line that contains coordinates (x0, y0). The input is ended by K lines with bombs coordinates in that very order that John passed them.
+Output
+You should output the single number - the minimal time necessary to do the job. The time should be printed with two digits after a decimal point.
+Sample Input
+4 3 3 1.23
+....
+##..
+....
+1 1
+1 3
+4 1
+4 3
+Sample Output
+8.66
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Pavel Atnashev
+
+
+
+1255. Graveyard of the Cosa Nostra
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There is a custom among the Ural Mafiosi - a big Mafioso's coffin is to be carried by all his subordinates. The length of the coffin (in meters) equals to the number of the Mafioso's subordinates in order not to let the carriers to encumber each other. As it happens, according to the ancient custom the width of a coffin is equal to 1 meter. So, the length of a coffin shows a dead man's authority. By the way, the Ural Mafiosi are very scrupulous in matters of authority and will not bear neighborhood with less authoritative Mafioso. So, at one cemetery it's possible to bury Mafiosi with equal authority. According to the Mafiosi's custom a cemetery must be square. A cemetery length must be an integer number of meters.
+You are to count how many Mafiosi can be buried on the cemetery of the given size (coffins mustn't overlap each other and get off the cemetery).
+Input
+Contains two numbers - a length of the cemetery N (1 < N < 10000) and a length of a coffin K (1 < K < 10000).
+Output
+The single integer number - the most amount of the coffins of the size 1*K that may be buried at the cemetery of the size N*N.
+Sample Input
+5 4
+Sample Output
+6
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Stanislav Vasilyev, Alexey Lakhtin
+
+
+1256. Cemetery Guard
+Time Limit: 1 second
+Memory Limit: 1000K
+
+In some black-black wood at the black-black cemetery there was a golden gravestone. This gravestone was guarded by two black-black dogs. Each dog sits enchained near a black-black pole and nearby in the wood there is a black-black guard's house. Every morning the guard leaves the house to bring the dogs plates with food. He places the plates so that the dogs may eat remaining enchained to their poles. Compute the shortest way that the guard is to walk in order to feed both dogs (the guard may easily carry food to both dogs at the same time and may feed them in an arbitrary order).
+Input
+The first line contains three numbers - the distance in meters from the guard's house to the first pole R1, from the guard's house to the second pole R2 and the distance between the poles R3. The second line consists of one integer - the length of each dog's chain R4 (the chains of the dogs are identical). The numbers Ri (i = 1, 2, 3) satisfy the restriction 0 <= Ri <= 10000, 1 <= R4 <= 10000.
+Output
+the single number - the length of the shortest guard's way in meters within three digits after a decimal point.
+Sample Input
+1000 2000 1000
+250
+Sample Output
+3500.000
+
+
+Problem Source: Open collegiate programming contest for student teams, Ural State University, March 15, 2003
+Author: Alexander Petrov (prepared by Alexander Mironenko)
+
+
+
+

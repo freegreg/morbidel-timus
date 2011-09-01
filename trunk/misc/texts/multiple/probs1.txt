@@ -1,0 +1,476 @@
+1061. Buffer Manager
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Data blocks being read by DBMS from the hard drive are stored in the main memory in a fixed number of pre-allocated buffers. Each buffer can hold one data block. Each buffer can be either free (does not contain any useful information) or occupied by some data. When DBMS is going to read data block from the hard drive it has to decide which buffer to use for data storing. If there are any free buffers, then one of them is used for that purpose. If there are no free buffers, then one of the occupied buffers has to be flushed to become free, unless it was locked by some part of DBMS.
+The choice of the buffer to flush is critical to DBMS performance. A lot of different algorithms were developed, LRU (Least Recently Used) algorithm being the one used most often. However, your DBMS is going to implement the Advanced Buffer Management algorithm which takes advantage of the fact that maximal performance is achieved when a number of consecutive data blocks from the hard drive are read into consecutive memory buffers.
+Buffers are numbered from 1 to N, where N (1 = N = 100000) is a total number of buffers. Each buffer can be in any one of the following states: free, occupied or locked. Each occupied buffer is assigned an integer number from 1 to 9 - the worthiness of the currently stored information in that buffer. The worthiness of free buffers is considered to be zero. Locked buffers cannot be neither used nor flushed and their worthiness is undefined.
+Having received the request to read K (1 = K = 10000) data blocks from the hard drive, Buffer Manager has to choose K consecutive non-locked buffers numbered from L to L+K-1 that have minimal possible sum of their worthiness, or to report that it is impossible to find K consecutive non-locked buffers. The latter can also happen if total number of buffers is less than K.
+Your task is to write a program that models the processing of one request to Buffer Manager using the above algorithm.
+Input
+The first line of the input contains two integers, N and K, separated by a space.
+Starting from the second line there is a description of a buffers' state. The state of each buffer is represented by a single character:
+·       0 - when the corresponding buffer is free.
+·       1 - when the corresponding buffer is occupied and has worthiness of 1.
+·       2 - when the corresponding buffer is occupied and has worthiness of 2.
+·       ...
+·       9 - when the corresponding buffer is occupied and has worthiness of 9.
+·       * - when the corresponding buffer is locked.
+Those characters are situated on the consecutive lines grouped by 80 characters per line without any spaces. Thus, each line starting from the second one contains exactly 80 characters with a possible exception for the last line.
+Output
+Write to the output the single integer number L. This number gives the buffer number where first of the K blocks from the hard drive shall be read to ensure the minimal possible total worthiness of the blocks that have to be flushed. If there are more than one such value for L, then write the smallest one.
+Write to the output a single number 0 if it's impossible to find K consecutive non-locked buffers.
+Sample Input
+100 53
+2165745216091853477755800393859785807207523169954341**7363*9*94664808*4777717089
+09825185827659480548
+Sample Output
+0
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+1064. Binary Search
+Time Limit: 5 second
+Memory Limit: 1000K
+
+The program fragment below performs binary search of an integer number in an array that is sorted in a nondescending order:
+Pascal (file "sproc.pas")       C (file "sproc.c")
+const  MAXN = 10000;var  A: array[0..MAXN-1] of integer;  N: integer;procedure BinarySearch(x: integer);var  p, q, i, L: integer;begin  p := 0;   { Left border of the search  }  q := N-1; { Right border of the search }  L := 0;   { Comparison counter         }  while p <= q do begin    i := (p + q) div 2;    inc(L);    if A[i] = x then begin      writeln('Found item i = ', i,        ' in L = ', L, ' comparisons');      exit    end;    if x < A[i] then      q := i - 1    else      p := i + 1  endend;        #define MAXN 10000int A[MAXN];int N;void BinarySearch(int x){  int p, q, i, L;  p = 0;   /* Left border of the search  */  q = N-1; /* Right border of the search */  L = 0;   /* Comparison counter         */  while (p <= q) {    i = (p + q) / 2;    ++L;    if (A[i] == x) {      printf("Found item i = %d"        " in L = %d comparisons\n", i, L);      return;    }    if (x < A[i])      q = i - 1;    else      p = i + 1;  }}
+Before BinarySearch was called, N was set to some integer number from 1 to 10000 inclusive and array A was filled with a nondescending integer sequence.
+It is known that the procedure has terminated with the message "Found item i = XXX in L = XXX comparisons" with some known values of i and L.
+Your task is to write a program that finds all possible values of N that could lead to such message. However, the number of possible values of N can be quite big. Thus, you are asked to group all consecutive Ns into intervals and write down only first and last value in each interval.
+Input
+The input consists of a single line with two integers i and L (0 = i < 10000 and 1 = L = 14), separated by a space.
+Output
+On the first line of the output write the single integer number K representing the total number of intervals for possible values of N. Then K lines shall follow listing those intervals in an ascending order. Each line shall contain two integers Ai and Bi (Ai = Bi) separated by a space, representing first and last value of the interval.
+If there are no possible values of N exist, then the output shall contain the single 0.
+Sample Input
+
+10 3
+Sample Output
+
+4
+12 12
+17 18
+29 30
+87 94
+
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+1065. Frontier
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Lilliputian frontier is a convex polygon with non-zero area. The vertices of this polygon are guard towers, which are connected by straight lines. This frontier is too long and expensive for Lilliputia to maintain; therefore the Lilliputian government has decided to revise it to make it shorter. However, they don't want to build new guard towers, but to use existing ones as a part of a new frontier.
+ Each day frontier guards inspect the frontier. They go from one guard tower to the next one, traversing the frontier clockwise. Guard towers are numbered from 1 to N according to this inspection order. Frontier revision should not change this way of inspection and the area of Lilliputia shall remain non-zero.
+For example, the frontier that is shown on the picture (axes are in kilometer scale) is traversed by 1 - 2 - 3 - 4 - 5 - 1 route, which is 57.89 kilometers long. To make the frontier as short as possible Lilliputia should revise it so that the frontier is traversed by 2 - 3 - 4 - 2 route, thus reducing its length to 27.31 kilometers.
+However, Lilliputia has a number of historical monuments which are its major pride. The historical monuments shall be kept inside Lilliputia at any cost and they should not end up on the frontier. So, the task is to design the shortest frontier that will preserve all historical monuments inside Lilliputia.
+On the sample picture two historical monuments marked "A" and "B" are shown. The desire to keep them inside Lilliputia will lead to the shortest frontier with a traverse path 1 - 2 - 3 - 4 - 1 having 51.78 kilometers in length.
+Input
+The first line of the input contains two integers N and M, separated by a space. N (3 = N = 50) is a total number of guard towers on the Lilliputian frontier. M (0 = M = 1000) is a total number of historical monuments that are situated inside Lilliputia.
+Next N lines contain guard towers' coordinates in a clockwise order followed by M lines that contain historical monuments' coordinates. All coordinates are represented as two integers (for X and Y correspondingly) separated by a space. Coordinates are given in a kilometer scale and each coordinate does not exceed 10000 by an absolute value. All guard towers are located at distinct points.
+Output
+Write to the output a single real number - the minimal possible length of the Lilliputian frontier (in kilometers) accurate to two digits to the right of the decimal point.
+Sample Input
+5 0
+8 9
+0 -7
+-8 -7
+-8 1
+-8 9
+
+Sample Output
+27.31
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+1066.Garland
+Time Limit: 5 second
+Memory Limit: 1000K
+
+ The New Year garland consists of N lamps attached to a common wire that hangs down on the ends to which outermost lamps are affixed. The wire sags under the weight of lamp in a particular way: each lamp is hanging at the height that is 1 millimeter lower than the average height of the two adjacent lamps.
+The leftmost lamp in hanging at the height of A millimeters above the ground. You have to determine the lowest height B of the rightmost lamp so that no lamp in the garland lies on the ground though some of them may touch the ground.
+You shall neglect the lamp's size in this problem. By numbering the lamps with integers from 1 to N and denoting the ith lamp height in millimeters as Hi we derive the following equations:
+·       H1 = A
+·       Hi = (Hi-1 + Hi+1)/2 - 1, for all 1 < i < N
+·       HN = B
+·       Hi = 0, for all 1 = i = N
+The sample garland with 8 lamps that is shown on the picture has A = 15 and B = 9.75.
+Input
+The input consists of a single line with two numbers N and A separated by a space. N (3 = N = 1000) is an integer representing the number of lamps in the garland, A (10 = A = 1000) is a real number representing the height of the leftmost lamp above the ground in millimeters.
+Output
+Write to the output the single real number B accurate to two digits to the right of the decimal point representing the lowest possible height of the rightmost lamp.
+Sample Input
+692 532.81
+Sample Output
+446113.34
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+1067.Disk Tree
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Hacker Bill has accidentally lost all the information from his workstation's hard drive and he has no backup copies of its contents. He does not regret for the loss of the files themselves, but for the very nice and convenient directory structure that he had created and cherished during years of work. Fortunately, Bill has several copies of directory listings from his hard drive. Using those listings he was able to recover full paths (like "WINNT\SYSTEM32\CERTSRV\CERTCO~1\X86") for some directories. He put all of them in a file by writing each path he has found on a separate line. Your task is to write a program that will help Bill to restore his state of the art directory structure by providing nicely formatted directory tree.
+Input
+The first line of the input contains single integer number N (1 = N = 500) that denotes a total number of distinct directory paths. Then N lines with directory paths follow. Each directory path occupies a single line and does not contain any spaces, including leading or trailing ones. No path exceeds 80 characters. Each path is listed once and consists of a number of directory names separated by a back slash ("\").
+Each directory name consists of 1 to 8 uppercase letters, numbers, or the special characters from the following list: exclamation mark, number sign, dollar sign, percent sign, ampersand, apostrophe, opening and closing parenthesis, hyphen sign, commercial at, circumflex accent, underscore, grave accent, opening and closing curly bracket, and tilde ("!#$%&'()-@^_`{}~").
+Output
+Write to the output the formatted directory tree. Each directory name shall be listed on its own line preceded by a number of spaces that indicate its depth in the directory hierarchy. The subdirectories shall be listed in lexicographic order immediately after their parent directories preceded by one more space than their parent directory. Top level directories shall have no spaces printed before their names and shall be listed in lexicographic order. See sample below for clarification of the output format.
+Sample Input
+7
+WINNT\SYSTEM32\CONFIG
+GAMES
+WINNT\DRIVERS
+HOME
+WIN\SOFT
+GAMES\DRIVERS
+WINNT\SYSTEM32\CERTSRV\CERTCO~1\X86
+Sample Output
+GAMES
+ DRIVERS
+HOME
+WIN
+ SOFT
+WINNT
+ DRIVERS
+ SYSTEM32
+  CERTSRV
+   CERTCO~1
+    X86
+  CONFIG
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+1068.Sum
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Your task is to find the sum of all integer numbers lying between 1 and N inclusive.
+Input
+The input consists of a single integer N that is not greater than 10000 by it's absolute value.
+Output
+Write to the output file a single integer number that is the sum of all integer numbers lying between 1 and N inclusive.
+Sample Input
+-3
+Sample Output
+-5
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest (test tour)
+
+
+1070.A local time
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Soon the USU team will go to Vancouver to participate in the final of the ACM International Collegiate Programming Contest. They will be to take four different planes (three changes on the way)!
+By the way, our team plans to return from Vancouver, so the two-way tickets are bought. The departure time (local time of the airport of departure) and the time of the arrival (local time of the destination airport) are printed on the tickets.
+For example, the departure at 15.42 and the arrival at 16.23, and a return flight departs at 08.10 and arrives at 17.51.
+Your task is to help to our team to find out how much does the time of the first airport differs from the one of the second. It is known that time in different airports differs by an integer amount of hours. The time of flights there and back may differ from each other not more than by 10 minutes.
+The duration of a flight doesn/t exceed 6 hours. The difference between airport local times is not greater than 5 hours.
+Input
+There are two lines, each of them contains two numbers. The first line consists of the departure time and the arrival time of the flight there, the second one × the departure and the arrival times of the back flight. Numbers in the lines are separated with a space, an amount of minutes is separated from an amount of hours with a point.
+Output
+Your program should write to an output an integer positive number that corresponds to the difference in time between the two airports. (Without extra zeroes!)
+Sample Input
+23.42 00.39
+08.10 17.11
+Sample Output
+4
+
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students Session
+Author: Asanov M., Vasiljev S.
+
+
+1130. Nikifor's walk
+Time Limit: 0.1 second
+Memory Limit: 1000K
+
+Little Nikifor wouldn't stay long without movement. It's boring to run in one direction for a long time, as well. A wise nanny knows that when Nikifor goes playing outdoors he moves along vectors a1, a2, ..., an; each time his displacement is either equal to the next in turn vector or to the vector opposite to it. A pedagogical influence of the nanny with Nikifor is rather strong, so each time she can point out which one of the two possible directions he should choose.
+The nanny knows that length of each of the vectors a1, a2, ..., an doesn't exceed L. Nikifor starts his walk from the nanny and she wants him to move off her not farther than by the square root of 2 multiplied by L (sqrt(2)L) in the end of his walk. What directions should she point out in order not to let the child move too far off her pedagogical influence in the end of the walk?
+Input
+The first line contains an integer n, 0 < n <= 10000. The second line contains a real number L, L < 200. The next n lines contain coordinates of the vectors. The coordinates are integer.
+Output
+The first line is to contain the word 'YES' if the nanny can cope with her task, and 'WRONG ANSWER' otherwise. If the answer is 'YES' then the next line should consist of n symbols '+' or '-'. There is the symbol '+' at the i-th position if Nikifor runs along the vector ai, and there's a symbol '-' if Nikifor runs along the vector -ai. If there are several solutions it's enough to output an arbitrary one.
+Sample Input
+4
+5
+5 0
+0 5
+0 0
+-3 4
+Sample Output
+YES
++-++
+
+
+Problem Source: IV Ural State University Collegiate Programming Contest
+Author: Dmitry Filimonenkov
+
+
+1131. Copying
+Time Limit: 0.1 second
+Memory Limit: 1000K
+
+A new educating program was received by the kindergarten. Of course, children have discovered it immediately and want to play with it as soon as possible. In order to let them do it the program has to be copied to all the N computers that the kindergarten had bought just before the default of 1998. At the moment the program is installed only on one computer. Other computers do not have floppy drives and are not connected with a local network. The only way to transfer information from one computer to another is to copy it using a null-modem cable (a cable that connects two computers directly). So, if the program is installed on a computer, it can be copied to some other (but only one!) computer within an hour.
+There are only K null-modem cables in the kindergarten. Your task is to estimate the minimal time necessary for copying the program to all the compters in the kindergarten.
+Input
+The only input line contains two numbers separated with a space: N and K (0 < N <= 109, 1 < K <= 109).
+Output
+You are to output the minimal time (in hours) necessary for copying of the program to all the computers.
+Sample Input
+8 3
+Sample Output
+4
+
+
+Problem Source: IV Ural State University Collegiate Programming Contest
+Author: Stanislav Vasilyev, Aleksandr Mironenko
+
+
+1134. Cards
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Each of the n cards has numbers written on the both sides of it. The first card has 0 and 1 on it, the second - 1 and 2, …, the n-th - (n-1) and n. First-grade pupil Nick takes cards one by one in random order and reads the number on one of the sides. Nick is not very good with numbers, so it is possible that he makes a mistake. Yo5r task is to find out if he was mistaken, i.e. if the given sequence of numbers is possible for some order of taking cards.
+Input
+The first line of the input contains numbers n - the total number of cards and m - the number of the cards that were taken. Starting with the second line, the m positive integer numbers are listed (the sequence read by Nick). One or more spaces or CR/LF characters separate the numbers.
+1 <= n <= 1000
+Output
+Write YES to the output if the given sequence of numbers is possible for some order of taking cards, NO otherwise.
+Sample Input
+5 4
+2 0 1 2
+Sample Output
+NO
+
+
+Problem Source: Quarterfinal
+Central region of Russia
+Rybinsk, October 17-18 2001
+
+
+1135. Recruits
+Time Limit: 1 second
+Memory Limit: 1000K
+
+N recruits are standing in front of a sergeant who orders to turn left. Some of the soldiers turn left, while the others turn right. In a second each recruit seeing the face of another recruit understands that a mistake was made and turns around. This happens at the same time to each pair of soldiers facing each other. The process continues until the formation becomes stable. Write a program, which finds out the number of times when a pair of soldiers turned around. If the process is infinite then the program should write the word "NO" to the output file.
+
+Example:
+Legend:
+'<' - a recruit facing left;
+'>' - a recruit facing right.
+Formation       Comments        Number of turns
+> > < < > <     Initial formation       2
+> < > < < >     One second has passed   2
+< > < > < >     Two seconds have passed 2
+< < > < > >     Three seconds have passed       1
+< < < > > >     Final formation Total: 7
+Input
+The first line of the input contains the number of recruits (N). The rest of the input contains only '<', '>' and CR/LF characters. There is exactly N '<' and '>' characters in the input file. Each line of the input may have up to 255 characters.
+1 <= N <= 30000
+Output
+Write the number of turns to the output file.
+Sample Input
+6
+>><<><
+Sample Output
+7
+
+
+Problem Source: Quarterfinal
+Central region of Russia
+Rybinsk, October 17-18 2001
+
+
+1138. Integer Percentage
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Applying for a new job, programmer N. Smart required that his new salary (in rubles, positive integer) would be greater than his previous salary by integer percentage. What could be the highest possible number of previous jobs for mister Smart, if his latest salary did not exceed n rubles and his first salary was exactly s rubles?
+
+Example
+Let n=10, s=2, then m=5. The sequence 2, 4 (+100%), 5 (+25%), 8 (+60%), 10 (+25%) is the longest (although not unique) sequence that satisfies to the problem statement. Salary increase percentage is written inside the brackets.
+
+Input
+Two integer numbers n and s separated by one or more spaces.
+1 <= n, s <= 10000
+Output
+A single integer m - the maximum number of N. Smart's previous jobs.
+Sample Input
+10 2
+Sample Output
+5
+Hint
+if n=s, the answer is 1.
+
+
+Problem Source: Quarterfinal
+Central region of Russia
+Rybinsk, October 17-18 2001
+
+
+1151. Radiobeacons
+Time Limit: 5 second
+Memory Limit: 1000K
+
+On a flat rectangular field (size is 200 by 200) there are located (in unknown places) N (not more than 10) radiobeacons (the only thing we actually know is that their coordinates are natural). Each beacon produces a unique signal, that distinguishes it from others. Each signal is represented by a natural number, which is less than 30000.
+
+In some different places on the field, we should call them 'checkpoints', coordinates of which are well known and are natural, there were conducted measurements. As a result of these measurements distances from checkpoints (there are no more than 20 of them) to some of beacons became known. Here we should note, that the distance between a and b is S(a,b)=max(|xa-xb|,|ya-yb|)).
+
+You need to get positions of all beacons on a field basing on coordinates of checkpoints and results of measurements, if that is possible.
+
+Each checkpoint measures at least one signal.
+Input
+First line contains natural M - number of checkpoints.
+After this line there follow M lines, each of which contains information, recieved from one of checkpoints, formatted as follows:
+
+<XcheckI>,<YcheckI>:<IDsign1>-<Rsign1>,<IDsign2>-<Rsign2> [,...]
+
+where XcheckI, YcheckI are coordinates of checkpoints, IDsignJ - natural id of beacon J, RSignJ - distance from checkpoint I to beacon J.
+Output
+File contains N lines, which look as follows:
+
+<IDsignJ>:<XsignJ>,<YsignJ> | UNKNOWN
+
+Here IDsignJ - natural identifier of beacon J, XsignJ and YsignJ are natural coordinates of a beacon on a field. If a position of a beacon cannot be determined unequivocally, its coordinates should be replaced with a word UNKNOWN. All lines should be ordered by IDsignJ in an ascending order.
+
+In input and output files you cannot use spaces as divisors, you have to use "," ":" and "-" instead.
+Sample Input
+2
+15,15:16-7,5-3
+10,10:5-2,16-2
+Sample Output
+5:12,12
+16:UNKNOWN
+
+
+Problem Source: Ural Collegiate @rogramming Contest, April 2001, Perm
+English Tour
+
+1152. The False Mirrors
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+We wandered in the labyrinth for twenty minutes before finally entering the large hall. The walls were covered by mirrors here as well. Under the ceiling hung small balconies where monsters stood. I had never seen this kind before. They had big bulging eyes, long hands firmly holding riffles and scaly, human-like bodies. The guards fired at me from the balconies, I shot back using my BFG-9000. The shot shattered three mirrors filling the room with silvery smoke. Bullets drummed against my body-armor knocking me down to the floor. Falling down I let go a shot, and got up as fast as I fell down by rotating on my back, like I did in my youth while break dancing, all this while shooting three more times. Three mirrors, three mirrors, three mirrors...
+(Sergey Lukjanenko, "The Labyrinth of Reflections")
+Problem
+BFG-9000 destroys three adjacent balconies per one shoot. (N-th balcony is adjacent to the first one). After the shoot the survival monsters inflict damage to Leonid (main hero of the novel) - one unit per monster. Further follows new shoot and so on until all monsters will perish. It is required to define the minimum amount of damage, which can take Leonid.
+Input
+The first string of input contains integer N, àmount of balconies, on which monsters have taken a circular defense. (3 <= N <= 20).
+The second string contains N integers, amount of monsters on each balcony (not less than 1 and no more than 100 on each).
+Output
+Output file contains one integer, minimum amount of damage.
+Sample Input
+7
+3 4 2 2 1 4 1
+Sample Output
+9
+
+
+Problem Source: Ural Collegiate Programming Contest, April 2001, Perm
+English Tour
+Author: Eugene Bryzgalov
+
+
+1153. Supercomputer
+Time Limit: 5 second
+Memory Limit: 1000K
+
+To check the speed of JCN Corporation new supercomputer it was decided to figure out the sum of first N (N<10600) positive integers. Unfortunately, by the time the calculation was finished the Chief Programmer forgot the value of N he entered. Your task is to write the program (for personal computer), which would determine the value of N by the result calculated on supercomputer.
+
+Note:
+JCN Corporation manufactures only reliable computers, and its programmers write only correctly working programs.
+Input
+One line containing number M - the result of calculations on supercomputer.
+Output
+One line, containing N - number, entered by Chef Programmer.
+Sample Input
+28
+Sample Output
+7
+
+
+Problem Source: Ural Collegiate Programming Contest, April 2001, Perm
+English Tour
+Author: Eugene Bryzgalov
+
+
+1154. The Contest of Mages
+Time Limit: 5 second
+Memory Limit: 1000K
+
+The Powers of Light and The Powers of Darkness had gathered the best elemental Mages of the Middle World - the Lords of Fire, Earth, Air and Water.
+Sometime during 24 hours there exists the Moment of Power for each one of the Elements, when the mastery of corresponding Mage is in its maximum point. In contrary there exists The Moment of Weakness, when the mastery of the Mage is minimum. In between these moments the Mage's mastery changes linearly.
+There can be several mages fighting on each side. The Mages cumulative mastery is defined as sum of their individual masteries. The win is given to the side, which Mages' cumulative mastery is the largest. The larger the advantage of one side over another, the easier its win is, and the smaller are casualties.
+The Supreme Master, who is to declare the Time of the Contest secretly wishes the Powers of Light to win, and tries to make this win as easy as possible. You are to help him in selecting the Time of the Contest.
+Input
+First four lines contain information about The Moments of Weakness and The Moments of Power for Mages of each of the Elements. Each line contains 5 parameters separated by spaces: <Element code> <the time of The Moment of Power > <The mastery in The Moment of Power> <the time of The Moment of Weakness> <The mastery in The Moment of Weakness>.
+Parameter are presented in the following format:
+Element code is one of four capital letters - A for Air, E for Earth, F for Fire and W for Water. The time is HH:MM:SS formatted. The mastery is a positive integer less or equal 10000.
+Then go two more lines, which determin respectively the cast of The Powers of Light and the cast of The Powers of Darkness. Each line consists of symbols 'A','E','F','W' representing one Mage of the corresponding Element.
+
+Note:
+The number of the Mages from each side is not less than 1 and is not bigger then 1000. The time of Contest lies between 00:00:00 and 23:59:59. The Moment of Power is never equals to the Moment of Weakness. The Contest is held momentary, it means that the mastery of the Mages doesn't change during the competition.
+If there exist several moments, which meet the requirement to be The Time of the Contest, then choose the earliest moment.
+Output
+The first line should contain HH:MM:SS formatted Time of Competition.
+In the second line there chould be one number, which represents the advantage of The Powers of Light over The Powers of Darkness. The number's precision is two decimal points.
+If there is no way The Powers of Light can win, then the file should contain only one line with text "We can't win!" (without quotas)
+Sample Input
+A 10:00:00 130 18:00:00 40
+E 14:00:00 150 21:30:00 25
+F 06:00:00 105 18:00:00 70
+W 23:00:00 140 02:00:00 20
+A
+WWW
+Sample Output
+02:00:00
+25.00
+
+
+Problem Source: Ural Collegiate Programming Contest, April 2001, Perm
+English Tour
+Author: Eugene Bryzgalov
+
+
+1155. Troubleduons
+Time Limit: 5 second
+Memory Limit: 1000K
+
+As physics develops and moves on, scientists find more and more strange elementary particles, whose properties are more than unknown. You may have heard about muons, gluons and other strange particles. Probably, scientists will soon find a new elementary particles, possessing even more strange properties, called troubleduon. These particles are called this way because during the experiment they can be created or annighilated only in couples. Besides, they cause trouble to scientists, and that's why the latter want to get rid of them. You should right a program that helps scientists get rid of troubleduons.
+
+Experimental set consists of eight cameras, each of them situated in a top of a cube. Cameras are named as A, B, C, ... H.
+
+You can generate or annighilate two troubleduons in neighbouring cameras. You should automate the process of removing troubleduons.
+Input
+Eight numbers ranging from 0 to 100, representing number of troubleduons in each camera before the experiment starts.
+Output
+Sequence of actions leading to annighilating all troubleduons or a word IMPOSSIBLE, if you cannot do it. Actions are described one after another, each in a separate line, in the following way: name of first camera, name of second camera (it should be a neighborough to first), "+" if you create troubleduons, "-" if you destroy them. Number of actions should not exceed 1000.
+Sample Input
+1 0 1 0 3 1 0 0
+Sample Output
+EF-
+EA-
+AD+
+AE-
+DC-
+
+Problem Source: Ural Collegiate Programming Contest, April 2001, Perm
+English Tour
+
+

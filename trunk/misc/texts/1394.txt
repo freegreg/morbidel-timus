@@ -1,0 +1,26 @@
+Ships. Version 2
+Time Limit: 1.0 second
+Memory Limit: 16 MB
+The military intelligence of one country found out that N (N < 100) battle ships of neighboring enemy country are situated in M rows (1 < M < 10). The intelligence knows the lengths l1, l2, ..., lN of the battle ships which are whole numbers in the interval [1, 100], and wants to know in which rows the ships are situated. The only thing that is known about the M rows are their lengths - L1, L2, ..., LM. Assume that the ships touch their neighbours in the rows and that every row contains at least one ship. Write program that will find one possible ordering of the ships in rows.
+Input
+The first line of the input contains N and M. The next N lines contain the lengths of the ships. The next M lines contain the lengths of the rows.
+Output
+The output should contain M pairs of lines. The first line of each pair should contain the amount of the ships in the current row, the following line should contain the lengths of the ships from the current row. The order of the M row descriptions should be the same as the order in which the rows are given in the input.
+Sample Input
+5 2
+4
+10
+2
+5
+3
+11
+13
+Sample Output
+3
+5 4 2
+2
+10 3
+Hint
+This problem is the same as 1115 "Ships" but with harder tests.
+________________________________________
+Problem Author: Prepared by Vladimir Yakovlev

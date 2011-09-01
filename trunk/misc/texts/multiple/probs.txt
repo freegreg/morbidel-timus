@@ -1,0 +1,322 @@
+1127. Colored bricks
+Time Limit: 0.4 second
+Memory Limit: 1000K
+
+There are lots of cubic bricks in the kindergarten. Children like to build toy brick towers and then to drop them. It is clear that the higher tower has been built the more interesting it is to drop it. The tower is built by placing bricks one onto another and aligning their sides. The tower is based on one brick. Thus the height of a tower is the number of the bricks it is built of. 
+Each side of a brick is painted in one color. So the kids build colored towers. In order to train the children's sense of beauty nannies teach them to build the towers in such a way that each side of the tower would be one-color. Thus the kids would like to build a tower with one-color sides as high as possible. 
+Every nanny can easily solve this problem. Try your best to do it as well. 
+Input
+The first input line contains a number N (1 < N <= 103) - the number of bricks. The next N lines contain descriptions of bricks. Each brick is described with a string of 6 capital latin letters denoting the color of the corresponsding side (A - Azure, B - Blue, C - Cyan, G - Green, O - Orange, R - Red, S - Scarlet, V - Violet, W - White, Y - Yellow). The colors of the sides are given in the following order: front, right, left, rear, top, bottom. A brick never has two sides of the same color. 
+Output
+Output file should contain the only number - the maximal height of a toy tower that can be built of the given brick set. 
+Sample Input
+4
+GYVABW
+AOCGYV
+CABVGO
+OVYWGA
+Sample Output
+3
+ 
+
+Problem Source: IV Ural State University Collegiate Programming Contest
+Author: Ekaterina Vasilyeva
+
+1128. Partition into groups
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+There are n children in the kindergarten. Unfortunately, the children quarrel though not often. Each child has not more than three adversaries. Is it possible to partition the children into two groups (possibly not equal), so that each child would have not more than one adversary in his or her group? 
+Input
+The first line contains an integer n, n <= 7163. The next n lines contain lists of adversaries of each child. A line starts with the amount of the corresponding child's adversaries, then the numbers of the adversaries follow. The numbers in each line are separated with a space. 
+Output
+The first line contains the number of children in the smaller group. The next line contains the list of children in the group. The numbers in the second line are separated with a space. If the groups are of the same size then you are to describe the group that contains the child number one. Note that the output may contain the only number 0. If there are several possible partitions it's sufficient to output an arbitrary one. If there's no possible partition you are to output the only string 'NO SOLUTION'. 
+Sample Input
+8
+3 2 3 7
+3 1 3 7
+3 1 2 7
+1 6
+0
+2 4 8
+3 1 2 3
+1 6
+Sample Output
+4
+1 2 5 6
+ 
+
+Problem Source: IV Ural State University Collegiate Programming Contest
+Author: Dmitry Filimonenkov
+
+
+
+1140. Swamp Incident
+Time Limit: 1 second
+Memory Limit: 1000K
+
+An attempt was made to count all the cranberries in the swamps located in the surroundings of Rybinsk. It appeared convenient to split the surface of the swamp into regular hexagonal cells. One of these cells was considered as the central one, where the helicopter hovered. Three directions were marked (see picture).
+
+After that a hired student landed in the central cell and wandered around for a certain time. He counted the berries and recorded his movements as he walked. Movements were recorded as a sequence of transitions from one cell to another through their common side along one of the marked (or reverse) directions. The route consisted of linear sections determined by directions (X, Y, or Z) and lengths (signed nonzero integers). A movement in the marked direction is represented with positive numbers, in the reverse direction - with negative numbers.
+
+Your task is to write a program, which determines a route from the last cell visited by the qtudent back to the central cell, having the least possible number of cells in it. 
+ 
+Input
+The first line of the input contains n - the length of the route (n>0). Each of the following n lines contains a letter denoting a direction (X, Y, or Z) and a signed integer l (l <> 0) denoting the length of the section (in cells). The letter and the number are separated by one space.
+While wandering, the student moved away from the central cell for no more than 100 cells in each of marked and reverse directions. The total length of the route does not exceed 32000 linear sections. 
+Output
+The output must contain the description of a route from the last cell visited by the student back to the central cell, having the least possible number of cells in it.
+The first line of the output must contain m - the length of the route (number of sections in the back route, m>=0). The following m lines of the output must contain the description of the sections of the back route in the same format as in the input. 
+Sample Input
+4
+Z -2
+Y 3
+Z 3
+X -1
+Sample Output
+2
+Y -2
+Z -2
+ 
+
+Problem Source: Quarterfinal 
+Central region of Russia 
+Rybinsk, October 17-18 2001
+
+
+1141. RSA Attack
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Thre RSA problem is the following: given a positive integer n that is a product of two distinct odd primes p and q, a positive integer e such that gcd(e, (p-1)*(q-1)) = 1, and an integer c, find an integer m such that m^e = c (mod n) (^ - is a power operation). 
+Input
+One number K (K <= 2000) in the first line is an amount of tests. Each next line represents separate test, which contains three positive integer numbers - e, n and c (e, n, c <= 32000, n = p * q, p, q - distinct odd primes, gcd(e, (p-1)*(q-1)) = 1, e < (p - 1) * (q - 1) ). 
+Output
+For each input test the program must find the encrypted integer m. 
+Sample Input
+3
+9 187 129
+11 221 56
+7 391 204
+Sample Output
+7
+23
+17
+
+
+Author: Medvedev Michael
+
+
+1142. Relation
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Background
+
+
+Consider a specific set of comparable objects. Between two objects a and b, there exits one of the following three classified relations: 
+a = b
+a < b
+b < a 
+Because relation '=' is symmetric, it is not repeated above. 
+So, with 3 objects (a, b, c), there can exist 13 classified relations: 
+a = b = c	a = b < c	c < a = b	a < b = c
+b = c < a	a = c < b	b < a = c	a < b < c
+a < c < b	b < a < c	b < c < a	c < a < b
+c < b <a	 	 	 
+Problem
+Given N, determine the number of different classified relations. 
+Input
+Includes many integers N (in the range from 2 to 10), each number on one line. Ends with -1. 
+Output
+For each N of input, print the number of classified relations found, each number on one line. 
+Sample Input
+2
+3
+-1
+Sample Output
+3
+13
+
+
+1143. Electric Path 
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Background
+  At the team competition of the 10th national student informatics Olympic, which is organized at Hanoi National University, there are N teams participating. Each team is assigned to work in a camp. On the map, it can be seen that the camps are positioned on the vertices of a convex polygon with N vertices: P1, P2,..., PN (the vertices are enumerated around the polygon in counter-clockwise order.) In order to achieve absolute safety providing electricity to the camps, besides a electric supplying system, the host organization set up a path from a reserved electricity generator (which is placed in one of the camps) to every camp once, and the path's total length is minimum.
+Problem
+Given the coordinates of the polygons' vertices (the camps' positions), determine the length of the electric path corresponding to the host organization's arrangement. 
+Input
+·	The first line contains the positive integer N (1<=N<=200); 
+·	The ith line of the next N lines contains two real numbers xi, yi, separated by a space, with no more than 3 digits after the decimal points, are vertex Pi's coordinates on the plane (with i = 1,2,...,N). The length of the path connecting two vertex (xi, yi) and (xj, yj) is computed with the formula: sqrt((xi-xj)*(xi-xj)+(yi-yj)*(yi-yj)).  
+Output
+The first line (which is also the last line) contains real number L (written in real number format, with 3 digits after the decimal point), which is the total length of the electric path. 
+Sample Input
+4
+50.0  1.0
+5.0  1.0
+0.0  0.0
+45.0  0.0
+
+Sample Output
+50.211
+ 
+
+Problem Source: The competition for selecting the Vietnam IOI team.
+
+
+1145. Labyrinth 
+Time Limit: 1 second
+Memory Limit: 1000K
+
+A labyrinth with rectangular form and size m x n is divided into square cells with sides' length 1 by lines that are parallel with the labyrinth's sides. Each cell of the net is either forbidden or free. It is possible to move from one free cell to other free cells that share a common side with the cell. One cannot move beyond the labyrinth's borders. The labyrinth is designed pretty specially: for any 2 cells, there is only one way to move from one cell to the other. At each cell's center, there is always a hoo+. In the labyrinth, there are 2 special free cell, such that if you can connect the hooks of those 2 cells with a rope, the labyrinth's secret door will be automatically openned. The problem is to prepare a shortest robe that can guarantee at any position in the labyrinth, you always can connect the hooks of those 2 cells with the prepared rope. 
+Input
+·	The first line contains two numbers n, m (3<=n, m<=1000). 
+·	The next lines describe the labyrinth. The ith line of the next m lines contains n characters. Each character is either "#" or ".", with "#" indicating a forbidden cell, and "." indicating a free cell (i = 1, 2, ..., m).   
+Output
+Print out on one line the length (measured in the number of cells) of the needed rope. 
+Sample Input
+7 6
+####### 
+#.#.###
+#.#.###
+#.#.#.#
+#.....#
+#######
+Sample Output
+8
+
+
+
+1147. Shaping Regions
+Time Limit: 1 second
+Memory Limit: 1000K
+
+N opaque rectangles (1 <= N <= 1000) of various colors are placed on a white sheet of paper whose size is A wide by B long. The rectangles are put with their sides parallel to the sheet's borders. All rectangles fall within the borders of the sheet so that different figures of different colors will be seen. 
+The coordinate system has its origin (0,0) at the sheet's lower left corner with axes parallel to the sheet's borders. 
+Input
+The order of the input lines dictates the order of laying down the rectangles. The first input line is a rectangle "on the bottom". 
+Line 1:	A, B, and N, space separated (1 <= A,B <= 10,000)
+Lines 2-N+1: 	Five integers: llx, lly, urx, ury, color: the lower left coordinates and upper right coordinates of the rectangle whose color is `color' (1 <= color <= 2500) to be placed on the white sheet. The color 1 is the same color of white as the sheet upon which the rectangles are placed.
+Output
+The output should contain a list of all the colors that can be seen along with the total area of each color that can be seen (even if the regions of color are disjoint), ordered by increasing color. Do not display colors with no area. 
+Sample Input
+20 20 3
+2 2 18 18 2
+0 8 19 19 3
+8 0 10 19 4
+Sample Output
+1 91
+2 84
+3 187
+4 38
+
+
+
+1148. Building Towers
+Time Limit: 2 second
+Memory Limit: 1000K
+
+There are N cubes in a toy box which has 1-unit height, the width is double the height. The teacher organizes a tower-building game. The tower is built by the cubes. The height of the tower is H (h levels). The bottom of the tower contains M cubes; and for all above level, each must contains a number of cubes which is exactly 1 less than or greater than the number of cubes of the level right below it.  
+Below is an example of a tower of H=6, M=2, N=13. 
+ 
+Your task is to determine how many different towers can be there. Two towers are considered different if there is at least one number i (1< i <=H) so that the i'th level of one tower contains a different number of cubes to the i'th level of the other tower. 
+Each tower is represented by an array of H positive integers which determines the structure of the tower from the bottom level up to the top level. Those arrays are sorted ascendingly.
+Input
+·	1st line contains three positive number N, H and M (N <= 32767, H<=60, M<=10). 
+·	Each following line (except the last )contains an integer k. The last line contains number -1. 
+Output
+·	1st line is the total of different towers that can be founded. 
+·	Each following line contains an array that represents the structure of the tower corresponding to the number K from input. 
+Sample Input
+22 5 4 
+1
+10
+-1
+Sample Output
+10
+4 3 2 1 2
+4 5 4 5 4
+Hint
+·	Numbers which are on the same line should be separated by at least one space. 
+·	You don't have to use all N cubes. 
+
+
+1189. Young Tiler
+Time Limit: 5 second
+Memory Limit: 1000K
+
+One young boy had many-many square tiles. He loved putting all his tiles to form a rectangle more, than anything in the world - he has learned the number of all rectangles he can form using his tiles. On his birthday he was presented a number of new tiles. Naturally, he started forming rectangles from these tiles - the thing he loved most of all! Soon he has learned all rectangles he could form with a new number of tiles.
+
+Here we should notice that boy can easily count the number of rectangles, but he has difficulty counting the number of tiles - there are too much of them for such a young boy. But it will not be difficult for you to count how many tiles has he got, knowing how many rectangles he could form before, how many tiles he got as a birthday present, and how many rectangles can he form now.
+
+You are given three numbers - M, N and K. You should find the less number L, such as you can form N different rectangles using all L tiles, and form M rectangles using L-K tiles. 
+Input
+One line containing three numbers: M N K (0<M,N,K<=10000). 
+Output
+If L is less or equals 10000, then print that number (if there is a number of such L, you should print the less). If there is no such number of tiles or L is bigger than 10000, print 0. 
+Sample Input
+2 3 1
+Sample Output
+16
+ 
+
+Problem Source: Ural Collegiate Programming Contest, April 2001, Perm
+English Tour
+
+
+1183. Pairs of integers
+Time Limit: 1 second
+Memory Limit: 1000K
+
+You are to find all pairs of integers such that their sum is equal to the given integer number N and the second number results from the first one by striking out one of its digits. The first integer always has at least two digits and starts with a non-zero digit. The second integer always has one digit less than the first integer and may start with a zero digit.
+Input
+The input file consists of a single integer N (10 = N = 109).
+Output
+On the first line of the output file write the total number of different pairs of integers that satisfy the problem statement. On the following lines write all those pairs. Write one pair on a line in ascending order of the first integer in the pair. Each pair must be written in the following format:
+X + Y = N
+Here X, Y, and N, must be replaced with the corresponding integer numbers. There should be exactly one space on both sides of '+' and '=' characters.
+Sample Input
+302
+Sample Output
+5
+251 + 51 = 302
+275 + 27 = 302
+276 + 26 = 302
+281 + 21 = 302
+301 + 01 = 302
+ 
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Vladimir Lelyukh, Roman Elizarov
+
+
+Brackets sequence
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Let us define a regular brackets sequence in the following way:
+1.	Empty sequence is a regular sequence. 
+2.	If S is a regular sequence, then (S) and [S] are both regular sequences. 
+3.	If A and B are regular sequences, then AB is a regular sequence. 
+For example, all of the following sequences of characters are regular brackets sequences:
+(), [], (()), ([]), ()[], ()[()]
+And all of the following character sequences are not:
+(, [, ), )(, ([)], ([(]
+Some sequence of characters '(', ')', '[', and ']' is given. You are to find the shortest possible regular brackets sequence, that contains the given character sequence as a subsequence. He0e, a string a1a2...an is called a subsequence of the string b1b2...bm, if there exist such indices 1 = i1 < i2 < ... < in = m, that aj=bij for all 1 = j = n.
+Input
+The input file contains at most 100 brackets (characters '(', ')', '[' and ']') that are situated on a single line without any other characters among them.
+Output
+Write to the output file a single line that contains some regular brackets sequence that has the minimal possible length and contains the given sequence as a subsequence.
+Sample Input
+([(]
+Sample Output
+()[()]
+ 
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Andrew Stankevich
+
+
+
