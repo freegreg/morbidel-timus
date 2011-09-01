@@ -1,0 +1,74 @@
+  For typed files, reads a file
+ component into a variable.
+  For text files, reads one or more
+ values into one or more variables
+
+ Declaration:
+
+ Target
+Windows, Real, Protected
+
+ Remarks:
+With a type string variable:
+  Read reads all characters up
+ to, but not including, the next
+   end-of-line marker or until
+   EofF becomes True; it does not
+   skip to the
+   next line after reading. If
+   the resulting string is longer than
+   the
+   maximum length of the string variable,
+   it is truncated.
+  After the first Read, each subsequent
+ Read will see the end-of-line
+   marker and return a zero-length
+   string.
+
+Use multiple Readln calls to read
+successive
+string values.
+
+When the extended syntax
+is enabled, Read can
+read null-terminated strings into
+zero-based
+character arrays.
+
+With type integer or type real
+variables:
+  Read will skip any blanks, tabs, or
+ end-of-line markers preceding the
+   numeric string.
+  If the numeric string does not conform to the expected format, an I O
+   error occurs, otherwise the value is assigned to the variable.
+  The next Read will start with the blank, tab or end-of-line marker that
+   terminated the numeric string.
+
+ See Also
+ ReadKey
+ Readln
+ Write
+ Writeln
+
+ Sample Code
+
+  Eof.PAS
+
+ Sample code for the Eof, Read, and Write functions text files.
+
+  For Windows:
+
+ var
+   F: Text;
+   Ch: Char;
+ begin
+    Get file to read from command line
+   AssignF, ParamStr;
+   ResetF;
+   while not EofF do
+   begin
+     ReadF, Ch
+     WriteCh   Dump text file
+   end
+ end.

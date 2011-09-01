@@ -1,0 +1,67 @@
+New Year Phone Survey for ACM ICPC - Health vs greeting style
+Q01 Hello!
+ H Hello!
+ Y Yes!
+ * Uhm...
+ . (silence)
+ @ (other)
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+
+       Q02:H Q02:Y Q02:F Q02:Q Q02:@ TOTAL
+ Q01:H     2     0     1     1     1     5
+         40%    0%   20%   20%   20%  100%
+         66%    0%   50%  100%   33%   50%
+ Q01:Y     0     1     1     0     0     2
+          0%   50%   50%    0%    0%  100%
+          0%  100%   50%    0%    0%   20%
+ Q01:*     0     0     0     0     0     0
+           -     -     -     -     -     -
+          0%    0%    0%    0%    0%    0%
+ Q01:.     1     0     0     0     2     3
+         33%    0%    0%    0%   67%  100%
+         34%    0%    0%    0%   67%   30%
+ Q01:@     0     0     0     0     0     0
+           -     -     -     -     -     -
+          0%    0%    0%    0%    0%    0%
+ TOTAL     3     1     2     1     3    10
+         30%   10%   20%   10%   30%  100%
+        100%  100%  100%  100%  100%  100%
+
+New Year Phone Survey for ACM ICPC - Politeness matrix
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+BYE Happy New Year!
+ Y You too.
+ * (censored)
+ @ (other)
+ . (hang up)
+
+       BYE:Y BYE:* BYE:@ BYE:. TOTAL
+ Q02:H     0     0     3     0     3
+          0%    0%  100%    0%  100%
+          0%    0%  100%    0%   30%
+ Q02:Y     1     0     0     0     1
+        100%    0%    0%    0%  100%
+         33%    0%    0%    0%   10%
+ Q02:F     2     0     0     0     2
+        100%    0%    0%    0%  100%
+         67%    0%    0%    0%   20%
+ Q02:Q     0     1     0     0     1
+          0%  100%    0%    0%  100%
+          0%  100%    0%    0%   10%
+ Q02:@     0     0     0     3     3
+          0%    0%    0%  100%  100%
+          0%    0%    0%  100%   30%
+ TOTAL     3     1     3     3    10
+         30%   10%   30%   30%  100%
+        100%  100%  100%  100%  100%
+

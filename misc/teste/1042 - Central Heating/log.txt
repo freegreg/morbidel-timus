@@ -1,0 +1,14 @@
+Result for evaluating problem `heat`
+No.   Points   Time     Result
+
+  1   11.111    0.016      OK!
+  2   11.111    0.032      OK!
+  3   11.111    0.032      OK!
+  4   11.111    0.031      OK!
+  5   11.111    0.031      OK!
+  6   11.111    0.016      OK!
+  7   11.111    0.031      OK!
+  8   11.111    0.032      OK!
+  9   11.111    0.047      OK!
+
+Total points: 100.0 from 100

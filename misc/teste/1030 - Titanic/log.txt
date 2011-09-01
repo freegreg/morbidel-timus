@@ -1,0 +1,13 @@
+Result for evaluating problem `titanic`
+No.   Points   Time     Result
+
+  1   12.500    0.047      OK!
+  2   12.500    0.016      OK!
+  3   12.500    0.016      OK!
+  4   12.500    0.032      OK!
+  5   12.500    0.016      OK!
+  6   12.500    0.031      OK!
+  7   12.500    0.016      OK!
+  8   12.500    0.031      OK!
+
+Total points: 100.0 from 100

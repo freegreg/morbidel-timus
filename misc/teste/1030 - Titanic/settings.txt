@@ -1,0 +1,9 @@
+titanic
+titanic.exe
+C:\work\Stefan\problems\contests\acm timus\teste\1030 - Titanic
+8 1.0
+0 0 0
+titanic^
+in
+titanic^
+out

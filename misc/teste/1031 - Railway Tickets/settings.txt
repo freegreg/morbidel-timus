@@ -1,0 +1,9 @@
+rail
+rail.exe
+C:\work\Stefan\problems\contests\acm timus\teste\1031 - Railway Tickets\
+15 0.5
+0 0 0
+rail^
+in
+rail^
+out

@@ -1,0 +1,9 @@
+heat
+heat.exe
+C:\work\Stefan\problems\contests\acm timus\teste\1042 - Central Heating
+9 2.0
+0 0 0
+heat^
+in
+heat^
+out

@@ -1,0 +1,1 @@
+testall.bat netw 13 5

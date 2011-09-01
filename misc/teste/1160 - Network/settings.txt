@@ -1,0 +1,9 @@
+netw
+netw.exe
+C:\work\Stefan\problems\contests\acm timus\teste\1160 - Network
+13 10.0
+1 0 0
+netw^
+in
+netw^
+out

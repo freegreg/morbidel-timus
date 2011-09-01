@@ -1,0 +1,18 @@
+Result for evaluating problem `netw`
+No.   Points   Time     Result
+
+  1    7.692    0.016      OK!
+  2    7.692    0.016      OK!
+  3    7.692    0.015      OK!
+  4    7.692    0.015      OK!
+  5    7.692    0.015      OK!
+  6    7.692    0.032      OK!
+  7    7.692    0.032      OK!
+  8    0.000    0.078      Wrong Answer!
+  9    7.692    0.047      OK!
+ 10    0.000    0.078      Wrong Answer!
+ 11    0.000    0.156      Wrong Answer!
+ 12    0.000    0.266      Wrong Answer!
+ 13    7.692    4.031      OK!
+
+Total points: 69.2 from 100

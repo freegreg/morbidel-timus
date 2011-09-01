@@ -1,0 +1,87 @@
+GetItemRect,TMenuView                 GothicFont
+GetKey,TFileList                      goto
+GetKey,TSortedListBox                 GotoXY
+GetKeyEvent                           Graph
+GetLineSettings                       Graph3
+GetMaxColor                           GRAPH3.TPU
+GetMaxMode                            GraphDefaults
+GetMaxX                               GraphErrorMsg
+GetMaxY                               GraphFreeMemPtr
+GetMem                                GraphGetMemPtr
+GetModeName                           Graphics-Mode-Error-Codes-and-M
+GetModeRange                          GraphResult
+GetMouseEvent                         Green
+GetNode,TOutlineViewer                GREP
+GetNumChildren,TOutline               GroupIndex,TColorDialog
+GetNumChildren,TOutlineViewer         Groups,TColorDialog
+GetNumGroups,TColorGroupList          Groups,TColorGroupList
+GetPalette                            Grow,TRect
+GetPalette,TBackground                GrowMode,TView
+GetPalette,TButton                    GrowTo,TView
+
+H
+
+Halt                                  HeapLimit
+Handle,TDosStream                     HeapList
+Handle,TEmsStream                     HeapOrg
+HandleEvent,TApplication              HeapPtr
+HandleEvent,TButton                   HelpCtx,TView
+HandleEvent,TChDirDialog              HelpContents
+HandleEvent,TCluster                  HercMono
+HandleEvent,TColorDialog              HFont
+HandleEvent,TColorDisplay             Hi
+HandleEvent,TColorGroupList           HIcon
+HandleEvent,TColorItemList            Hidden
+HandleEvent,TColorSelector            Hide,TView
+HandleEvent,TDesktop                  HideCursor,TView
+HandleEvent,TDialog                   HideMouse
+HandleEvent,TDirListBox               HIGH
+HandleEvent,TEditor                     Built-in Assembler Expression
+HandleEvent,TEditWindow                 High (function)
+HandleEvent,TFileDialog                 HIGH Operator
+HandleEvent,TFileEditor               HighVideo
+HandleEvent,TFileInfoPane             HInstance
+HandleEvent,TFileInputLine            Hint,TStatusLine
+HandleEvent,TFileList                 HiResScreen
+HandleEvent,TFrame                    History-List
+HandleEvent,TGroup                    HistoryAdd
+HandleEvent,THistory                  HistoryBlock
+HandleEvent,THistoryViewer            HistoryCount
+HandleEvent,TInputLine                HistoryID,THistory
+HandleEvent,TLabel                    HistoryID,THistoryViewer
+HandleEvent,TListViewer               HistorySize
+HandleEvent,TMemo                     HistoryStr
+HandleEvent,TMenuPopup                HistoryUsed
+HandleEvent,TMenuView                 HistoryWidth,THistoryViewer
+HandleEvent,TMonoSelector             HMenu
+HandleEvent,TOutlineViewer            HorizDir
+HandleEvent,TProgram                  hot-keys,debugging
+HandleEvent,TScrollBar                hot-keys,editing
+HandleEvent,TScroller                 hot-keys,Help
+HandleEvent,TSortedListBox            hot-keys,menu-bar
+HandleEvent,TStatusLine               hot-keys,programs
+HandleEvent,TView                     hot-keys,windows
+HandleEvent,TWindow                   HotKey,TMenuView
+HasChildren,TOutline                  HowtoloadObjectWindows
+HasChildren,TOutlineViewer            HowtoloadTurboVision
+HatchFill                             HowtoloadWindowsAPI
+HBitmap                               HPalette
+HBrush                                HPen
+hcXXXX,APP                            HPrevInst
+hcXXXX,VIEWS                          HRgn
+HDC                                   HScrollBar,TEditor
+Headers                               HScrollBar,TListViewer
+HeapAllocFlags                        HScrollBar,TScroller
+HeapBlock                             HStr
+HeapEnd                               Hx-Hexadecimal-format-specifier
+HeapError
+
+I
+
+IBM8514                               Init,TResourceFile
+Identifiers                           Init,TScrollBar
+  Identifier Override Operator (&)    Init,TScroller
+  Identifiers                         Init,TSortedListBox
+Idle,TProgram                         Init,TStaticText
+if                                    Init,TStatusLine
+ImageSize                             Init

@@ -1,0 +1,9 @@
+Sequence Median
+median.exe
+median.in
+median.out
+D:\work\old work\problems\contests\acm timus\teste\1306 - Sequence Median
+7 60.00
+1 0 0 0
+input^.txt
+output^.txt

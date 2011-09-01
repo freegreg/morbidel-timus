@@ -1,0 +1,9 @@
+subnum
+subnum.exe
+C:\work\Stefan\problems\contests\acm timus\teste\1165 - Subnumber
+40 1.0
+0 0 0
+subnum^
+in
+subnum^
+out

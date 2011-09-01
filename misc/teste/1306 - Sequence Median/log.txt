@@ -1,0 +1,12 @@
+Result for evaluating problem `Sequence Median`
+ No.	Points	Time		Result
+
+  1	14.286	0.031		OK!
+  2	14.286	0.015		OK!
+  3	14.286	0.047		OK!
+  4	14.286	0.032		OK!
+  5	14.286	0.031		OK!
+  6	14.286	0.047		OK!
+  7	 0.000	0.031		Wrong Answer!
+
+Total points: 85.7 from 100
