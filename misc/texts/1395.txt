@@ -1,0 +1,23 @@
+Pascal vs. C++. Version 2
+Time Limit: 1.0 second
+Memory Limit: 4 MB
+Background
+This problem is a hardcore version of the problem "Pascal vs. C++". We, Timus Top Coders, dedicate it to those, who still believe in the power of human intellect. In the fact, that there is no limit to perfection. In the fact, that all the languages are equal. In the freedom of choice. In the unlimited programming! We are happy we could create this problem. And we hope you will be proud after you solve it. Enjoy!
+Problem
+A sequence S consists of N elements S[i] indexed from 1 to N. You should take a maximal number of different elements from this sequence which are successive terms of some increasing arithmetical progression. The order of these elements in the sequence S does not matter. And may Pascal, C++ and Java be with you ;)
+Input
+The first line contains the integer number N (2<=N<=10000). The second line contains N integer numbers S[i] (1<=S[i]<=1000000000).
+Output
+The first line should contain the maximal number of taken elements. The second line should contain the indexes of these elements in the sequence S. The indexes may be listed in any order and should be separated by single spaces. If the problem has several solutions, you should output any of them.
+Sample Input
+6
+7 3 2 3 5 9
+Sample Output
+4
+4 5 1 6
+Hint
+We recommend you to solve this problem on C++, because in this specific case local C++ compiler produces more effective binaries than Pascal and Java compilers.
+We want to set three special awards to the authors of the fastest solutions for this problem written on Pascal, C++ and Java. But you will have to defy our best solutions...
+________________________________________
+Problem Author: Ilya Grebnov, Dmitry Kovalioff, Nikita Rybak
+Problem Source: Timus Top Coders: Second Challenge

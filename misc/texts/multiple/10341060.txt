@@ -1,0 +1,799 @@
+1034. Queens in peaceful positions.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+On a chessboard of size NxN (N<=50) N queens are placed. We'll say that queens are in peaceful position if none of them can attack another. You are to find the total amount of peaceful positions that can be obtained from the given peaceful position by rearranging of exactly three queens.
+Input
+The first line of input will contain an integer number N that represents the size of a chessboard (and the number of queens also). It will be followed by N lines describing positions of queens. Each line will contain two integers X and Y separated by a space. These numbers represent horizontal and vertical coordinates and lay in a range from 1 to N.
+Output
+The output consists of a single integer representing the number of peaceful positions that can be achieved from initial position by moving of exactly three queens. Note: queens are not numbered so if you rearrange them on the chessboard using only squares they already occupied you'll always get the same peaceful position, not the new one.
+Sample Input
+4
+2 1
+1 3
+3 4
+4 2
+Sample Output
+0
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Filimonenkov D.
+
+1035. Cross-stitch.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Archaeologists have found a cloth decorated with needlework. This needlework is a cross-stitch made with several threads. The following rules have been observed:
+1.      The cloth has a grid with square cells.
+2.      Each stitch covers a diagonal of one cell of the grid. Stitches can lie on both sides of the cloth, but each of them lies only at one side of the cloth (the thread can start, finish and cross the cloth only at the grid vertices).
+3.      At most one stitch can lie on each diagonal of each cell at each side of the cloth.
+4.      Each thread makes up several stitches arranged alternately at different sides of the cloth. (It means that two consecutive stitches formed by one thread lay at the different sides of the cloth and are connected in the grid vertex)
+5.      A needle can go through the cloth only in the vertexes of the grid.
+This is an example of a pattern made with six stitches. The grid has size 4*5. The face of the cloth is drawn on the upper half of the figure. The stitches lying on the face are drawn with solid lines. The rear stitches uncovered with those of the face are drawn with dot-lines. On the lower half of the figure the cloth is oriented as on the upper half. All the rear stitches are drawn with solid lines there. The face stitches, which do not cover rear stitches, are drawn with dot-lines. It can be seen that there are the stitches at both sides of one of the cell diagonals. This cross-stitch cannot be made with less than four threads.
+Archaeologists want to know if the pattern was made with the least number of threads. You have to write a program, which will determine the minimal number of threads needed to make the given pattern.
+Input
+The first line of the input contains two integers N and M separated by a space. They are vertical (N) and horizontal (M) sizes of the grid, i.e. amounts of the cells in a vertical and horizontal rows respectively (1<=N,M<= 200). Each of the following 2*N lines contains M symbols. Each symbol describes one square of the grid. The first N lines correspond to the face of the cloth and the last N lines correspond to the rear of the cloth. The symbols used are ".", "/", "\" and "X" (a dot means an empty square). For more information see the sample. It corresponds to the cloth drawn at the figure.
+Output
+The output should contain one integer - the minimal number of threads needed to make the described pattern.
+Sample Input
+4 5
+.....
+.\...
+..\..
+.....
+.....
+....\
+.\X..
+.....
+Sample Output
+4
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Zaletsky P.
+
+
+1036. Lucky tickets.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+You are given a number 1<=N<=50. Every ticket has its 2N-digit number. We call a ticket lucky, if the sum of its first N digits is equal to the sum of its last N digits. You are also given the sum of ALL digits in the number.
+Problem
+Your task is to count an amount of lucky numbers, having the specified sum of ALL digits.
+Input
+Two space-separated numbers: N and S. Here S is the sum of all digits. Assume that S<=1000.
+Output
+The amount of lucky tickets.
+Sample Input
+2 2
+Sample Output
+4
+
+Hint
+The tickets are 0101, 0110, 1001, 1010 in the example above
+
+
+1037. Memory management
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+   Don't you know that at school pupils' programming contest a new computer language has been developed. We call it D++. Generally speaking it doesn't matter if you know about it or not. But to run programs written in D++ we need a new operating system. It should be rather powerful and complex. It should work fast and have a lot of possibilities. But all this should be done in a future.
+   And now you are to... No. You should not devise the name for the operating system. You are to wri4e the first module for this new OS. And of course it's the memory management module. Let's discuss how it is expected to work.
+Problem
+   Our operating system is to allocate memory in pieces that we'll call "blocks". The blocks are to be numbered by integers from 1 up to N. When operating system needs more memory it makes a request to the memory management module. To process this request the memory management module should find free memory block with the least number. You may assume that there are enough blocks to process all requests.
+   Now we should define the meaning of words "free block". At the moment of first request to the memory management module all blocks are considered to be free. Also a block becomes free when there were no requests to it during T minutes.
+   You may wonder about a notion "request to allocated blocks". What does it mean, "request to allocated block"? The answer is simple: at any time the memory management module may be requested to access a given block. To process this reque3t the memory management module should check if the requested block is really allocated. If it is, the request is considered to be successful and the block remains allocated for T minutes more. Otherwise the request is failed.
+    That's all about the algorithms of the memory management block. You are to implement them for N = 30 000 and T = 10 minutes.
+Input
+    Each line of input contains a request for memory block allocation or memory block access. Memory allocation request has a form:
+    <Time> +
+    where <Time> is a nonnegative integer number not greater than 65 000. Time is given in seconds. Memory block access request has a form:
+    <Time> . < BlockNo >
+    where <Time> meets conditions mentioned above for the memory allocation request and <BlockNo> is an integer value in range from 1 to N. There will be no more than 80000 requests.
+Output
+   For each line of input you should print exactly one line with a result of request processing. For memory allocation request you are to write an only integer - a number of allocated block. As it was mentioned above you may assume that every request can be satisfied, there will be no more than N simultaneously allocated blocks. For memory block access request you should print the only character:
+   '+' - if request is successful (i.e. block is really allocated)
+   '-' - if request fails (i.e. block with number given is free, so it can't be accessed)
+Requests are arranged by their times in an increasing order. Requests with equal times should be processed as they appear in input.
+Sample Input
+1 +
+1 +
+1 +
+2 . 2
+2 . 3
+3 . 30000
+601 . 1
+601 . 2
+602 . 3
+602 +
+602 +
+1202 . 2
+Sample Output
+1
+2
+3
++
++
+-
+-
++
+-
+1
+3
+-
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Klepinin A.
+
+
+1038. Spell checker.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+   The boss of a firm that you are employed with is dissatisfied with the text processor Word. He wants you to write a better text processor by tomorrow. The interface of the new processor should be clearer, there should be more options, and the resulting text should be more beautiful. You told the boss that this work would take not less than four days. Then your boss asked you to begin with a spell checking program. This program should check capital and small letters. It should detect a mistake in each of the following cases.
+1.      The first letter in a sentence is small.
+2.      A capital letter is not the first letter in a word.
+   A word is a sequence of letters not containing any other symbols or ends of line.
+   The end of a sentence is defined a full stop, a question-mark or an exclamation mark.
+Input
+Input contains a text that consists of capital and small letters of the Latin alphabet (A-Z, a-z), punctuation marks (.,;:-!?) and spaces. The text length is not more than 10000.
+Output
+Ouput should contain a number of mistakes in the input text.
+Sample Input
+This sentence iz correkt! -It Has,No mista;.Kes et oll.
+But there are two BIG mistakes in this one!
+and here is one more.
+Sample Output
+3
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Halperin A.
+
+
+1039. Anniversary party.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+   The president of the Ural State University is going to make an 80'th Anniversary party. The university has a hierarchical structure of employees; that is, the supervisor relation forms a tree rooted at the president. Employees are numbered by integer numbers in a range from 1 to N, The personnel office has ranked each employee with a conviviality rating. In order to make the party fun for all attendees, the president does not want both an employee and his or her immediate supervisor to attend.
+Problem
+   Your task is to make up a guest list with the maximal conviviality rating of the guests.
+Input
+   The first line of the input contains a number N. 1 <= N <= 6000.
+Each of the subsequent N lines contains the conviviality rating of the corresponding employee. Conviviality rating is an integer number in a range from -128 to 127. After that the supervisor relation tree goes.
+   Each line of the tree specification has the form
+
+<L> <K>
+
+which means that the K-th employee is an immediate supervisor of L-th employee. Input is ended with the line
+
+0 0
+Output
+The output file should contain the maximal total rating of the guests.
+Sample Input
+7
+1
+1
+1
+1
+1
+1
+1
+1 3
+2 3
+6 4
+7 4
+4 5
+3 5
+0 0
+Sample Output
+5
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Bakirov M.
+
+
+1040. Airline company.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+   An airline company is a sponsor of the 80-th Anniversary celebration at the Ural State University. In return for it the company wants the University to help it. The company serves N airports and carries out flights between some of them. In order to simplify the work the flights are numbered with integers from 1 up to M. If there is a flight between two airports a plane flies in the both directions with the same flight number. There may be only one flight between any two airports.
+   The airline company understands that its planes may attract terrorists. In order to create difficulties for terrorists the company wants to number the flights in some special manner. If there are several flights that depart from one airport then the greatest common divisor of their flight numbers should be equal to 1. The company turns to you for help (remember, this is a sponsor; you are to work properly).
+Problem
+   You should write a program that finds a required numbering or informs that it is impossible to satisfy the requirements. If several numberings are possible, it is sufficient to find any one of them.
+Input
+The first line of input contains numbers n and m separated with a space (2 <= n <= 50). The next m lines contain information on flights. Each flight is determined by the numbers of the airports that it connects. The numbers of the airports are separated with a space.
+Output
+    The first line of an output should contain YES, if it is possible to find a required numbering, and NO otherwise. If the answer is YES, the second line should contain a possible numbering of flights. The numbers are to be ordered as it is done in the input. Flight numbers are to be separated with a space.
+Sample Input
+6 5
+1 2
+2 3
+2 4
+4 3
+5 6
+Sample Output
+YES
+4 2 3 1 5
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Filimonenkov D.
+
+
+1041. Nikifor.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+   Nikifor has decided to present the dean of the Department of Mathematics and Mechanics with a linearly independent vector system (you know, that we've just celebrated jubilees of the University and of the Department). A store sells M items of N-dimensional vectors, M <= 2000, 3 <= N <= M, N<=50. For each vector its price ci is known, 0 < i <= M. Nikifor wants to buy N linearly independent vectors paying for them minimal sum of money.
+Problem
+Write a program that would determine which vectors Nikifor should buy or would inform that it is impossible to satisfy his requirements.
+Input
+The first line of an input contains numbers M and N separated with a space. The next M lines contain the vectors on sale. All of the coordinates are integers with an absolute value not exceeding 2 000. The numbers are separated from each other with a space. The next M lines contain prices ci, one number in each line. The prices are positive integers not exceeding 15 000.
+Output
+The first line of an output should contain the minimal amount of money that Nikifor is to pay or the number 0, if Nikifor's requirements cannot be satisfied in this store. If it is possible to make a purchase, then the next N lines should contain the numbers of the vectors that Nikifor should buy. If several sets of such numbers are possible, then you should write one of them which is minimal according to the lexicographic order.
+Sample Input
+5 3
+1 0 0
+0 1 0
+0 0 1
+0 0 2
+0 0 3
+10
+20
+30
+10
+10
+Sample Output
+40
+1
+2
+4
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Filimonenkov D.
+
+1042. Central heating.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+   Winter has come, but at the Ural State University heating is not turned on yet. There's one little problem: the University is heated only if all of the valves are opened. There are some technicians at the University. Each of them is responsible for one or more valves. There may be several technicians responsible for the same valve. When a technician gets an instruction to turn on the heating he goes round all of his valves and turns them. It means that if a valve was opened then he closes it, and if it was closed then he opens it. It is well known that every technician earns his money not in vain so it's impossible to replace any technician by any combination of other technicians.
+Problem
+   Your task is to determine who of the technicians is to get an instruction "to turn on the heating" in order to heat all the Ural State University. Note that there are N technicians and N valves at the University (1 <= N <= 250).
+Input
+   The first line of an input contains the number N <= 250. The next N lines contain lists of the valves in charge of each of the technicians. It means that a line number i + 1 contains numbers of the valves that the i-th technician is responsible for. Each list of valves is followed by -1.
+Output
+   An output should contain a list of technicians' numbers sorted in ascending order. If several lists are possible, you should send to an output the shortest one. If it's impossible to turn on the heating at the University, you should write "No solution" .
+Sample Input
+4
+1 2 -1
+2 3 4 -1
+2 -1
+4 -1
+Sample Output
+1 2 3
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Shtykov E.
+
+
+1043. Cover an Arc.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+   A huge dancing-hall was constructed for the Ural State University's 80-th anniversary celebration. The size of the hall is 2000 x 2000 metres! The floor was made of square mirror plates with side equal to 1 metre. Then the walls were painted with an indelible paint. Unfortunately, in the end the painter flapped the brush and the beautiful mirror floor was stained with the paint. But not everything is lost yet! The stains can be covered with a carpet.
+   Nobody knows why, but the paint on the floor formed an arc of a circle (a centre of the circle lies inside the hall). The dean of the Department of Mathematics and Mechanics measured the coordinates of the arc's ends and of some other point of the arc (he is sure that this information is quite enough for any student of the Ural State University). The dean wants to cover the arc with a rectangular carpet. The sides of a carpet must go along the sides of the mirror plates (so, the corners of the carpet must have integer coordinates).
+Problem
+You should find the minimal square of such a carpet.
+Input
+consists of six integers. At first the coordinates of the arc's ends are given. The co-ordinates of an inner point of the arc follow them. Absolute value of coordinates doesn't exceed 1000. The points don't belong the same straight line. The arc lies inside the square [-1000,1000]2.
+Output
+You should write to an output file the minimal square of the carpet covering this arc.
+Sample Input
+476 612
+487 615
+478 616
+Sample Output
+66
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Mironenko A.
+
+
+1044. Lucky tickets.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+The public transport administration of Ekaterinburg is anxious about the fact that passengers don't like to pay for passage doing their best to avoid the fee. All the measures that had been taken (hard currency premiums for all of the chiefs, increase in conductors' salaries, reduction of number of buses) were in vain. An advisor especially invited from the Ural State University says that personally he doesn't buy tickets because he rarely comes across the lucky ones (a ticket is lucky if the sum of the first three digits in its number equals to the sum of the last three ones). So, the way out is found - of course, tickets must be numbered in sequence, but the number of digits on a ticket may be changed. Say, if there were only two digits, there would have been ten lucky tickets (with numbers 00, 11, …, 99). Maybe under the circumstances the ratio of the lucky tickets to the common ones is greater? And what if we take four digits? A huge work has brought the long-awaited result: in this case there will be 67
+Problem
+So you are to save public transport of our city. Write a program that determines a number of lucky tickets for the given number of digits. By the way, there can't be more than nine digits on one ticket.
+Input
+contains a positive even integer not greater than 9.
+Output
+should contain a number of tickets such that the sum of the first half of digits is equal to the sum of the second half of digits.
+Sample Input
+4
+Sample Output
+670
+
+
+Problem Source: Ural State University Internal Contest October'2000 Students Session
+Author: Vasiljev S.
+
+
+1045. A funny game.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There are several airports in one country, and there are flights between some of them. One can fly from any airport to any other, probably with some changes. For any pair of airports there exists only one sequence of flights that connects them.
+Two terrorists play a game. They make moves in turn. Each move consists of the following operations. A player mines an airport, chooses a flight and flies away together with his colleague. After the take-off he actuates a radio-controlled fuse. As a result the airport that the terrorists have just left is destroyed, and all the flights to and from this airport are no longer possible. After the aircraft lands the other player makes his move, and so forth. One loses if one cannot make a mo6e.
+Given an initial list of flights and the number of an airport where the terrorists are at the start of the game, write a program which would determine who wins if the terrorists play a perfect game (each chooses the best move).
+Input
+The first line of an input contains two integers: N and K separated with a space. Here N is the number of airports (N <= 1000) and K is the number of an airport, which is the starting point of the game (1 <= K<= N). The next n-1 lines of the file contain pairs of integers separated with a space. These integers are numbers of airports, connected with a flight (all the flights are symmetric and are mentioned only once). There are at most 20 flights to each airport. Input data are always correct.
+Output
+If the player who starts the game wins, the program should write:
+'First player wins flying to airport L' where L is the number of an airport to which the players should fly first. If there are more than one such airports, the program should find one of them that has the minimal number. Otherwise the program should write 'First player loses'.
+Sample Input
+4 3
+3 2
+3 1
+1 4
+Sample Output
+First player wins flying to airport 2
+
+Author: Filimonenkov D.
+
+
+1046. Geometrical dreams.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There is a polygon A1A2ÅAn (the vertices Ai are numbered in the clockwise order). On each side AiAi+1 an isosceles triangle AiMiAi+1 is built on the outer side of the polygon, and angle AiMiAi+1 = ai. Here An+1 = A1.
+The set of angles ai satisfies a condition that the sum of angles in any of its nonempty subsets is not aliquot to 360 degrees.
+You are given n <= 50, co-ordinates of vertices Mi and angles a i (measured in degrees). Write a program which restores co-ordinates of the polygon vertices.
+Input
+The first line of an input contains an integer n. The next n lines contain pairs of real numbers which are co-ordinates of points Mi. And the last n lines of the file consist of degree values of angles ai.
+Output
+The output file should contain n lines of pairs of coordinates of the points
+Sample Input
+3
+0 2
+3 3
+2 0
+90
+90
+90
+Sample Output
+1 1
+1 3
+3 1
+
+Author: Filimonenkov D.
+
+1047. Simple calculations.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There is a sequence of n+2 elements a0, a1,Å, an+1 (n <= 3000, -1000 <= ai <=1000). It is known that ai = (ai-1 + ai+1)/2 - ci for each i=1, 2, ..., n.
+You are given a0, an+1, c1, ... , cn. Write a program which calculates a1.
+Input
+The first line of an input contains an integer n. The next two lines consist of numbers a0 and an+1 each having two digits after decimal point, and the next n lines contain numbers ci (also with two digits after decimal point), one number per line.
+Output
+The output file should contain a1 in the same format as a0 and an+1.
+Sample Input
+1
+50.50
+25.50
+10.15
+Sample Output
+27.85
+
+Author: Filimonenkov D.
+
+
+1048. Superlong sums.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+The creators of a new programming language D++ have found out that whatever limid for SuperLongInt type they make, sometimes programmers need to operate even larger numbers. A limit of 1000 digits is so small... You have to find the sum of two numbers with maximal size of 1.000.000 digits.
+Input
+The first line of an input file contains a single number N (1<=N<=1000000) × the length of the integers (in order to make their lengths equal, some leading zeroes can be added). It is followed by these integers written in columns. That is, the next N lines contain two digits each, divided by a space. Each of the two given integers is not less than 1, and the length of their sum does not exceed N.
+Output
+Output file should contain exactly N digits in a single line representing the sum of these two integers.
+Sample Input
+4
+0 4
+4 2
+6 8
+3 7
+Sample Output
+4750
+
+Author: Vasiljev S., Klepinin A.
+
+
+1049. Brave balloonists
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Ten mathematicians are flying on a balloon over the Pacific ocean. When they are crossing the equator they decide to celebrate this event and open a bottle of champagne. Unfortunately, the cork makes a hole in the balloon. Hydrogen is leaking out and the balloon is descending now. Soon it will fall into the ocean and all the balloonists will be eaten by hungry sharks.
+But not everything is lost yet. One of the balloonists can sacrifice himself jumping out, so that his friends would live a little longer. Only one problem still exists ¾ who is the one to get out. There is a fair way to solve this problem. First, each of them writes an integer ai not less than 1 and not more than 10000. Then they calculate the magic number N that is the number of positive integer divisors of the product a1*a2*...*a10. For example, the number of positive integer divisors of 6 is 4 (they are 1,2,3,6). The hero (a mathematician who will be thrown out) is determined according to the last digit of N. Your task is to find this digit.
+Input
+Input file contains ten numbers separated by a space.
+Output
+Output file should consist of a single digit from 0 to 9 - the last digit of N.
+Sample Input
+1
+2
+6
+1
+3
+1
+1
+1
+1
+1
+
+Sample Output
+9
+
+Author: Vasiljev S.
+
+
+1050. Preparing an article
+Time Limit: 5 second
+Memory Limit: 1000K
+
+TeX is the leading typesetting system for mathematics, science, and engineering and has been adopted as standard by the American Mathematical Society. LaTeX was developed later by Leslie Lamport. It is based on TeX and provides a set of higher level commands for production of complex documents. In TeX or LaTeX, any text editor program may be used to enter and modify the input text. The source text contains the actual text as well as formatting commands beginning with \. Commands are delimited by any nonalphabetic character. One example of beautification by TeX is that it uses Ñ Ñ(two leftsinglequotes) and ' ' (two rightsinglequotes) to delimit quotations, rather than the mundane " (one double quote) which is provided by most keyboards. Keyboards typically do not have an oriented doublequote, but they do have a leftsinglequote ( Ñ ) and right-single-quote ( ' ). TeX lets the user type two leftsinglequotes (ÑÑ) to create a leftdoublequote and two rightsinglequotes (' ') to create a rightdoublequote. Now, you h
+Input
+Input will consist of several lines of text containing a number of double quotes ("), as well as some TeX commands. End of input will be marked by an \endinput command.
+Output
+Output will be an exact replica of the input, except the double quotes are to be modified according to the rules described above.
+Sample Input
+There is no "q in this sentence. \par
+
+"Talk child," said the unicorn.
+
+
+
+She s\"aid, "\thinspace 'Enough!', he said."
+
+\endinput
+Sample Output
+There is no q in this sentence. \par
+
+''Talk child,'' said the unicorn.
+
+
+
+She s\"aid, ''\thinspace 'Enough!', he said.''
+
+\endinput
+
+
+Author: Halperin A.
+
+
+1051. Simple game on a grid.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There is an infinite grid and an m´ n rectangle of stones on it (1 <= m,n <= 1000). The stones are located in the knots of the grid.
+A following game for a single player is being played. One stone can jump over another along a vertical or a horizontal line. A stone which had been overjumped is taken away. The purpose of the game is to minimize number of stones on a grid.
+Given a pair of numbers m and n separated with one space in an input file you are to write a program which should determine a minimal number of the stones left on the grid.
+Input
+Numbers m and n separated by space.
+Output
+The minimal number of the stones left on the grid.
+Sample Input
+3 4
+Sample Output
+2
+
+Author: Vasiljev S.
+
+
+1052. Rabbit hunt.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+A good hunter kills two rabbits with one shot. Of course, it can be easily done since for any two points we can always draw a line containing the both. But killing three or more rabbits in one shot is much more difficult task. To be the best hunter in the world one should be able to kill the maximal possible number of rabbits. Assume that rabbit is a point on the plane with integer x and y coordinates. Having a set of rabbits you are to find the largest number K of rabbits that can be killed with single shot, i.e. maximum number of points lying exactly on the same line. No two rabbits sit at one point.
+Input
+An input contains an integer N (2<=N<=200) specifying the number of rabbits. Each of the next N lines in the input contains the x coordinate and the y coordinate (in this order) separated by a space (-1000<=x,y<=1000).
+Output
+The output contains the maximal number K of rabbits situated in one line.
+Sample Input
+6
+7 122
+8 139
+9 156
+10 173
+11 190
+-100 1
+
+Sample Output
+5
+
+Author: Vasiljev S.
+
+
+1053. Pinocchio
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Farther Carlo got the commission to make Pinocchio. Client expressed a wish to be unknown and he left material and insisted on finding Pinocchio's nose length as a result of performing the following algorithm:
+1.      There's a set of n numbered blanks with integer lengths.
+2.      If the set consists of only one blank, then it's length can be admitted as the length of Pinocchio's nose
+3.      Let's choose 2 blanks with minimal numbers
+1.      If lengths of the blanks coincide, then one of the blanks is eliminated from the set and algorithm goes back to point 2 to be repeated.
+2.      If lengths of the blanks are different, then the piece of the most long blank is sawed off and its length must be equal to the length of the other blank. Then the algorithm is repeated from point 2.
+Example. There are 3 blanks in a set with lengths: 2, 3, 4. Then the change of the blank lengths can be shown in the following table. As a result Pinocchio will get the nose with length of 1.
+Length of the first blank       Length of the second blank      Length of the third blank       Comments
+2       3       4       Initial blank lengths
+2       1       4       Sawing off the second blank
+2       1       3       Sawing off the third blank
+2       1       2       Sawing off the third blank
+1       1       2       Sawing off the first blank
+-       1       2       The first blank is eliminated
+-       1       1       Sawing off the third blank
+-       -       1       The second blank is eliminated
+
+Set limitations
+1 <= n <= 1000 - quantity of blanks
+1 <= L1, L2, ..., Ln <= MaxLongInt - blank lengths
+Input
+The first string of input contains integer n. The other successive strings contain integers L1, L2, :, Ln. There will be one or more spaces separating parts of the input.
+Output
+Output contains either one number (Pinocchio nose length), or the word IMPOSSIBLE (in upper case) - if the nose length cannot be defined.
+Sample Input
+3
+2 3 2
+Sample Output
+1
+Problem Source: Rybinsk State Avia Academy
+
+1054. Hanoi tower
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+"Hanoi tower" puzzle is well known. There are 3 pegs with numbers: #1, #2 and #3. N disks of different diameters are set on the 1st peg in the following order: the lower disk is set, the larger diameter it has. Your aim is to move all disks onto the second peg using the peg #3 as an auxiliary one. Following the rules within a move it's allowed to replace only one uppermost disk. Besides it's forbidden to put the disk of the bigger diameter onto the disk of the smaller one.
+Distribution of disks on the pegs during the game must be assigned as sequence D (element #i of the sequence is equal to the number of peg where the disk #i is placed on). For instance, game status after the third move is apparently determined by sequence D=(3, 3, 1) (the first and the second disks are set on the third peg and the third disk is on the peg #1).
+Example. Let's assume that 3 disks are set on the peg #1. Then the movement of the disks can be depicted in the following table (disks are numbered in ascending order of diameters):
+Point of move   Peg #1 disks    Peg #2 disks    Peg #3 disks    sequence D
+0       1, 2, 3 -       -       1, 1, 1
+1       2, 3    1       -       2, 1, 1
+2       3       1       2       2, 3, 1
+3       3       -       1, 2    3, 3, 1
+4       -       3       1, 2    3, 3, 2
+5       1       3       2       1, 3, 2
+6       1       2, 3    -       1, 2, 2
+7       -       1, 2, 3 -       2, 2, 2
+Problem
+Your aim is either to determine (using arbitrary sequence D) the number of moves from the beginning of the game to the given position on condition of performing the optimal algorithm; or to print "-1" in the case of incorrect sequence declaration (i.e. the given position cannot be achieved performing the optimal algorithm).
+Reference notes. Optimal algorithm can be specified with the following recursive procedure.
+procedure Hanoi(N:integer; From, To_, Temp : integer);
+ Begin
+  if N>0 then
+  begin
+     Hanoi(N-1, From, Temp, To_);
+     writeln (N, From, To_);
+     Hanoi(N-1, Temp, To_, From)
+  end
+End;
+For example, to move 5 disks it's enough to call Hanoi (5,1,2,3)
+Admonition. It is obvious that during the game process simultaneous setting of disks on all the pegs (#1, #2, #3) is never repeat%d, thus the answer will always be unequivocal.
+Set limitations
+1 <= n <= 31 - quantity of disks
+1 <= D1, D2, ... , Dn <= 3 - numbers of the pegs which each of the disks is placed on
+Input
+The first string of input contains integer n. The other successive strings contain integers D1, D2, ..., Dn, separated with one or several SP's.
+Output
+Output file contains either the quantity (number) of moves, or value constant "-1".
+Sample Input
+3
+3 3 1
+Sample Output
+3
+
+
+Problem Source: Rybinsk State Avia Academy
+
+
+1055. Combinations
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+As you have known MMM corporation lab researches the matter of haricot proportions in soup For every day. As we wrote in the previous problem (T) the ladle is placed down into the soup pan. But now we are not interested in the form and linear sizes of the ladle. This time the ladle holds exactly M haricot seeds of N got into the pan. All the seeds are of different size.
+Experimenters calculate the quantity of possible methods to proportion M seeds in the pan.
+Reference notes. Requisite quantity of methods is calculated with the formula: C=N!/(M!*(N-M)!).
+The main feature of these experiments is the quantity of different prime divisors of number C.
+Example. N=7, M=3. C=7!/(3!*4!)=5040/(6*24)=35=5*7. This example shows that the quantity of different prime divisors is 2.
+Lest money would be spent for programmer, MMM corporation board decided to make necessary estimating during trial tour of quarterfinal world programming contest in Rybinsk.
+Problem
+Thus, your aim is to find the quantity of different prime divisors of number C.
+Input
+Input contains integers N and M. You may assume that 1 <= N, M <= 50000.
+Output
+Output contains one integer.
+Sample Input
+7  3
+Sample Output
+2
+
+
+Problem Source: Rybinsk State Avia Academy
+
+
+1056. Computer net
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+Computer net is created by consecutive computer plug-up to one that has already been connected to the net. Each new computer gets an ordinal number, but the protocol contains the number of its parent computer in the net. Thus, protocol consists of several numbers; the first of them is always 1, because the second computer can only be connected to the first one, the second number is 1 or 2 and so forth. The total quantity of numbers in the protocol is N-1 (N - total quantity of computers).
+For instance, protocol 1, 1, 2, 2 corresponds to the following net:
+1 - 2 - 5
+|   |
+3   4
+The distance between the computers is the quantity of mutual connections (between each other) in chain. Thus, in example mentioned above the distance between computers #4 and #5 is 2, and between #3 and #5 is 3.
+Definition. Let the center of the net be the computer which has a minimal distance to the most remote computer. In the shown example computers #1 and #2 are the centers of the net.
+Problem
+Your task is to find all the centers using the set protocol.
+Set limitations
+N is an integer number.
+1 < N <= 10 000
+Input
+The first string of input contains integer N - quantity of computers. The other successive strings contain protocol - N_1 numbers.
+Output
+Output contains ordinal numbers of the determined net centers in ascending order.
+Sample Input
+5
+1 1
+2
+2
+Sample Output
+1  2
+
+
+Problem Source: Rybinsk State Avia Academy
+
+
+1057. Amount of degrees
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Create a code to determine the amount of natural numbers, lying between set natural numbers X through Y - [X;Y], being a sum of exactly K different integer degrees of the set natural number B?
+Example. Let X=15, Y=20, K=2, B=2.
+By this example 3 numbers are the sum of exactly two integer degrees of number 2:
+17 = 24+20,
+18 = 24+21,
+20 = 24+22.
+Set limitations
+Numbers X, Y and K are integer.
+1 <= X <= Y <= 2^31-1, 1 <= K <= 20, 2 <= B <= 10.
+Input
+Input contains the sequence of integers: X, Y, K and B, delimited by any combination of spaces or return symbols.
+Output
+Output contains a single integer - the amount of natural numbers, lying between X and Y, being a sum of exactly K different integer degrees of B.
+Sample Input
+15 20
+2
+2
+Sample Output
+3
+
+
+Problem Source: Rybinsk State Avia Academy
+
+
+1058. Chocolate
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Fishburg confectionery factory produces convex polygon-shaped chocolates. Kiddy and Carlson bought one and wanted to break it into two fragments. The areas of the fragments must be equal. Create a code to find out the length of breakage-line of a minimal length using the given chocolate form.
+Set limitations
+Quantity of vertices (N) is integer.
+3 < N <= 50
+Coordinates of vertices are set by pairs of real numbers.
+-100 <= xi, yi <= 100
+Input
+The first string of input file contains number N - the quantity of polygon vertices. The other successive strings contain coordinates of angular points going consecutively along the breakage-line contour.
+Output
+Output file contains the minimal length of breakage-line with accuracy to 0,0001.
+Sample Input
+4
+0       0
+0       3
+4       3
+4       0
+Sample Output
+3
+
+
+Problem Source: Rybinsk State Avia Academy
+
+
+1059. Expression
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Peter got an assignment to cipher out the value of polynomial P with calculator working in mode of reverse polish record. His calculator is able only to add and multiply numbers of any length (capacity). Input data - degree of the polynomial, argument X and coefficient values.
+Help Pete to set correct and at the same time the shortest sequence of operands and signs of operations in the order of entering in calculator. Reference notes. Expression written in mode of reverse polish record consists of operands and signs of operations; the sign of operation is preceded by operands. The brackets in reverse polish record are eliminated. The algorithm to compute such an expression is the following:
+1. If the expression consists of only one operand, then the value of the operand is the value of the expression.
+2. Otherwise:
+seek for the first operation sign leftmost in the expression;
+process the operation with those operands that stand to the left from this sign;
+write the result instead of the sign and operands;
+recalculate the ultimate expression using rules 1-2.
+3. If rules 1-2 are unacceptable, then the expression hasn't been properly written.
+
+Example. Expression of reverse polish record "a b c d + * e - /" is the equivalence of ordinary expression "a / (b * (c + d) - e)"
+Set limitations 1 <= n <= 1000 - polynomial degree
+Input
+Input contains integer n. Here you assume that polynom is a0xn+ a1x^n-1 + ... . Instead of the coeeficient ai you may just write the number i.
+Output
+Output ultimately contains a consecution of minimal length corresponding to polynomial in reverse polish record. This record can include only the symbols listed below:
+signs of operations ('+', '*');
+capital Latin letter X;
+signless integer numbers that set the weights of coefficients of X degrees.
+Each element (sign of operation, symbol X, weight of coefficient) is written without initial space characters by one in a string.
+Sample Input
+1
+Sample Output
+0
+X
+*
+1
++
+
+
+Problem Source: Rybinsk State Avia Academy
+
+
+1060. Flip Game
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Flip game is played on a rectangular 4x4 field with two-sided pieces placed on each of its 16 squares. One side of each piece is white and the other one is black and each piece is lying either it's black or white side up. Each round you flip 3 to 5 pieces, thus changing the color of their upper side from black to white and vice versa. The pieces to be flipped are chosen every round according to the following rules:
+1.      Choose any one of the 16 pieces.
+2.      Flip the chosen piece and also all adjacent pieces to the left, to the right, to the top, and to the bottom of the chosen piece (if there are any).
+ Consider the following position as an example:
+bwbw
+wwww
+bbwb
+bwwb
+Here "b" denotes pieces lying their black side up and "w" denotes pieces lying their white side up. If we choose to flip the 1st piece from the 3rd row (this choice is shown at the picture), then the field will become:
+bwbw
+bwww
+wwwb
+wwwb
+The goal of the game is to flip either all pieces white side up or all pieces black side up. You are to write a program that will search for the minimum number of rounds needed to achieve this goal.
+Input
+The input consists of 4 lines with 4 characters "w" or "b" each that denote game field position.
+Output
+Write to the output a single integer number - the minimum number of rounds needed to achieve the goal of the game from the given position. If the goal is initially achieved, then write 0. If it's impossible to achieve the goal, then write the word "Impossible" (without quotes).
+Sample Input
+bwbw
+wwww
+bbwb
+bwwb
+Sample Output
+Impossible
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest

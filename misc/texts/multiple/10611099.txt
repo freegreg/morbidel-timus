@@ -1,0 +1,1137 @@
+1061. Buffer Manager
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Data blocks being read by DBMS from the hard drive are stored in the main memory in a fixed number of pre-allocated buffers. Each buffer can hold one data block. Each buffer can be either free (does not contain any useful information) or occupied by some data. When DBMS is going to read data block from the hard drive it has to decide which buffer to use for data storing. If there are any free buffers, then one of them is used for that purpose. If there are no free buffers, then one of the occupied buffers has to be flushed to become free, unless it was locked by some part of DBMS.
+The choice of the buffer to flush is critical to DBMS performance. A lot of different algorithms were developed, LRU (Least Recently Used) algorithm being the one used most often. However, your DBMS is going to implement the Advanced Buffer Management algorithm which takes advantage of the fact that maximal performance is achieved when a number of consecutive data blocks from the hard drive are read into consecutive memory buffers.
+Buffers are numbered from 1 to N, where N (1 = N = 100000) is a total number of buffers. Each buffer can be in any one of the following states: free, occupied or locked. Each occupied buffer is assigned an integer number from 1 to 9 - the worthiness of the currently stored information in that buffer. The worthiness of free buffers is considered to be zero. Locked buffers cannot be neither used nor flushed and their worthiness is undefined.
+Having received the request to read K (1 = K = 10000) data blocks from the hard drive, Buffer Manager has to choose K consecutive non-locked buffers numbered from L to L+K-1 that have minimal possible sum of their worthiness, or to report that it is impossible to find K consecutive non-locked buffers. The latter can also happen if total number of buffers is less than K.
+Your task is to write a program that models the processing of one request to Buffer Manager using the above algorithm.
+Input
+The first line of the input contains two integers, N and K, separated by a space.
+Starting from the second line there is a description of a buffers' state. The state of each buffer is represented by a single character:
+∑       0 - when the corresponding buffer is free.
+∑       1 - when the corresponding buffer is occupied and has worthiness of 1.
+∑       2 - when the corresponding buffer is occupied and has worthiness of 2.
+∑       ...
+∑       9 - when the corresponding buffer is occupied and has worthiness of 9.
+∑       * - when the corresponding buffer is locked.
+Those characters are situated on the consecutive lines grouped by 80 characters per line without any spaces. Thus, each line starting from the second one contains exactly 80 characters with a possible exception for the last line.
+Output
+Write to the output the single integer number L. This number gives the buffer number where first of the K blocks from the hard drive shall be read to ensure the minimal possible total worthiness of the blocks that have to be flushed. If there are more than one such value for L, then write the smallest one.
+Write to the output a single number 0 if it's impossible to find K consecutive non-locked buffers.
+Sample Input
+100 53
+2165745216091853477755800393859785807207523169954341**7363*9*94664808*4777717089
+09825185827659480548
+Sample Output
+0
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+
+
+1062. Triathlon
+Time Limit: 15 second
+Memory Limit: 1000K
+
+Triathlon is an athletic contest consisting of three consecutive sections that should be completed as fast as possible as a whole. The first section is swimming, the second section is riding bicycle and the third one is running.
+The speed of each contestant in all three sections is known. The judge can choose the length of each section arbitrarily provided that no section has zero length. As a result sometimes she could choose their lengths in such a way that some particular contestant would win the competition.
+Input
+The first line of the input contains integer number N (1 = N = 100), denoting the number of contestants. Then N lines follow, each line contains three integers Vi, Ui and Wi (1 = Vi, Ui, Wi = 10000), separated by spaces, denoting the speed of ith contestant in each section.
+Output
+For every contestant write to the output one line, that contains word "Yes" if the judge could choose the lengths of the sections in such a way that this particular contestant would win (i.e. she is the only one who would come first), or word "No" if this is impossible.
+Sample Input
+9
+10 2 6
+10 7 3
+5 6 7
+3 2 7
+6 2 6
+3 5 7
+8 4 6
+10 4 2
+1 8 7
+Sample Output
+Yes
+Yes
+Yes
+No
+No
+No
+Yes
+No
+Yes
+
+
+
+
+1064. Binary Search
+Time Limit: 5 second
+Memory Limit: 1000K
+
+The program fragment below performs binary search of an integer number in an array that is sorted in a nondescending order:
+Pascal (file "sproc.pas")       C (file "sproc.c")
+const  MAXN = 10000;var  A: array[0..MAXN-1] of integer;  N: integer;procedure BinarySearch(x: integer);var  p, q, i, L: integer;begin  p := 0;   { Left border of the search  }  q := N-1; { Right border of the search }  L := 0;   { Comparison counter         }  while p <= q do begin    i := (p + q) div 2;    inc(L);    if A[i] = x then begin      writeln('Found item i = ', i,        ' in L = ', L, ' comparisons');      exit    end;    if x < A[i] then      q := i - 1    else      p := i + 1  endend;        #define MAXN 10000int A[MAXN];int N;void BinarySearch(int x){  int p, q, i, L;  p = 0;   /* Left border of the search  */  q = N-1; /* Right border of the search */  L = 0;   /* Comparison counter         */  while (p <= q) {    i = (p + q) / 2;    ++L;    if (A[i] == x) {      printf("Found item i = %d"        " in L = %d comparisons\n", i, L);      return;    }    if (x < A[i])      q = i - 1;    else      p = i + 1;  }}
+Before BinarySearch was called, N was set to some integer number from 1 to 10000 inclusive and array A was filled with a nondescending integer sequence.
+It is known that the procedure has terminated with the message "Found item i = XXX in L = XXX comparisons" with some known values of i and L.
+Your task is to write a program that finds all possible values of N that could lead to such message. However, the number of possible values of N can be quite big. Thus, you are asked to group all consecutive Ns into intervals and write down only first and last value in each interval.
+Input
+The input consists of a single line with two integers i and L (0 = i < 10000 and 1 = L = 14), separated by a space.
+Output
+On the first line of the output write the single integer number K representing the total number of intervals for possible values of N. Then K lines shall follow listing those intervals in an ascending order. Each line shall contain two integers Ai and Bi (Ai = Bi) separated by a space, representing first and last value of the interval.
+If there are no possible values of N exist, then the output shall contain the single 0.
+Sample Input
+
+10 3
+Sample Output
+
+4
+12 12
+17 18
+29 30
+87 94
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+
+1065. Frontier
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Lilliputian frontier is a convex polygon with non-zero area. The vertices of this polygon are guard towers, which are connected by straight lines. This frontier is too long and expensive for Lilliputia to maintain; therefore the Lilliputian government has decided to revise it to make it shorter. However, they don't want to build new guard towers, but to use existing ones as a part of a new frontier.
+ Each day frontier guards inspect the frontier. They go from one guard tower to the next one, traversing the frontier clockwise. Guard towers are numbered from 1 to N according to this inspection order. Frontier revision should not change this way of inspection and the area of Lilliputia shall remain non-zero.
+For example, the frontier that is shown on the picture (axes are in kilometer scale) is traversed by 1 - 2 - 3 - 4 - 5 - 1 route, whi#h is 57.89 kilometers long. To make the frontier as short as possible Lilliputia should revise it so that the frontier is traversed by 2 - 3 - 4 - 2 route, thus reducing its length to 27.31 kilometers.
+However, Lilliputia has a number of historical monuments which are its major pride. The historical monuments shall be kept inside Lilliputia at any cost and they should not end up on the frontier. So, the task is to design the shortest frontier that will preserve all historical monuments inside Lilliputia.
+On the sample picture two historical monuments marked "A" and "B" are shown. The desire to keep them inside Lilliputia will lead to the shortest frontier with a traverse path 1 - 2 - 3 - 4 - 1 having 51.78 kilometers in length.
+Input
+The first line of the input contains two integers N and M, separated by a space. N (3 = N = 50) is a total number of guard towers on the Lilliputian frontier. M (0 = M = 1000) is a total number of historical monuments that are situated inside Lilliputia.
+Next N lines contain guard towers' coordinates in a clockwise order followed by M lines that contain historical monuments' coordinates. All coordinates are represented as two integers (for X and Y correspondingly) separated by a space. Coordinates are given in a kilometer scale and each coordinate does not exceed 10000 by an absolute value. All guard towers are located at distinct points.
+Output
+Write to the output a single real number - the minimal possible length of the Lilliputian frontier (in kilometers) accurate to two digits to the right of the decimal point.
+Sample Input
+5 0
+8 9
+0 -7
+-8 -7
+-8 1
+-8 9
+
+Sample Output
+27.31
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+
+
+
+1066. Garland
+Time Limit: 5 second
+Memory Limit: 1000K
+
+ The New Year garland consists of N lamps attached to a common wire that hangs down on the ends to which outermost lamps are affixed. The wire sags under the weight of lamp in a particular way: each lamp is hanging at the height that is 1 millimeter lower than the average height of the two adjacent lamps.
+The leftmost lamp in hanging at the height of A millimeters above the ground. You have to determine the lowest height B of the rightmost lamp so that no lamp in the garland lies on the ground though some of them may touch the ground.
+You shall neglect the lamp's size in this problem. By numbering the lamps with integers from 1 to N and denoting the ith lamp height in millimeters as Hi we derive the following equations:
+∑       H1 = A
+∑       Hi = (Hi-1 + Hi+1)/2 - 1, for all 1 < i < N
+∑       HN = B
+∑       Hi = 0, for all 1 = i = N
+The sample garland with 8 lamps that is shown on the picture has A = 15 and B = 9.75.
+Input
+The input consists of a single line with two numbers N and A separated by a space. N (3 = N = 1000) is an integer representing the number of lamps in the garland, A (10 = A = 1000) is a real number representing the height of the leftmost lamp above the ground in millimeters.
+Output
+Write to the output the single real number B accurate to two digits to the right of the decimal point representing the lowest possible height of the rightmost lamp.
+Sample Input
+692 532.81
+Sample Output
+446113.34
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+
+1067. Disk Tree
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Hacker Bill has accidentally lost all the information from his workstation's hard drive and he has no backup copies of its contents. He does not regret for the loss of the files themselves, but for the very nice and convenient directory structure that he had created and cherished during years of work. Fortunately, Bill has several copies of directory listings from his hard drive. Using those listings he was able to recover full paths (like "WINNT\SYSTEM32\CERTSRV\CERTCO~1\X86") for some directories. He put all of them in a file by writing each path he has found on a separate line. Your task is to write a program that will help Bill to restore his state of the art directory structure by providing nicely formatted directory tree.
+Input
+The first line of the input contains single integer number N (1 = N = 500) that denotes a total number of distinct directory paths. Then N lines with directory paths follow. Each directory path occupies a single line and does not contain any spaces, including leading or trailing ones. No path exceeds 80 characters. Each path is listed once and consists of a number of directory names separated by a back slash ("\").
+Each directory name consists of 1 to 8 uppercase letters, numbers, or the special characters from the following list: exclamation mark, number sign, dollar sign, percent sign, ampersand, apostrophe, opening and closing parenthesis, hyphen sign, commercial at, circumflex accent, underscore, grave accent, opening and closing curly bracket, and tilde ("!#$%&'()-@^_`{}~").
+Output
+Write to the output the formatted directory tree. Each directory name shall be listed on its own line preceded by a number of spaces that indicate its depth in the directory hierarchy. The subdirectories shall be listed in lexicographic order immediately after their parent directories preceded by one more space than their parent directory. Top level directories shall have no spaces printed before their names and shall be listed in lexicographic order. See sample below for clarification of the output format.
+Sample Input
+7
+WINNT\SYSTEM32\CONFIG
+GAMES
+WINNT\DRIVERS
+HOME
+WIN\SOFT
+GAMES\DRIVERS
+WINNT\SYSTEM32\CERTSRV\CERTCO~1\X86
+Sample Output
+GAMES
+ DRIVERS
+HOME
+WIN
+ SOFT
+WINNT
+ DRIVERS
+ SYSTEM32
+  CERTSRV
+   CERTCO~1
+    X86
+  CONFIG
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest
+
+
+
+1068. Sum
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Your task is to find the sum of all integer numbers lying between 1 and N inclusive.
+Input
+The input consists of a single integer N that is not greater than 10000 by it's absolute value.
+Output
+Write to the output file a single integer number that is the sum of all integer numbers lying between 1 and N inclusive.
+Sample Input
+-3
+Sample Output
+-5
+
+
+Problem Source: 2000-2001 ACM Northeastern European Regional Programming Contest (test tour)
+
+
+
+1069. The Prufer code
+Time Limit: 3 second
+Memory Limit: 1000K
+
+A tree (i.e. a connected graph without cycles) with vertices is given (N >= 2). Vertices of the tree are numbered by the integers 1,...,N. A Prufer code for the tree is built as follows: a leaf (a vertex that is incident to the only edge) with a minimal number is taken. Then this vertex and the incident edge are removed from the graph, and the number of the vertex that was adjacent to the leaf is written down. In the obtained graph once again a leaf with a minimal number is taken, removed and this procedure is repeated until the only vertex is left. It is clear that the only vertex left is the vertex with the number N. The written down set of integers (N-1 numbers, each in a range from 1 to N) is called a Prufer code of the graph. Your task is, given a Prufer code, to reconstruct a tree, i.e. to find out the adjacency lists for every vertex in the graph.You may assume that 2<=N<=7500
+Input
+A set of numbers corresponding to a Prufer code of some tree. The numbers are separated with a spaces and/or line breaks.
+Output
+Adjacency lists for each vertex. Format: a vertex number, colon, numbers of adjacent vertices separated with a space. The vertices inside lists and lists itself should be sorted by vertex number in an ascending order (look at sample output).
+
+Sample Input
+2 1 6 2 6
+Sample Output
+1: 4 6
+2: 3 5 6
+3: 2
+4: 1
+5: 2
+6: 1 2
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students SessionAuthor: Asanov M.
+
+
+
+1070. A local time
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Soon the USU team will go to Vancouver to participate in the final of the ACM International Collegiate Programming Contest. They will be to take four different planes (three changes on the way)!By the way, our team plans to return from Vancouver, so the two-way tickets are bought. The departure time (local time of the airport of departure) and the time of the arrival (local time of the destination airport) are printed on the tickets.For example, the departure at 15.42 and the arrival at 16.23, and a return flight departs at 08.10 and arrives at 17.51.
+Your task is to help to our team to find out how much does the time of the first airport differs from the one of the second. It is known that time in different airports differs by an integer amount of hours. The time of flights there and back may differ from each other not more than by 10 minutes.The duration of a flight doesn/t exceed 6 hours. The difference between airport local times is not greater than 5 hours.
+Input
+There are two lines, each of them contains two numbers. The first line consists of the departure time and the arrival time of the flight there, the second one†◊ the departure and the arrival times of the back flight. Numbers in the lines are separated with a space, an amount of minutes is separated from an amount of hours with a point.
+Output
+Your program should write to an output an integer positive number that corresponds to the difference in time between the two airports. (Without extra zeroes!)
+Sample Input
+23.42 00.39
+08.10 17.11
+Sample Output
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students SessionAuthor: Asanov M., Vasiljev S.
+
+
+1071. Nikifor-2
+Time Limit: 1.5 second
+Memory Limit: 1000K
+
+Nikifor has a number x. He doesn't need it. He needs a number y. Nikifor tries to obtain the required number by erasing some digits from x. But he is not lucky in the meanwhile. May be he is to choose an appropriate number system?
+Write a program that reads two natural numbers x and y, and determines a minimal radix of a number system that it is possible to obtain in it the number y from x by erasing some digits. If it is impossible, your program should write to an output a message "No solution".
+Input
+The only line of an input contains two numbers x and y (1 <= y < x <= 1 000 000), separated with a space.
+Output
+The only line of an output contains either the message "No solution", if there is no appropriate number system or a natural number, not less than 2, that is an answer in the problem.
+Sample Input
+127 16
+Sample Output
+3
+
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students Session
+Author: Filimonenkov D.
+
+1072. Routing
+Time Limit: 3 second
+Memory Limit: 1000K
+
+There is a TCP/IP net of several computers. It means that:
+1.      Each computer has one or more net interfaces.
+2.      Each interface is identified by its IP-address and a subnet mask  - these are two four-byte numbers with a point after each byte. A subnet mask has a binary representation as follows: there are k "1"-bits, then - m zero bits, k+m=8*4=32 (e.g., 212.220.35.77 - is an IP-address and 255.255.255.128 - is a subnet mask).
+3.      Two computers belong to the same subnet, if and only if (IP1 AND NetMask1) = (IP2 AND NetMask2), where IPi and NetMaski - are an IP-address and subnet mask of i-th computer, AND  - is bitwise.
+4.      A packet is transmitted between two computers of one subnet directly.
+5.      If two computers belong to different subnets, a packet is to be transmitted via some other computers. The packet can pass from one subnet to another only on computer that has both subnets interfaces.
+Your task is to find the shortest way of a packet between two given computers.
+Input
+The first line contains a number N  - an amount of computers in the net, then go N sections, describing interfaces of each computer. There is a number K in the first line of a section  - that is an amount of interfaces of the computer, then go K lines  - descriptions of the interfaces, i.e. its IP-address and a subnet mask. The last line of an input contains two integers  - the numbers of the computers that you are to find a way between them.
+You may assume that 2<=N<=90 and K <= 5.
+Output
+The word Yes, if the route exists, then in the next line the computer numbers passed by the packet, separated with a space. The word No otherwise.
+Sample Input
+6
+2
+10.0.0.1 255.0.0.0
+192.168.0.1 255.255.255.0
+1
+10.0.0.2 255.0.0.0
+3
+192.168.0.2 255.255.255.0
+212.220.31.1 255.255.255.0
+212.220.35.1 255.255.255.0
+1
+212.220.31.2 255.255.255.0
+2
+212.220.35.2 255.255.255.0
+195.38.54.65 255.255.255.224
+1
+195.38.54.94 255.255.255.224
+1 6
+Sample Output
+Yes
+1 3 5 6
+
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students Session
+Author: Kobzev S.
+
+
+1073. A square problem
+Time Limit: 3 second
+Memory Limit: 1000K
+
+There live square people in a square country. Everything in this country is square also. Thus, the Square Parliament has passed a law about a land. According to the law each citizen of the country has a right to buy land. A land is sold in squares, surely. Moreover, a length of a square side must be a natural amount of meters. Buying a square of land with a side a one pays a2 quadrics (a local currency) and gets a square certificate of a landowner.
+One citizen of the country has decided to invest all of his N quadrics into the land. He can, surely, do it, buying square pieces 1 ◊ 1 meters. At the same time the citizen has requested to minimize an amount of pieces he buys: "It will be easier for me to pay taxes,"  - he has said. He has bought the land successfully.
+Your task is to find out a number of certificates he has gotten.
+Input
+The only line contains a natural number N<=60 000  - that is a number of quadrics that the citizen has invested.
+Output
+The only line contains a number of certificates that he has gotten.
+Sample Input
+344
+Sample Output
+3
+
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students Session
+Author: Vasiljev S.
+
+
+1074. A very short problem
+Time Limit: 3 second
+Memory Limit: 1000K
+
+There are no long stories here, no long introductions and no complicated settings. All you need is to read from an input a real number in a format that is specified below, and to write it to an output in another format that is described below as well.
+Here a syntactical description of the used notions follows.
+<digit> ::= 0|1|2|3|4|5|6|7|8|9
+<unsigned integer number> ::= <digit>|<digit><unsigned integer number>
+<sign> ::= +|-
+<integer number> ::= <unsigned integer number>|<sign><unsigned integer number>
+<exponent symbol> ::= e|E
+<exponent> ::= <exponent symbol><integer number>
+<simple unsigned real number> ::= <unsigned integer number>|.<unsigned integer number>|<unsigned integer number>.<unsigned integer number>
+<simple real number> ::= <simple unsigned real number>|<sign><simple unsigned real number>
+<real number> ::= <simple real number>|<simple real number><exponent>
+Input
+consists of one or several pairs of lines. The first line of a pair contains an arbitrary set of symbols S. A length of the string S doesn“t exceed 100 symbols. The second line of a pair
+contains a integer number N (0 <= N <= 100). An input is ended with the pair of lines, the first one of them contains the only symbol "#".
+Output
+For each pair of lines your program should write to an output a message: "Not a floating point number", if the string S is not a correct <real number> according to the given above specification. If S represents a correct <real number>, your program should write to an output this number formatted as a <simple real number> with N symbols after a decimal point. While forming the result you ought to note:
+1.      An integral part of a number should be non-empty.
+2.      There shouldn't be leading zeroes in a non-zero integral part of a number. A zero integral part of a number should consist of an only zero.
+3.      A fractional part of a number should contain exactly N symbols.
+4.      There shouldn“t be a sign "+" before a positive number.
+5.      You shouldn“t round off a number.
+It is guaranteed that a length of a result will not exceed 200 symbols.
+Sample Input
+10.23
+0
+.04
+1
+-0.051e0
+1
+1.1e30
+10
+-1.1E-30
+1
+2468097632.1358642324268913e-2
+20
+e23
+3
+1 e3
+1
+#
+Sample Output
+10
+0.0
+0.0
+1100000000000000000000000000000.0000000000
+0.0
+24680976.32135864232426891300
+Not a floating point number
+Not a floating point number
+
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students Session
+Author: Klepinin A.
+
+
+1075. A thread in a space
+Time Limit: 3 second
+Memory Limit: 1000K
+
+There are three points in a 3-dimentional space  - A, B and C. All the coordinates of the points are integer numbers with absolute values not greater than 1000. A solid ball with a center in the point C is firmly fixed. A radius of the ball is R ◊ positive integer number. Distances from the point C to the points A and B are strictly greater than R.
+It is necessary to stretch a thread of minimal length between points A and B. Surely, the thread should be outside of the ball.
+You are to find out a length of the thread.
+Input
+The first three lines contain coordinates of the points A, B and C respectively. The fourth one contains a radius R of the ball.
+Output
+should contain a minimal length of the thread to within 2 symbols after a decimal point.
+You should output exactly two digits. and round your answer by standart mathematical rules.
+Sample Input
+0 0 12
+12 0 0
+10 0 10
+10
+Sample Output
+19.71
+
+
+Problem Source: Ural State Univerisity Personal Contest Online February'2001 Students Session
+Author: Mironenko A.
+
+
+1076. Trash
+Time Limit: 3 second
+Memory Limit: 1000K
+
+You were just hired as CEO of the local junkyard.One of your jobs is dealing with the incoming trash and sorting it for recycling.The trash comes every day in n containers and each of these containers contains certain amount of each of the n types of trash.Given the amount of trash in the containers find the optimal way to sort the trash.Sorting the trash means putting every type of trash in separate container.Each of the given containers has infinite capacity.The effort for moving one unit of trash from container i to j is 1 if i != j otherwise it is 0.You are to minimize the total effort.
+Input
+The first line contains the number n (1 <= n <= 150), the rest of the input file contains the descriptions of the containers.The 1 + i-th line contains the desctiption of the i-th container the j-th amount (0 <= amount <= 100) on this line denotes the amount of the j-th type of trash in the i-th container.
+Output
+You should write the minimal effort that is required for sorting the trash.
+Sample Input
+4
+62 41 86 94
+73 58 11 12
+69 93 89 88
+81 40 69 13
+Sample Output
+650
+
+Author: Jivko Ganev
+
+
+1077. Travelling tours
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There are N cities numbered from 1 to N (1<= N <= 200) and M two-way roads connect them. There are at most one road between two cities. In summer holiday, members of DSAP Group want to make some travelling tours. Each tour is a route passes K different cities (K > 2) T1, T2, .., TK and return to T1. Your task is to help them make T tours such that :
+∑       Each of these T tours has at least a road that does not belong to (T-1) other tours.
+∑       T is maximum.
+Input
+The first line of input contains N and M seperated with white spaces. Then follow by M lines, each has two number H and T which means there is a road connect city H and city T.
+Output
+You must ouput an integer number T - the maximum number of tours. If T > 0, then T lines followed, each describe a tour. The first number of each line is K - the amount of different cities in the tour, then K numbers which represent K cities in the tour.
+If there are more than one solution, you can output any of them.
+Sample Input
+5 7
+1 2
+1 3
+1 4
+2 4
+2 3
+3 4
+5 4
+Sample Output
+3
+3 1 2 4
+3 1 4 3
+4 1 2 3 4
+
+
+Problem Source: From the third contest at Department of Mathematics and Informatics - Natural Sciences College - National University of HaNoi.
+Author: Nguyen Xuan My (Converted by Dinh Quang Hiep and Tran Nam Trung)
+
+
+1078. Segments
+Time Limit: 3 second
+Memory Limit: 1000K
+
+A number of segments are lying on a line. Every segment is given with the coordinates of its endpoints. Segments are numbered from 1 to N (0 < N < 500). We assume, that one segment is inside another, if the two segments are different, the first one is fully contained in the second one, and their endpoints do not coincide. Write a program, which finds the numbers of the segments in the longest sequence of segments which are contained in. In the sequence, every segment except the last is inside the next segment in the sequence.
+Input
+The first line contains one integer - N. Next, there are N lines, with two integers on every line, which are the coordinates of the left and the right endpoints of the coresponding segment. These coordinates are integers in the interval [-10000,10000]. We assume that, the given segments are numbered according to their place in the input.
+Output
+The first line must contain one integer, equal to the number of segments in the found sequence. The following line must contain the numbers of the segments in this sequence. These numbers must be outputed, in the order in which the segments' lengths increase, starting from the smallest. If there are more than one output sequences, write any of them.
+Sample Input
+4
+-2 2
+-1 1
+-3 3
+4 5
+Sample Output
+3
+2 1 3
+
+
+
+Problem Source: Winter Mathematical Festival Varna '2001 Informatics Tournament
+Author: Emil Kelevedzhiev
+
+
+1079. Maximum
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Consider the sequence of numbers a[i], i = 0, 1, 2, ..., which satisfies the following requirments: a[0] = 0 a[1] = 1 a[2i] = a[i] a[2i+1] = a[i] + a[i+1] for every i=1, 2, 3,... . Write a program which for a given value of N ( 0 < N < 100000 ) finds the largest number among the numbers a[0], a[1], ... a[N].
+Input
+Input contains not more than 10 lines containing one number N. The last lines contains 0.
+Output
+For every N in the input write the coresponding maximum value found.
+Sample Input
+5
+10
+0
+Sample Output
+3
+4
+
+
+
+Problem Source: Winter Mathematical Festival Varna '2001 Informatics Tournament
+Author: Emil Kelevedzhiev
+
+
+1080. Map Colouring
+Time Limit: 1 second
+Memory Limit: 1000K
+
+We consider a geographical map with N countries numbered from 1 to N (0 < N < 99). For every country we know the numbers of other countries which are connected with its border. From every country we can reach to any other one, eventually crossing some borders. Write a program which determines whether it is possible to colour the map only in two colours - red and blue in such a way that if two countries are connected their colours are different. The colour of the first country is red. Your program must output one possible colouring for the other countries, or show, that such colouring is impossible.
+Input
+On the first line is written the number N. On the following N lines, the I-th line contains the countries to which the I-th country is connected. Every integer on this line is bigger than I, except the last one which is 0 and marks that no more countries are listed for country I. If a line contains 0, that means that the I-th country is not connected to any other country, which number is larger than I.
+Output
+The output contains exactly one line. If the colouring is possible, this lines must contain a list of zeros and ones, without any separators between them. The I-th digit in this sequence is the colour of the I-th country. 0 coresponds to red colour, and one - to blue colour. If a colouring is not possible, output the integer -1.
+Sample Input
+3
+2 0
+3 0
+0
+Sample Output
+010
+
+
+Problem Source: Winter Mathematical Festival Varna '2001 Informatics Tournament
+Author: Emil Kelevedzhiev
+
+
+1081. Binary Lexicographic Sequence
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Consider all the sequences with length (0 < N < 44), containing only the elements 0 and 1, and no two ones are adjacent (110 is not a valid sequence of length 3, 0101 is a valid sequence of length 4). Write a program which finds the sequence, which is on K-th place (0 < K < 1000000000) in the lexicographically sorted in ascending order collection of the described sequences.
+Input
+Input contains two positive integers N and K.
+Output
+Write the found sequence or -1 if the number K is larger then the number of valid sequences.
+Sample Input
+3 1
+Sample Output
+000
+
+
+
+Problem Source: Winter Mathematical Festival Varna '2001 Informatics Tournament
+Author: Emil Kelevedzhiev
+
+
+1082. Gaby Ivanushka
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Once upon a time there lived a tsar that has a daughter - Beautiful Vasilisa. There were many of the young men that wanted to marry her but she repelled all suitors. The tsar was tired of her jigs, he got angry and issued an order: "The first who solves my puzzle, will marry Vasilisa!"
+Ivanushka decided to try his fortune. He came to the tsar and the tsar told him: "This is a program for you. Input N numbers and the program will tell you who you should marry. I give you a day to think."
+Ivanuska looked at the program and got upset: there were unknown letters, omnifarious symbols. The time passed. Ivanushka has thought out nothing.
+The program was as follows.
+ The C program
+
+ #include <stdio.h>
+ long c;
+ long A[N];
+
+ long P(long l, long r)
+ {
+  long x=A[l],
+       i=l-1,
+       j=r+1,
+       t;
+  while(1)
+  {
+   do{--j; ++c;}
+   while(A[j]>x);
+   do{++i; ++c;}
+   while(A[i]<x);
+   if(i<j)
+   {
+    t=A[i];
+    A[i]=A[j];
+    A[j]=t;
+   }
+   else return j;
+  }
+ }
+
+ void Q(long l, long r)
+ {
+  long n;
+  if(l<r)
+  {
+   n=P(l,r);
+   Q(l,n);
+   Q(n+1,r);
+  }
+ }
+
+ int main(void)
+ {
+  c=0;
+  for(long i=0; i<N; ++i)
+   scanf("%ld", &A[i]);
+  Q(0,N-1);
+  if(c==(N*N+3*N-4)/2)
+   printf
+   ("Beutiful Vasilisa");
+  else printf
+   ("Immortal Koshcei");
+  return 0;
+ }
+
+ The Pascal program
+
+ var A:array [1..N] of
+longint;
+     c:longint;
+     i:integer;
+ function
+P(l,r:longint):longint;
+ var i,j,t,x:longint;
+ begin
+  x:=A[l]; i:=l-1; j:=r+1;
+  while true do
+  begin
+   repeat dec(j);inc(c)
+   until A[j]<=x;
+   repeat inc(i);inc(c)
+   until A[i]>=x;
+   if i<j then
+   begin
+    t:=A[i];
+    A[i]:=A[j];
+    A[j]:=t
+   end
+   else
+   begin P:=j; exit end
+  end
+ end;
+
+ procedure Q(l,r:longint);
+ var n:longint;
+ begin
+  if l<r then
+  begin
+   n:=P(l,r);
+   Q(l,n);
+   Q(n+1,r)
+  end
+ end;
+
+ begin
+  c:=0;
+  for i:=1 to N do
+read(A[i]);
+  Q(1,N);
+  if c=(N*N+3*N-4) div 2
+then
+   writeln
+   ('Beutiful Vasilisa')
+  else writeln
+   ('Immortal Koshcei');
+ end.
+Now you know this program. You may try to help Ivanushka.
+Input
+The first line of an input contains a natural number N <= 1000.
+Output
+You are to write to an output N numbers in one line. The tsar's program given those numbers should output a message "Beautiful Vasilisa" The numbers should be separated with a space. If several variants are possible choose any you like.
+Sample Input
+3
+Sample Output
+3 7 19
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Shamgunov N.
+
+
+1083. Factorials!!!
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Definition 1. n!!...!=n(n-k)(n-2k)...(n mod k), if k doesn't divide n,
+n!!...!=n(n-k)(n-2k)...k, if k divides n (There are k marks ! in the both cases).
+Definition 2. X mod Y - a remainder after division of X by Y.
+For example, 10 mod 3 = 1; 3! = 3∑2∑1; 10!!! = 10∑7∑4∑1;
+Given numbers n and k we have calculated a value of the expression in the first definition. Can you do it as well?
+Input
+contains the only line: one integer n, 1 <= n <= 10, then exactly one space, then k exclamation marks, 1 <= k <= 20.
+Output
+contains one number - n!!...! (there are k marks ! here).
+Sample Input
+9 !!
+Sample Output
+945
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Katz O
+
+
+1084. A goat in a kitchen garden
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Someone has let a goat in a square kitchen-garden and had bound it to a stake. The stake is driven into the ground in the very midst of the square. The goat is hungry as a hunter and very voracious, and eats everything that can be reached without leaving the square and tearing the roap. What area of the kitchen-garden will be ate round?
+Input
+contains lengths of the garden sides and a cord length in meters (natural numbers not exceeding 100, located in one line and separated with a space).
+Output
+should contain an area of the kitchen-garden (in square meters to within 3 symbols after a decimal point), ate round by the goat.
+Sample Input
+10 6
+Sample Output
+95.091
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Danilina I. I.
+
+
+1085. Meeting
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Several friends has decided to meet in order to celebrate their victory at the school-pupils collegiate contest. Unfortunately, because of the tickets rise in price there is a problem: all of them live in different parts of the city, and they are to choose a place of meeting so that they wouldn't pay too much for the tickets (some money is to be left for the party). You are to help them make the best choice.
+All stops are enumerated with natural numbers 1,...,N inclusive. There are M tram routes in the city (the friends take only trams and do not go on foot from stop to stop). For each route numbers of its stops are known. Let there be K friends. For each of them an amount of money he has is known. We know as well whether he has a month tram ticket. Assume a ticket price be 4 rubles.
+You are to find out a stop number, such that all of the friends might come there and the sum of money they spend for their tramps would be minimal. Naturally, they may change routes (it means that each one may make changes on his way to the required stop). Note, that changing the route one has to pay for a new ticket: the friends are honest people - they do always pay for tickets. Everyone pays for a ticket from his own money. No one is to leave money for the return tickets.
+Input
+The first line contains two natural numbers N and M, N <= 100, M <= 100 (N - a number of stops, M - a number of routes). Then go M lines of routes definitions of the following sort: there is a natural number L in the beginning of a line - that is an amount of stops of the corresponding route (L <= 100). Then go L natural numbers defining stops numbers of the route. The numbers are separated with a space. A route is defined by its stops along the line in one direction.
+Then goes a line with a natural number K, K <= 100 (that is an amount of friends). The next K lines contains information about each of them (one line for one person): there is an integer non-negative number in the beginning of a line that is an amount of money (in rubles) the person has, then a number of a stop that he goes there from his home on foot, then 0 (if this person has no month ticket) or 1 (if he has). The numbers in a line are separated with a space. No one of the friends has more than 1000 rubles.
+Output
+You are to write to an output two numbers: a number of a stop that is a meeting point (if there are several numbers choose the minimal one) and a total sum of money (in rubles) that the friends has paid for their trips to the appointed place. The numbers are separated with a space. If the friends won“t be able to meet at one stop, you are to write to an output the only number 0.
+Sample Input
+4 3
+2 1 2
+2 2 3
+2 3 4
+3
+27 1 0
+15 4 0
+45 4 0
+Sample Output
+4 12
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Somov A.L.
+
+
+1086. Cryptography
+Time Limit: 5 second
+Memory Limit: 1000K
+
+While preparing this problem set the jury has run into the following problem: it was necessary to send by e-mail the texts of the problems. As it is well known, e-mail is not reliable, messages are sent not enciphered, there is a danger that someone can intercept them. The members of the program committee wanted no participant know the texts of the problems before the start of the contest. That's why they resorted to cryptography methods in order to save the texts of the problems from an unsanctioned reading. The jury gas worked up a new way of enciphering of a text. It is not patented yet, so it's kept secret. However, we'll reveal you one secret: the new algorithm is based on the work with prime numbers. In particular, in uses a calculation of n-th by order prime number.
+Several members of the program committee independently have worked up programs that make such calculations, but these programs produce different answers. Each one of the programmers is sure that his program works correctly. That's why the jury has reached the deadlock and can't continue working. The contest is about not to take place.
+You are to help to the jury and to save the contest. We want you to write a program that calculates the n-th by order prime number. The main thing is that your program should work correctly.
+Input
+First line contains a natural number k. Then go k natural numbers (one in each line). The numbers don't exceed 15000.
+Output
+For each number n you should output the n-th by order prime number. Each number should be in its line.
+Sample Input
+4
+3
+2
+5
+7
+Sample Output
+5
+3
+11
+17
+Hint
+The prime number is a natural number that has exactly two different divisors, i.e. 1 is not a prime number.
+
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: folklore
+
+
+1087. The time to take stones
+Time Limit: 5 second
+Memory Limit: 1000K
+
+You probably know the game where two players in turns take 1 to 3 stones from a pile. Looses the one who takes the last stone. We'll generalize this well known game. Assume that both of the players can take not 1, 2 or 3 stones, but k1, k2,...,km ones. Again we'll be interested in one question: who wins in the perfect game. It is guaranteed that it is possible to make next move irrespective to already made moves.
+Input
+The first line contains two integers: N and M (N <= 10 000, M <= 50) - they are an initial amount of stones in the pile and an amount of numbers k1,...,km. The second line consists of the numbers k1,...,km. All numbers are separated with a space.
+Output
+You are to write to an output one the two numbers:
+1 - if the first player (the first to take stones) wins in a perfect game;
+2 - if the second player wins in a perfect game.
+Sample Input
+17 3
+1 3 4
+Sample Output
+2
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Botov A.A.
+
+
+1088. Ilya Murumetz
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Misfortune has come to the Russian land. Foul Idol has dragged away good fellow Alyosha Popovich and has chained him with iron chains to the magical stone, so that Alyosha can't even step. It is necessary to rescue Alyosha from the captivity but nobody is able to: the Tsar is on the war with his detachment. Ilya Murometz has thought a bit and says: "I'll go to rescue my friend Alyosha from Foul Idol alone, and if he is to die there, so am I". Ilya has said these words, and has leaped on to his good horse and has gone seeking for Alyosha.
+Ilya rides his horse and comes to a stone, but not the magic one that he has been looking for, but to the road stone. As usual, it is written there: "If you go left - you“ll get `time limit', if you go right - you'll get `wrong answer'". Ilya Murometz sits down and falls apart. Suddenly a little bird sits near and asks: "Why are you upset, good fellow?" Ilya Murometz tells her about his problem and the bird tells him: "It's always here like this: if you go left - in an hour you“ll see such road stone; and so until you come to the sea. Foul Idol has made this. He wants you to get lost here. Go home, Ilya Murometz, don't try your doom!" And the bird disappears, as there hasn't been the one. Ilya Murometz thinks a lot, but decides not to betray his friendship. He leaps on to his good horse and continues his way. And he rides, and he rides, and he rides.
+Ilya Murometz dismounts near a road stone that is like the first one and falls apart more than the first time. Suddenly he sees the magic stone - it is close to him, but Ilya Murometz can't leave the road - he'll disappear in the marsh. He sees the sea very close to him - he can even count: there's D hours of the way from the magic stone to the sea, and from himself he'll have to ride E hours. But from his father he new that from the first stone to the sea (no metter where he turns) there's F hours way.
+He looks closely and sees that the road leads to the moorings, and the moorings are enumerated with natural numbers. Ilya looks very-very closely and he finds out that there is a rule of the enumeration: if one rides from the first stone always to the right - he comes to the mooring #1, if at the last moment one turns left - he comes to the mooring #2, and if one always turns right, one before the last time he turns left and then turns right - he comes to the mooring #3! Ilya Murometz sees, that the nearest mooring to his stone is #E0, and the nearest one to the magic stone is #Dp. But the roads branch, and there are other moorings.
+The good horse turns his head and tells to Ilya Murometz: "Ilyusha! I won't gallop more than H hours." Help to Ilya Murometz to find out, wether he saves Alyosha Popovich, or he stays himself in the foreign land.
+
+Input
+The first line contains 6 numbers: D, E, F, Dp, Ep, H.
+0 <= D, E, F, H <= 30, 1 <= Ep, Dp <= 1073741824.
+All numbers are separated with a space.
+Output
+should contain the word `YES', if Ilya Murometz will reach Alyosha Popovich on his horse, and otherwise - the word `NO'.
+Sample Input
+1 2 3 2 6 4
+Sample Output
+YES
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Katz O.E.
+
+
+1089. A verification with a vocabulary
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Your teacher of English has recently told you that she dreams about the automated system of correction and count of mistakes that her pupils do very freqwently.
+The 8th of March is soon and you've decided that if you write such program and you'll present your teacher with it, then she will be glad and may be will be more favorable to you at the exam. The task is to replace words that differ from the ones in the vocabulary not more than by a letter and to count an amount of the made mistakes. Your teacher must have forgotten that her pupils sometimes forget to write letters and even sometimes they write extra letters - excellent! You are not to think about it!
+Input
+In the first line and then up to the line containing the only symbol `#' go vocabulary words, each word in its line. In the lines that go after the one containing `#' goers a text that you are to check-up. There are not more than 100 words in the vocabulary. A length of a word in the vocabulary doesn't exceed 8 symbols. A length of the text being checked-up doesn't exceed 1000 words. All the words are written in the lower case. A word might contain Latin letters from `a' to `z'. The vocabulary is compiled so that for each word not more than one variant of correction is possible. There's exactly one empty line at the end of the text.
+Output
+You are to output the corrected text in the same format as the initial one (hte same punctuation marks, line breaks and words that are apsent in the vocabulary) and in the line next to the text there is to be a number of corrections.
+Sample Input
+country
+occupies
+surface
+covers
+russia
+largest
+europe
+part
+about
+world
+#
+the rushia is the larjest cauntry in the vorld.
+it ockupies ebout one-seventh of the earth's surfase.
+it kovers the eastern park of yurope and the northern
+park of asia.
+Sample Output
+the russia is the largest country in the world.
+it occupies about one-seventh of the earth's surface.
+it covers the eastern part of europe and the northern
+part of asia.
+11
+
+
+Problem Source: The 3rd high school children programming contest, USU, Ekaterinburg, Russia, March 4, 2001
+Author: Botov A.A.
+
+
+1090. In the army now
+Time Limit: 3 second
+Memory Limit: 1000K
+
+The sergeant ordered that all the recruits stand in rows. The recruits have formed K rows with N people in each, but kfailed to stand according to their height.
+The right way to stand in a row is as following: the first soldier must be the highest, the second must be the second highest and so on; the last soldier in a row must be the shortest. In order to teach the young people how to form rows, the sergeant ordered that each of the recruits jump as many times as there are recruits before him in his row who are shorter than he.
+Note that there are no two recruits of the same height.
+The sergeant wants to find which of the rows will jump the greatest total number of times in order to send this row to work in the kitchen. Help the sergeant to find this row.
+Input
+The first line of the input contains two positive integers N and K (2<=N<=10000, 1<=K<=20). The following K lines contain N integers each. The recruits in each row are numbered according to their height (1 --- the highest, N --- the shortest). Each line shows the order in which the recruits stand in the corresponding row. The first integer in a line is the number of the first recruit in a row and so on.
+Therefore a recruit jumps as many times as there are numbers which are greater than his number in the line before this number.
+Output
+You should output the number of the row in which the total amount of jumps is the greatest. If there are several rows with the maximal total amount of jumps you should output the minimal of their numbers.
+Sample Input
+3 3
+1 2 3
+2 1 3
+3 2 1
+Sample Output
+3
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Shamgunov N.
+
+
+1091. Tmutarakan exams
+Time Limit: 3 second
+Memory Limit: 1000K
+
+University of New Tmutarakan trains the first-class specialists in mental arithmetic. To enter the University you should master arithmetic perfectly. One of the entrance exams at the Divisibility Department is the following. Examinees are asked to find K different numbers that have a common divisor greater than 1. All numbers in each set should not exceed a given number S. The numbers K and S are announced at the beginning of the exam. To exclude copying (the Department is the most prestigious in the town!) each set of numbers is credited only once (to the person who submitted it first).
+Last year these numbers were K=25 and S=49 and, unfortunately, nobody passed the exam. Moreover, it was proved later by the best minds of the Department that there do not exist sets of numbers with the required properties. To avoid embarrassment this year, the dean asked for your help. You should find the number of sets of K different numbers, each of the numbers not exceeding S, which have a common divisor greater than 1. Of course, the number of such sets equals the maximal possible number of new students of the Department.
+Input
+The input contains numbers K and S (2<=K<=S<=50).
+Output
+You should output the maximal possible number of the Department's new students if this number does not exceed 10000 which is the maximal capacity of the Department, otherwise you should output 10000.
+Sample Input
+3 10
+Sample Output
+11
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Vasiljev S.
+
+
+1092. Transversal
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Consider a square table of size 2n+1 by 2n+1 with a cells each containing the sign "+" or the sign "-". We call an arbitrary set of 2n+1 cells a transversal if each line and each column of the table contain exactly one cell belonging to the set.
+By one operation you are allowed to change signs to opposite in all cells of one transversal. You are asked to determine if it is possible to obtain a table containing not more than 2n cells with the sign "+" by a sequence of such operations.
+Input
+The first line of the input contains a positive integer N not exceeding 20. The next 2N+1 lines contain the table. They consist of the symbols "+" and "-" without spaces between them.
+Outpu6
+The first line of the output should contain the words "No solution" if a necessary sequence of operations does not exist. Otherwise, the first line of the output should contain the words "There is solution:" and the next lines should contain a sequence of operations that leads to the required result. Each of these lines should describe one transversal and should contain the numbers from 1 to 2N+1. Number K at position S means that the transversal includes the cell at the intersection of the line number S with the column number K. The numbers should be separated with a space.
+It is sufficient to give only one sequence of operations if there exist many.
+Sample Input
+1
++++
+++-
++-+
+Sample Output
+There is solution:
+1 2 3
+2 3 1
+1 3 2
+3 1 2
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Filimonenkov D.
+
+1093. Darts
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Maybe you know about the game called Darts. The goal of the game is to hit a circular target, which is called a dartboard. To do so you should take a dart and throw it to the dartboard. Of course, it takes time to learn how to hit the dartboard. And your task is to speed the learning by writing a program that determines if a dart will hit or miss the dartboard.
+Let's make some assumptions about the objects under consideration.
+1. A dartboard is a circular part of a plane. It is defined by coordinates of its center (Cx, Cy, and Cz), radius R, and coordinates of a vector that is orthogonal to the plane of the dartboard (Nx, Ny, and Nz).
+2. A dart is a point that moves according the following equations:
+Mx = Sx + Vx*t
+My = Sy + Vy*t
+Mz = Sz + Vz*t - (g/2)*t2
+Here Sx, Sy, and Sz are coordinates of initial position of the dart, Vx, Vy, and Vz are components of initial velocity of the dart, Mx, My, and Mz are coordinates of the point where the dart will be at time t, g is the acceleration of gravity and is assumed to be equal to 10m/s2.
+3. You may assume that the dart is thrown with a nonzero horizontal component (i.e. Vx or Vy is non zero).
+4. You may assume no friction
+5. To hit the dartboard the dart should hit it inside boundary.
+Input
+Input contains 13 numbers. They are (according to notation given before):
+Cx Cy Cz Nx Ny Nz R
+Sx Sy Sz Vx Vy Vz
+Output
+Output should contain the only word "HIT" (without quotes) if dart hits the dartboard, and word "MISSED" otherwise.
+Sample Input
+47 0 -72 1 0 1 4.25
+0 0 0 10 0 10
+Sample Output
+HIT
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Klepinin A.
+
+1094. E-screen
+Time Limit: 3 second
+Memory Limit: 1000K
+
+A new one-line electronic screen (e-screen) especially designed for quick input and change of information was installed at a supermarket. All information is entered by an operator. Every time the operator presses a button corresponding to a symbol this symbol is shown on the e-screen at the position where the cursor is located at that moment (therefore the symbol that was shown at that position earlier is erased) and then the cursor moves one position to the right.
+The keyboard contains letters a-z, A-Z, digits 0-9, punctuation signs (:;-!?.,), and the space button. There are also two keys that move the cursor one position to the right and to the left without erasing anything. The width of the screen is 80 symbols. When the cursor reaches left or right edge of the screen it is automatically placed at the first position to the left.
+The new e-screen had worked perfectly when it was run by its seller, but when the seller had gone it was found that nobody could operate the e- screen properly. Besides, the e-screen was installed in such a place that the operator could not see it. Your task is to make a program emulation of the e- screen so that the operator could see the results of his or her actions.
+Input
+The single line of the input contains a sequence of the buttons pressed by the operator. The symbol '>' stands for the move of the cursor one position to the right and the symbol '<' stands for the move of the cursor one position to the left. There are no more than 10000 symbols at the input.
+Output
+The output should contain the line that would be shown on the e-screen after pressing the given sequence of the buttons.
+Assume that at the beginning the e-screen contains 80 spaces and the cursor is placed at the first position to the left.
+Sample Input
+>><<<Look for clothes at the <<<<<<<<<<<<<<<second flo
+or. <<<<<<<Fresh pizza and <<<<<<<<<<<<<<<<hamburger a
+t a shop right to <<<<<<<<<<<<<the entrance. Call <<<<
+<<<<<< 123<-456<-8790 <<<<<<<<<<<<<<<<to order <<<<<<<
+<<<<<<<<<<computers< and office<<<<<<< chairs.
+Sample Output
+Look for second hamburger at computer and chairs.790
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Vasiljev S.
+
+
+1095. Nikifor - 3
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Nikifor knows that a certain positive integer has in its decimal form each of the digits 1,2,3,4. You are asked to determine if Nikifor can rearrange the digits of the number in such a way that the new number divides by 7.
+Input
+The first line of the input contains the number N (not exceeding 10000) of positive integers that are to be checked. The next N lines contain these integers. Each number has no more than 20 digits.
+Output
+For each of the N numbers you should output a number divisible by 7 that can be obtained from the corresponding number from the input file by a rearrangement of the digits. If such rearrangement does not exist you should output 0 in the corresponding line. In the case of several valid rearrangements you may find only one of them.
+Sample Input
+3
+1234
+10234
+531234
+Sample Output
+4123
+41230
+354123
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Filimonenkov D.
+
+1096. Get the right route plate!
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Everybody who had ridden a Ekaterinburg bus could notice that on the inner side of the plate with the number of the route there was a number of another route.
+One day the driver of a new bus came to the storehouse and found that there was no plate with the number of the route he had been assigned to ride. The storekeeper simply gave him a random plate and advised to change it for a plate from another bus. But the drivers who had the necessary plates did not need the plate given by the storekeeper. Any driver will agree to change his plate for another only if this plate has the number of his route. Help the new driver to find a shortest sequence of changes that will enable him to get a plate with the number of his route.
+Input
+The first line contain the number K<=1000 of the acting buses (excluding the new bus). The buses are numbered from 1 to K. The next K lines contain the number of the route of the corresponding bus and the number on the other side of its plate.
+The last line of the input contains the number of the route of the new bus and the numbers on the plate given by the storekeeper.
+Output
+The first line of the output should contain the word IMPOSSIBLE if it is impossible to get the needed number by a sequence of changes otherwise it should contain the least necessary number of changes M > 0 followed by an M lines that contain sequentially numbers of buses (not routes!) with drivers of which the plates must be changed.
+Sample Input
+4
+8 5
+5 4
+7 4
+1 5
+4 1 8
+Sample Output
+2
+4
+2
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Vasiljev S.
+
+1097. Square country - 2
+Time Limit: 3 second
+Memory Limit: 1000K
+
+The Square Parliament of the Square country (recall the corresponding The Square Parliament of the Square country (recall the corresponding problem from the USU 2001 personal contest) has decreed that the National Square Park be created. Of course, the Park should occupy a large square. Unfortunately, at the moment a lot of square citizens have invested (with the help of last championship's participants) their quadrics into the land so that a part of the country is already occupied. It is now impossible to find a land for the Park without affecting interests of the private owners. Thus some of the pieces of land must be expropriated.
+To avoid social unrest the Parliament has to locate the Park so that the interests of as less important as possible citizens were affected. It is better to expropriate land from a thousand of simple citizens than from one member of the Parliament or from one bank-owner.
+The occupied pieces of land are marked with numbers from 1 to 100 according to importance of the owner. So all free land and pieces of land belonging to honest tax-payers are marked with number 1, the land belonging to members of the Parliament is marked with 98, possessions of great businessmen are marked with 99, and the property of the square President is marked with 100.
+Input
+The first line contains the number L, which is the length of a side of the Square country (in meters), and the number A, which is the length of a side of the Park (1<=A<=L<=10000). The next line contains the number M (1<=M<=100) of occupied pieces of land (according to the square rules a piece of land is a square with integer coordinates of corners and its sides are parrallel to the axes).
+The next M lines contain information about these pieces of land: importance of the owner, length of the square's side and the coordinates of the lower left corner, which are integers from 1 to L (the coordinates of the lower left corner of the Square country itself are 1,1). Each piece of land is contained in the country and may intersect another piece of land only along its boundary.
+Note that land marked with number 1 (that is of importance 1) is not mentioned in the list altogether. Besides, some pieces of land belong to the members of (not square) Jury who helped to formulate the previous problem. This land is marked with number 255 and cannot be expropriated at all.
+Output
+You should output the least possible importance of land which must be expropriated (a number from 1 to 100) or the word IMPOSSIBLE if it is impossible to create the Park not involving land of importance more than 100. The number and area of expropriated pieces of land are not important. You should only take into account importance of the most important of the affected land-owners.
+Sample Input
+5 3
+6
+94 2 4 1
+3 1 1 1
+2 1 1 2
+2 2 2 1
+100 1 2 4
+255 1 5 5
+Sample Output
+3
+
+
+Problem Source: USU Open Collegiate Programming Contest March'2001 Senior Session
+Author: Vasiljev S.
+
+1098. Questions
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Holding a collegiate programming contest is a very exhausting work. There is a well-known proverb that one fool can ask so many questions that a hundred clever men will not answer. And during a collegiate programming contest questions are asked by one hundred clever people.
+The jury of the Third Urals Collegiate Programming Contest being clever enough has found a simple way to make its work easier. We have invented a simple algorithm that will help us answer ALL your numerous questions! Moreover, this algorithm guarantees that the same questions will have the same answers (this would be hardly possible, if we would undertook such a task ourselves). According to this algorithm a member of the jury starts to delete characters of the question in the following order:
+1. Starting from the first character he or she counts out N-1 characters (spaces, punctuation marks etc. are considered to be characters too) and deletes the Nth character.
+2. If a string ends the count continues from the beginning of the string.
+3. After deleting a character the count restarts from the character that would be the (N+1)-st in the previous count.
+4. If the last remaining character is a question-mark ("?") then the answer to the question is "Yes". If it is a space then the answer is "No". Any other character will lead to "No comments" answer.
+You should help the jury and write a program that will do a hard work of answering your questions tomorrow. The number N is secret and will not be announced even after the end of the contest. Your program should use N=1999.
+For example, taking a string "Is it a good question?" (its length is 22) the characters will be counted in the following way: "Is it a good question?Is it ... quest" and "i" will be deleted. Then the count restarts from "on?Is it..." etc., until "s" will be left (thus the answer is "No comments", as usual).
+Input
+The input is a question, that is any text file containing at least one character (end of line is not a character). Each character of the input (excepting the ends of lines) is a part of the question. You should read question from input.
+The size of the input is not more than 30000.
+Output
+The answer.
+Sample Input
+Does the jury of this programming contest use the algorithm described in this problem to answer my questions?
+Sample Output
+Yes
+
+
+Problem Source: This problem was offered to participants of the Third Urals Collegaite Programming Contest at the trial tour, the day before main contest
+Author: Vasiljev S.
+
+1099. Work scheduling
+Time Limit: 3 second
+Memory Limit: 1400K
+
+There is certain amount of night guards that are available to protect the local junkyard from possible junk robberies. These guards need to scheduled in pairs, so that each pair guards at different night. The junkyard CEO ordered you to write a program which given the guards characteristics determines the maximum amount of scheduled guards (the rest will be fired). Please note that each guard can be scheduled with only one of his colleagues and no guard can work alone.
+Input
+The first line of input contains one number N <= 222 - this is the amount of night guards. Unlimited number of lines consisting of unordered pairs (i,j) follow, each such pair means that guard #i and guard #j can work together, because it is possible to find uniforms that suit both of them (The junkyard uses different parts of uniforms for different guards i.e. helmets, pants, jackets. It is impossible to put small helmet on a guard with a big head or big shoes on guard with small feet). The input ends with Eof.
+Output
+You should output one possible optimal assignment. On the first line of the output write the even number C - the amount of scheduled guards. Then output C/2 lines, each containing 2 integers (i,j) that denote that i and j will work together.
+Sample Input
+3
+1 2
+2 3
+1 3
+Sample Output
+2
+1 2
+
+Author: Jivko Ganev

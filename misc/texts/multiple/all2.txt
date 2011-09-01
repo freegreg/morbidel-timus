@@ -1,0 +1,227 @@
+1000 A + B Problem                          30%   47%
+1002 Phone numbers                          84%   06%
+1003 Parity                                 79%   13%
+1004 Sightseeing trip                       72%   22%
+1005 Stone pile                             60%   30%
+1006 Square frames                          61%   25%
+1007 Code words.                            70%   20%
+1008 Image encoding                         67%   21%
+1009 K-based numbers.                       48%   40%
+1010 Discrete Function                      71%   22%
+1011 Conductors                             68%   26%
+1012 K-based numbers. Version 2.            50%   38%
+1013 K-based numbers. Version 3.            47%   44%
+1014 The Product of Digits                  75%   20%
+1015 Test the Difference!                   55%   33%
+1016 A Cube on the Walk                     58%   34%
+1017 The Staircases                         53%   35%
+1018 A Binary Apple Tree                    81%   17%
+1019 A Line painting                        71%   22%
+1020 Rope                                   57%   32%
+1021 Sacrament of the sum.                  58%   29%
+1022 Genealogical tree.                     50%   40%
+1023 Buttons                                68%   27%
+1024 Permutations.                          50%   37%
+1025 Democracy in danger.                   30%   51%
+1026 Questions and answers.                 44%   40%
+1027 D++ Again .                            67%   21%
+1028 Stars.                                 76%   18%
+1029 Ministry.                              71%   24%
+1030 Titanic.                               77%   16%
+1031 Railway tickets.                       69%   26%
+1032 Find a multiple.                       62%   27%
+1033 Labyrinth.                             54%   37%
+1034 Queens in peaceful positions.          58%   28%
+1035 Cross-stitch.                          71%   18%
+1036 Lucky tickets.                         75%   17%
+1037 Memory management                      72%   17%
+1038 Spell checker.                         54%   32%
+1039 Anniversary party.                     45%   43%
+1040 Airline company.                       64%   27%
+1041 Nikifor.                               66%   33%
+1042 Central heating.                       56%   32%
+1043 Cover an Arc.                          69%   21%
+1044 Lucky tickets.                         26%   59%
+1045 A funny game.                          53%   37%
+1046 Geometrical dreams.                    43%   45%
+1047 Simple calculations.                   39%   48%
+1048 Superlong sums.                        76%   16%
+1049 Brave balloonists                      47%   44%
+1050 Preparing an article                   70%   22%
+1051 Simple game on a grid.                 30%   55%
+1052 Rabbit hunt.                           46%   40%
+1053 Pinocchio                              40%   49%
+1054 Hanoi tower                            37%   42%
+1055 Combinations                           55%   35%
+1056 Computer net                           64%   26%
+1057 Amount of degrees                      74%   18%
+1058 Chocolate                              76%   22%
+1059 Expression                             30%   67%
+1060 Flip Game                              52%   39%
+1061 Buffer Manager                         54%   39%
+1062 Triathlon                              80%   04%
+1064 Binary Search                          53%   38%
+1065 Frontier                               80%   16%
+1066 Garland                                50%   42%
+1067 Disk Tree                              66%   22%
+1068 Sum                                    45%   43%
+1069 The Prufer code                        62%   29%
+1070 A local time                           73%   16%
+1071 Nikifor-2                              60%   29%
+1072 Routing                                56%   30%
+1073 A square problem                       50%   34%
+1074 A very short problem                   74%   16%
+1075 A thread in a space                    77%   19%
+1076 Trash                                  64%   23%
+1077 Travelling tours                       68%   24%
+1078 Segments                               54%   34%
+1079 Maximum                                49%   44%
+1080 Map Colouring                          43%   46%
+1081 Binary Lexicographic Sequence          38%   49%
+1082 Gaby Ivanushka                         15%   73%
+1083 Factorials!!!                          46%   44%
+1084 A goat in a kitchen garden             50%   39%
+1085 Meeting                                72%   16%
+1086 Cryptography                           50%   34%
+1087 The time to take stones                48%   38%
+1088 Ilya Murumetz                          51%   36%
+1089 A verification with a vocabulary       68%   19%
+1090 In the army now                        71%   17%
+1091 Tmutarakan exams                       62%   25%
+1092 Transversal                            63%   31%
+1093 Darts                                  73%   16%
+1094 E-screen                               55%   35%
+1095 Nikifor - 3                            46%   40%
+1096 Get the right route plate!             59%   30%
+1097 Square country - 2                     74%   28%
+1098 Questions                              67%   25%
+1099 Work scheduling                        82%   15%
+1100 Final Standings                        80%   14%
+1101 Robot In The Field                     61%   29%
+1102 Strange Dialog                         80%   11%
+1103 Pensils and Circles                    87%   08%
+1104 Don't ask woman about her age.         74%   22%
+1105 Observers Coloring                     85%   11%
+1106 Two Teams                              29%   57%
+1107 Warehouse Problem                      54%   42%
+1108 Heritage                               68%   21%
+1109 Conference                             79%   16%
+1110 Power                                  50%   40%
+1111 Squares                                89%   07%
+1112 Cover                                  54%   35%
+1113 Jeep                                   65%   27%
+1114 Boxes                                  58%   32%
+1115 Ships                                  73%   19%
+1116 Piecewise constant function            67%   25%
+1117 Hierarchy                              64%   29%
+1118 Nontrivial numbers                     69%   23%
+1119 Metro                                  69%   22%
+1120 Sum of sequential numbers              59%   29%
+1121 Branches                               58%   24%
+1122 Game                                   61%   32%
+1123 Salary                                 60%   29%
+1124 Mosaic                                 68%   22%
+1125 Hopscotch                              60%   31%
+1126 Magnetic storms                        69%   20%
+1127 Colored bricks                         48%   34%
+1128 Partition into groups                  78%   14%
+1129 Door painting                          63%   26%
+1130 Nikifor's walk                         71%   24%
+1131 Copying                                64%   29%
+1132 Square Root                            79%   11%
+1133 Fibonacci Sequence                     79%   12%
+1134 Cards                                  65%   26%
+1135 Recruits                               56%   31%
+1136 Parliament                             35%   49%
+1137 Bus Routes                             46%   51%
+1138 Integer Percentage                     75%   20%
+1139 City Blocks                            50%   42%
+1140 Swamp Incident                         51%   41%
+1141 RSA Attack                             49%   35%
+1142 Relation                               40%   43%
+1143 Electric Path                          81%   10%
+1144 The Emperor's Riddle                   96%   07%
+1145 Labyrinth                              89%   09%
+1146 Maximum Sum                            50%   42%
+1147 Shaping Regions                        71%   20%
+1148 Building Towers                        90%   11%
+1149 Sinus dances                           35%   57%
+1150 Digits                                 42%   37%
+1151 Radiobeacons                           74%   19%
+1152 The False Mirrors                      68%   34%
+1153 Supercomputer                          68%   29%
+1154 The Contest of Mages                   67%   22%
+1155 Troubleduons                           54%   37%
+1156 Two days                               69%   18%
+1157 Young Tiler                            39%   53%
+1158 Censored!                              91%   10%
+1159 Fence                                  81%   14%
+1161 Stripies                               34%   60%
+1162 Currency Exchange                      87%   14%
+1163 Chapayev                               57%   36%
+1164 Fillword                               36%   57%
+1165 Subnumber                              85%   09%
+1167 Bicoloured Horses                      73%   21%
+1168 Radio Stations                         85%   13%
+1169 Pairs                                  68%   23%
+1170 Desert                                 85%   24%
+1171 Lost in Space                          82%   21%
+1172 Ship Routes                            67%   22%
+1173 Lazy Snail                             71%   21%
+1174 Weird Permutations                     62%   29%
+1175 Strange sequence                       84%   11%
+1176 Hyperchannels                          79%   13%
+1177 Like Comparisons                       86%   05%
+1178 Akbardin's Roads                       59%   36%
+1179 Numbers in Text                        52%   38%
+1180 A stone game                           33%   53%
+1181 Cutting a painted polygon              67%   23%
+1182 Team them up!                          72%   16%
+1183 Brackets sequence                      63%   25%
+1184 Cable master                           74%   26%
+1185 Wall                                   73%   22%
+1186 Chemical reactions                     55%   34%
+1187 Statistical trouble                    68%   21%
+1188 Library                                74%   19%
+1189 Pairs of integers                      71%   22%
+1190 Chocolate tile                         76%   16%
+1191 Cops and Robbers                       67%   27%
+1192 Ball in dream                          42%   49%
+1193 Queue to Exam                          46%   44%
+1194 Handshakes                             28%   65%
+1195 Ouths and Crosses                      63%   19%
+1196 History Exam                           61%   29%
+1197 Lonesome knight                        24%   64%
+1200 Horns and Hoofs                        72%   17%
+1201 Which day is it?                       76%   16%
+1202 Rectangles travel                      61%   31%
+1203 Conference                             56%   32%
+1204 Idempotents                            66%   20%
+1205 Underground                            72%   22%
+1206 Sum of digits                          38%   52%
+1207 Median                                 69%   22%
+1208 Legendary teams contest                49%   33%
+1209 1, 10, 100, 1000...                    66%   23%
+1210 Kind spirits                           53%   39%
+1211 Collective guarantee                   64%   30%
+1212 Sea battle                             75%   15%
+1213 Cockroaches!                           53%   39%
+1214 A strange procedure                    57%   38%
+1215 Exactness of projectile hit            73%   19%
+1216 Two Pawns and One King                 87%   04%
+1217 Unlucky Tickets                        57%   30%
+1218 Episode N-th: The Jedi Tournament      47%   32%
+1219 Symbolic Sequence                      55%   36%
+1220 Stacks                                 82%   11%
+1221 Malevich Strikes Back!                 43%   37%
+1222 Chernobyl' Eagles                      55%   31%
+1223 Chernobyl' Eagle on a Roof             74%   15%
+1224 Spiral                                 69%   24%
+1225 Flags                                  37%   51%
+1226 esreveR redrO                          52%   23%
+1227 Rally Championship                     79%   13%
+1228 Array                                  13%   73%
+1229 Strong Brickwork                       61%   26%
+1230 Introspective Program                  57%   23%
+1231 Turing: One, Two, Three, ...           61%   12%
+1232 Asteroid Landing                       40%   09%

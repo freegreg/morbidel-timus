@@ -1,0 +1,639 @@
+1156. Two days
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There are two rounds in the Urals Championship. The competitors have to solve N problems on each round. The jury had been working hard and finally managed to prepare 2N problems for the championship. But it appeared that among those problems there were some, which have the analogous solutions. One shouldn't assign such a problems for the same round. Please, help the jury form sets of tasks for each of the rounds.
+Input
+First line contains two numbers - N - number of tasks for a round and M - number of pairs of tasks, which should not be assigned for one round (1<=N<=50, 0<=M<=100). Then there follow M lines each containing two numbers of analogous tasks.
+Output
+Output file contains two lines, each of which containing numbers of tasks assigned for each round. If there is no soultion, output file should contain "IMPOSSIBLE". If there are more than one solution you may assume anyone of them.
+Sample Input
+2 3
+1 3
+2 1
+4 3
+Sample Output
+1 4
+2 3
+
+
+Problem Source: Ural Collegiate Programming Contest, April 2001, Perm
+English Tour
+Author: Eugene Bryzgalov
+
+
+1159. Fence
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Workers are going to enclose a new working region with a fence. For their convenience the enclosed area has to be as large as possible. They have N rectangular blocks to build the fence. The length of the i-th block is Li meters. All blocks have the same height of 1 meter. The workers are not allowed to break blocks into parts. All blocks must be used to build the fence.
+Input
+The first line of the input file contains one integer N (3 <= N <= 100).
+The following N lines describe fence blocks. Each block is represented by its length in meters (integer number, 1 <= Li <= 100).
+Output
+Write to the output file one non-negative number S - maximal possible area of the working region (in square meters). S must be written with two digits after the decimal point. If it is not possible to construct the fence from the specified blocks, write 0.00.
+Sample Input
+4
+10
+5
+5
+4
+Sample Output
+28.00
+
+
+Problem Source: ACM ICPC 2001. Northeastern European Region, Northern Subregion
+Author: Nick Durov
+
+
+1162. Currency Exchange
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Several currency exchange points are working in our city. Let us suppose that each point specializes in two particular currencies and performs exchange operations only with these currencies. There can be several points specializing in the same pair of currencies. Each point has its own exchange rates, exchange rate of A to B is the quantity of B you get for 1A. Also each exchange point has some commission, the sum you have to pay for your exchange operation. Commission is always collected in source currency.
+
+For example, if you want to exchange 100 US Dollars into Russian Rubles at the exchange point, where the exchange rate is 29.75, and the commission is 0.39 you will get (100 - 0.39) * 29.75 = 2963.3975RUR.
+
+You surely know that there are N different currencies you c!n deal with in our city. Let us assign unique integer number from 1 to N to each currency. Then each exchange point can be described with 6 numbers: integer A and B - numbers of currencies it exchanges, and real RAB, CAB, RBA and CBA - exchange rates and commissions when exchanging A to B and B to A respectively.
+
+Nick has some money in currency S and wonders if he can somehow, after some exchange operations, increase his capital. Of course, he wants to have his money in currency S in the end. Help him to answer this difficult question. Nick must always have non-negative sum of money while making his operations.
+Input
+The first line of the input file contains four numbers: N - the number of currencies, M - the number of exchange points, S - the number of currency Nick has and V - the quantity of currency units he has. The following M lines contain 6 numbers each - the description of the corresponding exchange point - in specified above order. Numbers are separated by one or more spaces. 1 <= S <= N <= 100, 1 <= M <= 100, V is real number, 0 <= V <= 103.
+
+For each point exchange rates and commissions are real, given with at most two digits after the decimal point, 10-2 <= rate <= 102, 0 <= commission <= 102.
+
+Let us call some sequence of the exchange operations simple if no exchange point is used more than once in this sequence. You may assume that ratio of the numeric values of the sums at the end and at the beginning of any simple sequence of the exchange operations will be less than 104.
+Output
+If Nick can increase his wealth, output YES, in other case output NO to the output file.
+Sample Input
+3 2 1 20.0
+1 2 1.00 1.00 1.00 1.00
+2 3 1.10 1.00 1.10 1.00
+Sample Output
+YES
+
+
+Problem Source: ACM ICPC 2001. Northeastern European Region, Northern Subregion
+Author: Nick Durov
+
+
+1163. Chapayev
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Legendary divisional commander Vasiliy I. Chapayev was fond of playing this beautiful game with his aide-de-camp Pete during their (scanty) spare time. The game is played as follows. There are eight white and eight red draughts on the board at the beginning of the game. The red side starts the game by making the first turn. The turn consists of selecting an arbitrary draught of player's colour and pushing it with a flick into a certain direction. Then this draught begins to move in this direction until it completely falls off the board. If it hits or even just touches another draught of any colour during the movement, the latter is immediately removed from the board being considered killed. In any case the moving draught continues its movement without changing its speed or direction. After the moving draught has completed its movement across the board (has fallen off) the other player has to make his turn. If there are no draughts of player's colour left he is considered to lose the game.
+
+The historians have a record of an initial position in one of such games. Unfortunately, the result of this game is unknown. Your task is to establish the truth taking for granted that both Chapayev and Pete always used the optimal strategy.
+Input
+Each of two lines of the input file contains eight pairs of numbers - the coordinates of centres of red and white draughts respectively. The draughts are considered to be cylinders of radius 0.4 and height 0.15. The coordinates are calculated so that the board is a square 8x8 with vertices (0, 0), (0, 8), (8, 0) and (8, 8). There will be no draught that overlaps or touches another one. Also each piece in the initial position is completely contained within the limits of the board.
+Output
+The first line of the output file should contain RED or WHITE corresponding to the winning side.
+Sample Input
+0.5 7.5 1.5 7.5 2.5 7.5 3.5 7.5 4.5 7.5 5.5 7.5 6.5 7.5 7.5 7.5
+0.5 0.5 1.5 0.5 2.5 0.5 3.5 0.5 4.5 0.5 5.5 0.5 6.5 0.5 7.5 0.5
+Sample Output
+RED
+
+
+Problem Source: ACM ICPC 2001. Northeastern European Region, Northern Subregion
+Author: Nick Durov
+
+
+1165. Subnumber
+Time Limit: 1 second
+Memory Limit: 1000K
+
+George likes arithmetics very much. Especially he likes the natural numbers series. His most favourite thing is the infinite sequence of digits, which results as the concatenation of all natural numbers in ascending order. The beginning of this sequence is 1234567891011121314... Let us call this sequence S. Then S[1] = 1, S[2] = 2, ... , S[10] = 1, S[11] = 0, ... , and so on.
+
+George takes a sequence of digits A and wants to know when it first appears in S. Help him to solve this difficult problem.
+Input
+The first line of the input file contains A - the given sequence of digits. The number of digits in A does not exceed 200. There are no spaces in the input file.
+Output
+Output file must contain the only number - the least k such that A[1] = S[k], A[2] = S[k+1], ... A[len(A)] = S[k + len(A) - 1], where len(A) denotes the length of A (i.e. the number of digits in it).
+Sample Input
+101
+Sample Output
+10
+
+
+Problem Source: ACM ICPC 2001. Northeastern European Region, Northern Subregion
+Author: Nikita Shamgunov
+
+
+1167. Bicoloured Horses
+Time Limit: 1 second
+Memory Limit: 1000K
+
+         Every day, farmer Ion (this is a Romanian name) takes out  all his horses, so they may run & play. When  they are done, farmer Ion  has to take all the horses back to the stables. In order to do this, he places them in a straight line and they follow him to the stables. Because  they are very tired, farmer Ion  decides that he doesn't want to make the horses  move more than they should. So he develops this algorithm: he places the 1st P1 horses in the first stable, the next P2 in the 2nd stable and so on. Moreover, he doesn't want any of the K stables he owns to be empty, and no horse must be left outside.  Now you should know that farmer Ion  only has black or white  horses, which don't really get along  too well. If there are i black horses and j white horses in one stable, then the coefficient of unhappiness of that stable is i*j. The total coefficient of unhappiness is the sum of the coefficients of unhappiness of every of the K stable3.
+         Determine a way to place the N horses into the K stables, so that the total coefficient of unhappiness is minimized.
+Input
+         On  the 1st line  there are 2 numbers:  N ( 1 <= N <= 500 ) and  K ( 1 <= K <= N) . On the  next  N  lines  there are N numbers. The i-th of these lines contains the colour of the i-th horse in the sequence: 1 means that the horse is black, 0 means that the horse is white.
+Output
+         You should only output a single number, which is the minimum possible value for the total coefficient of unhappiness.
+Sample Input
+6 3
+1
+1
+0
+1
+0
+1
+Sample Output
+2
+Hint
+         Place the first 2 horses in the first stable, the next 3 horses in the 2nd stable and the last horse in the 3rd stable.
+
+
+Problem Source: Romanian Open Contest, December 2001
+Author: Mugurel Ionut Andreica
+
+
+1168. Radio Stations
+Time Limit: 2 second
+Memory Limit: 1000K
+
+             Along the surface of  Romania, there are K radio stations positioned at  different points and altitud%s. Each of these radio stations has a  given broadcast radius, that is, the maximum distance it can send its signal to. The government wants to place a  radio receiver somewhere on the map, so that it  will receive the signals  from all  the K radio stations : this means that the distance to every radio station should be less or equal to the broadcast radius of that radio station.
+             The map of  Romania is given as a M*N matrix, where the value in row i and column j represents the altitude of the corresponding  zone. The side of  a square in  this matrix is 1. All  the K radio stations are placed at  distinct coordinates on the map and at  the same height as the corresponding  zone ( plus, they are placed exactly in  the center of their square ). The radio receiver can be placed in the center of any square not occupied by a radio station, at the same altitude of the square or it  can be placed higher  with an integer  number of meters. The radio  receiver cannot be  placed  in a square occupied by a radio station.
+              Your task is to decide how many possibilities to place the radio receiver the government has. Note that if the radio receiver may be placed in row i and column j at altitudes h1 and h2 (h1<>h2), this counts as 2 different possibilities.
+Input
+              The first line of input contains 3 integers : M , N ( 1 <= M , N <= 50 ) and  K ( 1 <= K <= min ( M*N-1 , 1000 ) ), representing  the dimensions of the map and the number of radio stations. Next there are M lines each containing N integers, which are the altitudes of the zones on the map (no altitude will be higher than 32000 or lower than 0). After that, there will be K lines, each containing 3 numbers: i , j and R. i and j will be the location of  the radio station  on the map and R will be its broadcast radius (R is a real number, not larger than 100000 and not less than 0).
+              No two radio stations will be placed on the same square.
+Output
+              You  should output one integer number, which is the total number of  valid possibilities to place the radio receiver on the map.
+Sample Input
+5 5 3
+1 2 3 4 5
+6 7 8 9 10
+1 2 3 4 5
+6 7 8 9 10
+5 4 3 2 1
+1 1 4.3
+5 5 4.3
+5 1 4.3
+Sample Output
+4
+Hint
+         The radio receiver can be placed at position (3,2) , with extra height 0 and extra height 1 , and at position (3,3) , with extra height 0 and extra height 1. So, there are 4 possible ways to place the receiver.
+         When you compute distances, be aware that they are distances in a 3D space.
+
+
+Problem Source: Romanian Open Contest, December 2001
+Author: Mugurel Ionut Andreica
+
+
+1169. Pairs
+Time Limit: 1 second
+Memory Limit: 1000K
+
+         A Romanian software company has bought N computers, which are going to be connected so that they may form a network. A connection can be made between any 2 distinct computers and is bidirectional (if the 2 computers are labeled i and j, then data can be sent both from i to j and from j to i). Your job is to determine a way to connect all the N computers, in such a way  that every 2 computers will be able to send data between them (directly or using other computers as intermediate devices).
+         There is only one extra requirement: the network must contain exactly K critical pairs. A pair (i,j) is critical if there exists a connection which, if removed, data communication between i and j will become impossible.
+Input
+         The input consists of 2 integer numbers: N (1 <= N <= 100), the number of computers the network will contain and K ( 0 <= K <= N*(N-1)/2 ), the number of critical pairs the network will contain.
+Output
+         You should output the connections which form the network, one connection per line. A connection is described by a pair (i,j), which means that i and j are directly connected. The 2 numbers of the pair should be separated by a blank. If you cannot build a network which contains exactly K critical pairs, then you should output -1.
+Sample Input
+7 12
+Sample Output
+1 2
+1 3
+2 3
+3 4
+4 5
+4 6
+4 7
+5 6
+5 7
+6 7
+
+
+Problem Source: Romanian Open Contest, December 2001
+Author: Mugurel Ionut Andreica
+
+
+1171. Lost in Space
+Time Limit: 3 second
+Memory Limit: 1000K
+
+         An astronaut of the RSA ( Romanian Space Agency ) was "forgotten" on the N-th level of a Romanian Space Station. He wants to go down to the 1st level, where the communication devices are located, so he can call a space ship to take him home. Unfortunately, the astronaut doesn't know how long the ship will take until it gets to the space station. That's why he wants to gather as much space food as possible before he sends out the message to the ship.
+         Every level of the space station contains 16 rooms, arranged in 4 rows and 4 columns (numbered accordingly). Every room contains an amount of space food (a number between 1 and 255).
+         The astronaut may move freely inside the space station, but he is not allowed to visit the same room twice. Moreover, if he went to a lower level, he is not allowed to move back to a higher level. From every room, he could move either north, south, east or west (on the same level) or down (on the same row and column, but at the level below), if there is a door to the level below in that room. For each level, a map is given which tells which rooms have doors to the level below them.
+         Whenever he enters a room, the astronaut gets the amount of space food found in that room. The food ratio of the astrounaut is defined as the total quantity of food gathered during his trip inside the space station divided by the number of days he spends inside the space station before he sends out the signal to the space ship. It is considered that the astrounaut spends the 1st day in the room he begins his trip, on the N-th level, and that he gets the amount of space food found in this room during this day. He is only allowed to move once per day.
+         You have to find a path from the N-th level to the 1st level, which has the maximum food ratio. Note that the astronaut
+does not have to call the ship as soon as he gets to a room on the 1st level. He may move around the level first, gather the necessary food and only then call the ship.
+Input
+         The first line of input contains a single number: N (1 <= N <= 16), the number of levels of the space station. For each level, there will be 8 lines of input containing its description. The first four lines will contain four integers, representing the amount of space food found in the corresponding room on that level (the number found on the j-th position on the i-th line represents the amount of food in the room found on row i and column j on the level). The next four lines will contain four integers, in the range 0..1. 1 means that there is a door from that room to the level below, 0 means that there isn't one. Level 1 will have only 0s on these four lines (there is no level below level 1).
+         The order of the levels in the input will be from top to bottom (from level N to level 1). The last line of input will contain 2 numbers r and c, representing the row and column of the room the astronaut is initially in, on level N.
+Output
+         On the 1st line, you should output the maximum possible food ratio for the astrounaut, with 4 decimal digits. On the 2nd line you should output the length of his path (print 0 if the astrounaut never gets out of the room he is intially found in). If the length of his path is L, L>0, then on the 3rd line of output you should output L characters : 'N','E','S','W' or 'D', each character corresponding to one direction of movement (north, east, south, west and down). If there are more solutions with
+the same maximum food ratio, then you may output any of them.
+         Note that, if L is the length of the astronaut's path, then he spends L+1 days before he calls the space ship.
+         Every test case is guaranteed to have at least 1 solution.
+Sample Input
+2
+1 20 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+1 1 1 1
+0 0 0 0
+0 0 0 0
+0 0 0 0
+1 1 1 1
+20 1 1 1
+1 1 1 1
+1 1 1 1
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+1 1
+Sample Output
+8.6000
+4
+EDSW
+
+
+Problem Source: Romanian Open Contest, December 2001
+Author: Mugurel Ionut Andreica
+
+
+1172. Ship Routes
+Time Limit: 1 second
+Memory Limit: 1000K
+
+         A Romanian tourist went on a trip to the Mediterranean Sea. He arrived to one of the cities of the 3 islands he is going to visit. Every island has exactly N cities and they are all ports. The tourist plans to begin his journey from the city he is in, visit all the other 3*N-1 cities exactly once and then return to the starting city so he may go back home after that.
+         Unfortunately, there are cannibals along the roads on all the 3 islands. That's why travelling on the road between 2 cities on the same island is very dangerous and, consequently, prohibited. Hopefully, there are always ship routes. Every pair of cities which are not on the same island is connected by such a ship route. There are no routes between cities which are on the same island.
+         The tourist wants to know in how many ways he can plan his journey through the 3 islands.
+Input
+         The input contains a single number: N (1 <= N <= 30), the number of cities on each of the 3 islands.
+Output
+         You should output a single number: the number of ways the tourist can plan his trip. Note that 2 trips are identical if the successions of the 3*N cities are identical or if the succession of the 3*N cities of the first trip is the same as the succession of the 3*N cities of the 2nd trip, read backwards (for instance, if every island had 1 city, numbered according to the island's number, the trips 1-2-3-1 and 1-3-2-1 would be identical).
+Sample Input
+2
+Sample Output
+16
+
+
+Problem Source: Romanian Open Contest, December 2001
+Author: Mugurel Ionut Andreica
+
+
+1173. Lazy Snail
+Time Limit: 1 second
+Memory Limit: 1000K
+
+         Here, in Romania, all snails are lazy. Take Wally the Snail, for example. He has to visit N friends which are located at distinct coordinates in the plane. But since he is so lazy, he doesn't want to leave his house. He said that he will go visit his friends if someone can show him the right path to follow.
+         He wants to leave his house, visit all of his friends exactly once and then return to his house. Between 2 friends' houses or between his house and a friend's house, he walks on the straight line which connects them. 'Is that all ?', someone asked. Wally realized that this would be too easy, so he added that, during his trip, no two line segments along which he travels should cross (except for every 2 consecutive segments, which cross at one end). You must find a path for Wally, so he can go visit all of his friends (although he doesn't want to).
+Input
+         On the 1st line of input, there will be 2 real numbers: X and Y, separated by a blank, representing the coordinates of Wally's house. On the 2nd line, there will be an integer number: N (2 <= N <= 1000), the number of friends Wally has to visit. On the next N lines, there will be 3 numbers, separated by blanks: X , Y and ID. ID will be an integer number, representing the ID of one of Wally's friends. X and Y will be 2 real numbers, representing the coordinates of Wally's friend's house (they will be given with at most 3 decimal digits and will be in the range -100000 .. 100000)..
+         All IDs are unique, between 1 and N. No 3 friends (including Wally) have their houses on the same straight line.
+Output
+         You should output N+2 lines: the IDs of the friends whose houses Wally is about to visit, in the order he visits them. Start with Wally's ID, continue with the ID of the friend he visits first and so on. Finish with Wally's ID. Wally has ID 0.
+         If there is no solution, then print a single line, containing the number -1.
+Sample Input
+0 0
+3
+3 3 1
+6 0 2
+6 2 3
+Sample Output
+0
+1
+3
+2
+0
+
+
+Problem Source: Romanian Open Contest, December 2001
+Author: Mugurel Ionut Andreica
+
+
+1182. Team them up!
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Your task is to divide a number of persons into two teams, in such a way, that:
+�       everyone belongs to one of the teams;
+�       every team has at least one member;
+�       every person in the team knows every other person in his team;
+�       teams are as close in their sizes as possible.
+This task may have many solutions. You are to find and output any solution, or to report that the solution does not exist.
+Input
+For simplicity, all persons are assigned a unique integer identifier from 1 to N.
+The first line in the input file contains a single integer number N (2 = N = 100) - the total number of persons to divide into teams, followed by N lines - one line per person in ascending order of their identifiers. Each line contains the list of distinct numbers Aij (1 = Aij = N, Aij ? i) separated by spaces. The list represents identifiers of persons that ith person knows. The list is terminated by 0.
+Output
+If the solution to the problem does not exist, then write a single message "No solution" (without quotes) to the output file. Otherwise write a solution on two lines. On the first line of the output file write the number of persons in the first team, followed by the identifiers of persons in the first team, placing one space before each identifier. On the second line describe the second team in the same way. You may write teams and identifiers of persons in a team in any order.
+Sample Input
+5
+2 3 5 0
+1 4 5 3 0
+1 2 5 0
+1 2 3 0
+4 3 2 1 0
+Sample Output
+3 1 3 5
+2 2 4
+
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Vladimir Kotov, Roman Elizarov
+
+
+1184. Cable master
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Inhabitants of the Wonderland have decided to hold a regional programming contest. The Judging Committee has volunteered and has promised to organize the most honest contest ever. It was decided to connect computers for the contestants using a "star" topology - i.e. connect them all to a single central hub. To organize a truly honest contest, the Head of the Judging Committee has decreed to place all contestants evenly around the hub on an equal distance from it.
+To buy network cables, the Judging Committee has contacted a local network solutions provider with a request to sell for them a specified number of cables with equal lengths. The Judging Committee wants the cables to be as long as possible to sit contestants as far from each other as possible.
+The Cable Master of the company was assigned to the task. He knows the length of each cable in the stock up to a centimeter, and he can cut them with a centimeter precision being told the length of the pieces he must cut. However, this time, the length is not known and the Cable Master is completely puzzled.
+You are to help the Cable Master, by writing a program that will determine the maximal possible length of a cable piece that can be cut from the cables in the stock, to get the specified number of pieces.
+Input
+The first line of the input file contains two integer numbers N and K, separated by a space. N (1 = N = 10000) is the number of cables in the stock, and K (1 = K = 10000) is the number of requested pieces. The first line is followed by N lines with one number per line, that specify the length of each cable in the stock in meters. All cables are at least 1 meter and at most 100 kilometers in length. All lengths in the input file are written with a centimeter precision, with exactly two digits after a decimal point.
+Output
+Write to the output file the maximal length (in meters) of the pieces that Cable Master may cut from the cables in the stock to get the requested number of pieces. The number must be written with a centimeter precision, with exactly two digits after a decimal point.
+If it is not possible to cut the requested number of pieces each one being at least one centimeter long, then the output file must contain the single number "0.00" (without quotes).
+Sample Input
+4 11
+8.02
+7.43
+4.57
+5.39
+Sample Output
+2.00
+
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Vladimir Pinaev, Roman Elizarov
+
+
+1185. Wall
+Time Limit: 3 second
+Memory Limit: 1000K
+
+ Once upon a time there was a greedy King who ordered his chief Architect to build a wall around the King's castle. The King was so greedy, that he would not listen to his Architect's proposals to build a beautiful brick wall with a perfect shape and nice tall towers. Instead, he ordered to build the wall around the whole castle using the least amount of stone and labor, but demanded that the wall should not come closer to the castle than a certain distance. If the King finds that the Architect has used more resources to build the wall than it was absolutely necessary to satisfy those requirements, then the Architect will loose his head. Moreover, he demanded Architect to introduce at once a plan of the wall listing the exact amount of resources that are needed to build the wall.
+Your task is to help poor Architect to save his head, by writing a program that will find the minimum possible length of the wall that he could build around the castle to satisfy King's requirements.
+The task is somewhat simplified by the fact, that the King's castle has a polygonal shape and is situated on a flat ground. The Architect has already established a Cartesian coordinate system and has precisely measured the coordinates of all castle's vertices in feet.
+Input
+The first line of the input file contains two integer numbers N and L separated by a space. N (3 = N = 1000) is the number of vertices in the King's castle, and L (1 = L = 1000) is the minimal number of feet that King allows for the wall to come close to the castle.
+Next N lines describe coordinates of castle's vertices in a clockwise order. Each line contains two integer numbers Xi and Yi separated by a space (-10000 = Xi, Yi = 10000) that represent the coordinates of ith vertex. All vertices are different and the sides of the castle do not intersect anywhere except for vertices.
+Output
+Write to the output file the single number that represents the minimal possible length of the wall in feet that could be built around the castle to satisfy King's requirements. You must present the integer number of feet to the King, because the floating numbers are not invented yet. However, you must round the result in such a way, that it is accurate to 8 inches (1 foot is equal to 12 inches), since the King will not tolerate larger error in the estimates.
+Sample Input
+9 100
+200 400
+300 400
+300 300
+400 300
+400 400
+500 400
+500 200
+350 200
+200 200
+Sample Output
+1628
+
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Sergey Volchenkov, Roman Elizarov
+
+
+1187. Statistical trouble
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Your team was hired by the international corporation ACM (Analytical Calculation Maxims). Every year ACM creates and conducts various surveys. Surveys themselves are simple forms with a list of questions and a list of possible answers for every question. Surveys are distributed around the globe, where field agents question the target group of people. All the answers are gathered in the ICPC (International Computation and Processing Center), where teams of well-paid analysts mine raw data in search for relevant correlations. The raw data for each individual survey consists of lots of lines of answers. Each line corresponds to every questioned person and for every question lists answers that the person has made on that particular survey.
+The first step of analysis that your team was hired to automate is to create cross tables that correlate answers on interesting pairs of questions. In its most simple way, given a pair of questions, cross table has a row for every possible answer on the first question, and has a column for every possible answer on the second question. Each cell of the cross table contains a number of lines in the raw data that has both answers for the corresponding questions at the same time.
+However, your task is complicated by the fact that you are to compute and output not only simple cross table values, but also total values for every row and column in the cross table (that is the sum of values in the corresponding row and column) that are placed in an additional last column and last row, as well as a percentage distributions for every row and column. Percentage distribution for a row is an additional number in every cell in that row that shows percent ratio of the value in that cell to the total value for that row, unless the total value is zero (in that case percentage distribution for this row is not defined). The same applies to the percentage distributions of columns. Thus, the cross table in your output will have at most three values in every cell (the value itself, row-wise percent, and column-wise percent). Please note, that percentage distributions also apply to totals. For example, in the total column for every row the row-wise percent will be always 100%, unless the total value for the row is zero (in that case row-wise percents are not defined), and column-wise percent shows percents ratio of the total value for this row to the total number of lines in the raw data (which is the value that can be found in the last column of the last row).
+Percents are rounded to integers on output. Percent that has a non-zero fractional part is rounded to either the smallest integer number greater than the resulting percent, or the largest integer number smaller than the resulting percent, in such a way, that the sums of all corresponding row-wise percents by row (without row totals) or column-wise percents by column (without column totals) are equal to 100% unless they are undefined. There are various rounding algorithms that produce results satisfying the above constraints. You are free to use any rounding algorithm as long as the above constraints are satisfied.
+Input
+The input file consists of 3 sections: survey description, survey results, and cross table descriptions.
+The first line of the input file contains the name of the survey, which is at most 100 characters long. Subsequent lines describe all the questions in the survey. On the first line of every question there is a 3-character question code (capital letters and digits only) followed by a space, and followed by the question name, which is at most 80 characters long. Each subsequent line for a question describes one possible answer on the question and starts with a space, followed by a single-character code for the answer (capital letter, digit, or character '.', '*', or '@'), followed by a space and followed by an answer description, which is at most 40 characters long. The list of questions is terminated by the line with a single character '#'. All answer codes are unique within the question, and all question codes are unique within the input file. There are at least 2 and at most 10 possible answers per question and at least 2 and at most 100 questions.
+Next lines in the input file describe survey results. Every line contains a character per question (in the order they appear in the input file) that gives the answer code for the corresponding question. The characters follow one another without any delimiters. This section is terminated by the line with a single character '#'. There is at least one line with answers in the section and at most 10000 answers in total (the number of lines times the number of questions).
+Next lines in the input file describe cross tables that are to be created. Each cross table description occupies one line. That line contains the code for the first question, followed by a space, followed by the different code for the second question, followed by a space, and followed by the cross table name, which is at most 100 characters long. This section is terminated by the line with a single character '#'. There are at most 100 cross table descriptions in the input file.
+The input file has no trailing spaces on any line. All names do not start or end with a space, but may contain spaces.
+Output
+Write to the output file a cross table for every cross table description in the input file in the order they appear in the input file. On the first line of the cross table write the survey name, followed by a space, followed by a '-' (dash) character, followed by a space, followed by the cross table name. Then write the description of the first question, and the description of the second question exactly as they appear in the input file and in the same format. Then write an empty line, followed by the table itself. The table contains exactly 1+3*(N1+1) lines and exactly 6*(N2+2) characters on every line, where N1 is the number of possible answers for the first question, and N2 is the number of possible answers for the second question.
+The table has one line for column headings, and N1+1 rows (3 lines per row). The first N1 of these rows correspond to the answers on the first question in the order they appear in the input file, and the last row is for column totals. The table also has N2+2 columns, where each column is 6 characters wide. The first column is for row headings; the subsequent N2 columns correspond to the answers on the second question in the order they appear in the inp5t file, and the last column is for row totals. All information in the cells (including headings) is aligned to the right and is padded on the left with spaces to become 6 characters wide.
+The heading for the first column is empty. The headings for the subsequent N2 columns are composed from the second question code, followed by a ':' (colon) character, and followed by the corresponding answer code. The heading for the last column is the string "TOTAL" (without quotes). The headings for the first N1 3-line rows of the cross table are composed from the first question code, followed by a ':' (colon) character, and followed by the corresponding answer code. The heading for the last row is the string "TOTAL" (without quotes). Row headings are situated on the first line of the corresponding row. The subsequent 2 lines in the heading column of every row must be blank.
+All non-heading cells in the table contain computed values and percents. On the first line of every cell the corresponding cross table integer value is situated. The second line contains properly rounded to integers row-wise percent, with a mandatory trailing '%' (percent) character, or a single '-' (dash) character if the corresponding row-wise percent is not defined. The third line contains column-wise percent in the same format. All cross tables in the output file must be separated by a single empty line.
+Sample Input
+New Year Phone Survey for ACM ICPC
+Q01 Hello!
+ H Hello!
+ Y Yes!
+ * Uhm...
+ . (silence)
+ @ (other)
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+BYE Happy New Year!
+ Y You too.
+ * (censored)
+ @ (other)
+ . (hang up)
+#
+.@.
+HH@
+.@.
+YFY
+HQ*
+H@.
+YYY
+.H@
+HFY
+HH@
+#
+Q01 Q02 Health vs greeting style
+Q02 BYE Politeness matrix
+#
+Sample Output
+New Year Phone Survey for ACM ICPC - Health vs greeting style
+Q01 Hello!
+ H Hello!
+ Y Yes!
+ * Uhm...
+ . (silence)
+ @ (other)
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+
+       Q02:H Q02:Y Q02:F Q02:Q Q02:@ TOTAL
+ Q01:H     2     0     1     1     1     5
+         40%    0%   20%   20%   20%  100%
+         66%    0%   50%  100%   33%   50%
+ Q01:Y     0     1     1     0     0     2
+          0%   50%   50%    0%    0%  100%
+          0%  100%   50%    0%    0%   20%
+ Q01:*     0     0     0     0     0     0
+           -     -     -     -     -     -
+          0%    0%    0%    0%    0%    0%
+ Q01:.     1     0     0     0     2     3
+         33%    0%    0%    0%   67%  100%
+         34%    0%    0%    0%   67%   30%
+ Q01:@     0     0     0     0     0     0
+           -     -     -     -     -     -
+          0%    0%    0%    0%    0%    0%
+ TOTAL     3     1     2     1     3    10
+         30%   10%   20%   10%   30%  100%
+        100%  100%  100%  100%  100%  100%
+
+New Year Phone Survey for ACM ICPC - Politeness matrix
+Q02 How are you?
+ H Hello!
+ Y Yes!
+ F Fine!
+ Q Who are you?
+ @ (other)
+BYE Happy New Year!
+ Y You too.
+ * (censored)
+ @ (other)
+ . (hang up)
+
+       BYE:Y BY:* BYE:@ BYE:. TOTAL
+ Q02:H     0     0     3     0     3
+          0%    0%  100%    0%  100%
+          0%    0%  100%    0%   30%
+ Q02:Y     1     0     0     0     1
+        100%    0%    0%    0%  100%
+         33%    0%    0%    0%   10%
+ Q02:F     2     0     0     0     2
+        100%    0%    0%    0%  100%
+         67%    0%    0%    0%   20%
+ Q02:Q     0     1     0     0     1
+          0%  100%    0%    0%  100%
+          0%  100%    0%    0%   10%
+ Q02:@     0     0     0     3     3
+          0%    0%    0%  100%  100%
+          0%    0%    0%  100%   30%
+ TOTAL     3     1     3     3    10
+         30%   10%   30%   30%  100%
+        100%  100%  100%  100%  100%
+
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Roman Elizarov
+
+
+1188. Library
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Castaway Robinson Crusoe is living alone on a remote island. One day a ship carrying a royal library has wrecked nearby. Usually Robinson brings any useful stuff from the shipwreck to his island, and this time he has brought a big chest with books.
+ Robinson has decided to build a bookcase for these books to create his own library. He cut a rectangular niche in the rock for that purpose, hammered in wooden pegs, and placed wooden planks on every pair of pegs that have the same height, so that all planks are situated horizontally and suit to act as shelves.
+Unfortunately, Robinson has discovered that one especially old and big tome does not fit in his bookcase. He measured the height and width of this tome and has decided to redesign his bookcase in such a way, as to completely fit the tome on one of the shelves, taking into account locations of other shelves and the dimensions of the niche. With each shelf in the bookcase, one of the following operations should be made:
+1.      Leave the shelf on its original place.
+2.      Move the shelf to the left or to the right.
+3.      Shorten the shelf by cutting off a part of the plank and optionally move it to the left or to the right.
+4.      Move one of the pegs to a different place at the same height and move the shelf to the left or to the right.
+5.      Shorten the shelf by cutting off a part of the plank, move one of the pegs to a different place at the same height, and optionally move the shortened shelf to the left or to the right.
+6.      Remove the shelf from the bookcase along with both supporting pegs.
+We say that the shelf is properly supported by its pegs, if exactly two distinct pegs support the shelf and the center of the shelf is between its pegs or coincides with one of the pegs. The original design of Robinson's library has all the shelves properly supported by their pegs and lengths of all shelves are integer number of inches. The Robinson may only cut an integer number of inches from the planks, because he has no tools for more precise measurements. All remaining shelves after the redesign must be properly supported by their pegs.
+You are to find the way to redesign Robinson's library to fit the special old tome without changing original design too much. You have to minimize the number of pegs that are to be removed from their original places during the redesign (operations 4 and 5 remove one peg, and operation 6 removes two pegs). If there are different ways to solve the problem, then you are to find the one that minimizes the total length of planks that are to be cut off (operations 3 and 5 involve cutting something from the planks, and operation 6 counts as if cutting off the whole plank). Width of planks and diameter of pegs shall be considered zero.
+The tome may not be rotated. The tome should completely (to all its width) stand on one of the shelves and may only touch other shelves, their pegs or niche's edge.
+Input
+The first line of the input file contains four integer numbers XN, YN, XT, and YT, separated by spaces. They are, correspondingly, width and height of the niche, and width and height of the old tome in inches (1 = XN, YN, XT, YT = 1000).
+The second line of the input file contains a single integer number N (1 = N = 100) that represents the number of the shelves. Then N lines follow. Each line represents a single shelf along with its two supporting pegs, and contains five integer numbers yi, xi, li, x1i, x2i, separated by spaces, where:
+�       yi (0 < yi < YN) - the height of the ith shelf above the bottom of the niche in inches.
+�       xi (0 = xi < XN) - the distance between the left end of the ith shelf and the left edge of the niche in inches.
+�       li (0 < li = XN - xi) - the length of the ith shelf in inches.
+�       x1i (0 = x1i = li/2) - the distance between the left end of the ith shelf and its leftmost supporting peg in inches.
+�       x2i (li/2 = x2i = li; x1i < x2i) - the distance between the left end of the ith shelf and its rightmost supporting peg in inches.
+All shelves are situated on different heights and are properly supported by their pegs. The problem is guaranteed to have a solution for the input data.
+Output
+The output file shall contain two integer numbers separated by a space. The first one is the minimal number of pegs that are to be removed by Robinson from their original locations to place the tome. The second one is the minimal total length of planks in inches that are to be cut off during the redesign that removes the least number of pegs.
+Sample Input
+11 8 4 6
+4
+1 1 7 1 4
+4 3 7 1 6
+7 2 6 3 4
+2 0 3 0 3
+Sample Output
+1 3
+
+
+Problem Source: 2001-2002 ACM Northeastern European Regional Programming Contest
+Author: Elena Kryuchkova, Roman Elizarov
+
+
+1191. Cops and Robbers
+Time Limit: 3 second
+Memory Limit: 1000K
+
+A robber leaves the place of the bank robbery. A cop follows him, with a time lag of L minutes. They run equally fast, thus the lag between them remains constant. Finally, feeling a little bit tired, the robber reaches a tram stop. He wants to take a tram of a specific route; trams follow each other with an interval of exactly K1 minutes on this route at any time of day and night. When the tram comes, the robber boards it. The policeman comes to the same tram stop still L minutes later, than the robber. If the robber is still on this stop, waiting for the train to arrive, policeman arrests him. In the other case, the cop himself starts waiting for the tram of the same route, robber just used before. On some stop the robber leaves his tram, and starts waiting for a tram of another route (trams keep an interval of exactly K2 minutes on that route). When the tram arrives, the robber continues his way. Of course, the cop leaves also on this stop, and, catching the robber still waiting there, performs an arrest. But if the robber managed to leave - ok, the policeman waits for the tram of the same route to come and follows the robber...
+This process continues until either the policeman arrests the robber, either the robber, having ridden with N trams, reaches his secret cover, where he is in safety.
+Although the speeds of the cop and robbers remain equal all the time, as also the speeds of their trams are equal, it may happen that the policeman will have luck to overtake the robber. For instance, if L < K1, then it may happen that the policeman will reach the first stop, when the robber is still waiting for the tram there. Also other situations are possible... Write a program to determine, whether it could happen so, that the robber will not avoid the justice!
+Input
+The input file consists of two lines: in the first line there are numbers L (0 < L < 100) and N (0 < N < 100) delimited with a space. In the second line, also being space-delimited, follow the intervals of the trams on the corresponding routes K1, K2, ... KN (0 < Ki < 100).
+Output
+The output file should contain a single word, written with capital letters: NO - if the cop has no chance to overtake the robber, before he reaches his cover, and YES, if he still has such a chance.
+Sample Input
+15 4
+7 3 13 6
+Sample Output
+YES
+
+
+Problem Source: Fifth High School Children Programming Contest, Ekaterinburg, March 02, 2002
+Author: Leonid Volkov
+
+
+1196. History Exam
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Teacher of history decided to simplify examenation process. Every student should write list of years with well-known events. Teacher has its own list. Student get mark according to number of years in his list which are contained in teacher's list.
+Input
+First line contains N - number of years in teacher's list. 1 <= N <= 15000. Next N lines contain teacher's list. Every year in list doesn't exceed 109. Teacher's list is sorted in ascending order.
+Next line contains M - number of years in student's list. 1 <= M <= 100000. Next M lines contain student's list. This list isn't sorted. Years in student's list can appear more than once.
+Output
+One integer - amount of numbers in student's list which are contained in teacher's list.
+Sample Input
+2
+1054
+1492
+4
+1492
+65536
+1492
+100
+Sample Output
+2
+
+
+Problem Source: Fifth High School Children Programming Contest, Ekaterinburg, March 02, 2002
+
+
+1197. Lonesome knight
+Time Limit: 3 second
+Memory Limit: 1000K
+
+This task is very simple. You are to determine how many fields on the chessboard are under attack of the knight. There are no other chess pieces on the board. Just in case we will remember you how knight moves. First it moves on two fields in horizontal or vertical direction and then on one more field perpendicular to the starting direction.
+Input
+The first line of the file contains the only number N, 1 <= N <= 100 - the number of the test cases. Then N lines follow. Each of these lines contains two characters (lowercase letter from 'a' to 'h' and integer from 1 to 8) - usual chess description of the field where knight is placed. Letter denotes horizontal position and number denotes vertical position.
+Output
+Output file should contain exactly N lines. Each line should contain the only integer - number of the fields on the chessboard that are under attack of the knight.
+Sample Input
+3
+a1
+d4
+g6
+Sample Output
+2
+8
+6
+
+
+Problem Source: Fifth High School Children Programming Contestl Ekaterinburg, March 02, 2002
+
+
+

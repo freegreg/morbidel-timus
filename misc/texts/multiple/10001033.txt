@@ -1,0 +1,950 @@
+1000. A+B Problem
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Calculate a + b
+Input
+a and b
+Output
+a+b
+Sample Input
+1 5
+Sample Output
+6
+Hint
+Use + operator
+
+
+Problem Source: Pavel Atnashev
+
+
+1002. Phone numbers
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+In the present world you frequently meet a lot of call numbers and they are going to be longer and longer. You need to remember such a kind of numbers. One method to do it in an easy way is to assign letters to digits as shown in the following picture:
+
+        1 ij    2 abc   3 def
+        4 gh    5 kl    6 mn
+        7 prs   8 tuv   9 wxy
+                0 oqz
+
+This way every word or a group of words can be assigned a unique number, so you can remember words instead of call numbers. It is evident that it has its own charm if it is possible to find some simple relationship between the word and the person itself. So you can learn that the call number 941837296 of a chess playing friend of yours can be read as WHITEPAWN, and the call number 2855304 of your favourite teacher is read BULLDOG.
+Problem
+Write a program to find the shortest sequence of words (i.e. one having the smallest possible number of words) which corresponds to a given number and a given list of words. The correspondence is described by the picture above.
+Input
+Input contains a series of tests. The first line of each test contains the call number, the transcription of which you have to find. The number consists of at most 100 digits. The second line contains the total number of the words in the dictionary (maximum is 50000). Each of the remaining lines contains one word, which consists of maximally 50 small letters of the English alphabet. The total size of the input file doesn't exceed 300KB. The last line of input file contains call number -1.
+Output
+Each line of output contains the shortest sequence of words which has been found by your program. The words are separated by single spaces. If there is no solution to the input data, the line contains text `No solution.'. If there are more solutions having the minimum number of words, you can choose any single one of them.
+Sample Input
+7325189087
+5
+it
+your
+reality
+real
+our
+4294967296
+5
+it
+your
+reality
+real
+our
+-1
+
+Sample Output
+reality our
+No solution.
+
+
+1003. Parity
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+Now and then you play the following game with your friend. Your friend writes down a sequence consisting of zeroes and ones. You choose a continuous subsequence (for example the subsequence from the third to the fifth digit inclusively) and ask him, whether this subsequence contains even or odd number of ones. Your friend answers your question and you can ask him about another subsequence and so on.
+Problem
+Your task is to guess the entire sequence of numbers. You suspect some of your friend's answers may not be correct and you want to convict him of falsehood. Thus you have decided to write a program to help you in this matter. The program will receive a series of yo5r questions together with the answers you have received from your friend. The aim of this program is to find the first answer which is provably wrong, i.e. that there exists a sequence satisfying answers to all the previous questions, but no such sequence satisfies this answer.
+Input
+Input contains a series of tests. The first line of each test contains one number, which is the length of the sequence of zeroes and ones. This length is less or equal to 1000000000. In the second line, there is one positive integer which is the number of questions asked and answers to them. The number of questions and answers is less or equal to 5000. The remaining lines specify questions and answers. Each line contains one question and the answer to this question: two integers (the position of the first and last digit in the chosen subsequence) and one word which is either `even' or `odd' (the answer, i.e. the parity of the number of ones in the chosen subsequence, where `even' means an even number of ones and `odd' means an odd number). The file is ended with a line containing -1.
+Output
+Each line of output containing one integer X. Number X says that there exists a sequence of zeroes and ones satisfying first X parity conditions, but there exists none satisfying X+1 conditions. If there exists a sequence of zeroes and ones satisfying all the given conditions, then number X should be the number of all the questions asked.
+Sample Input
+10
+5
+1 2 even
+3 4 odd
+5 6 even
+1 6 even
+7 10 odd
+-1
+Sample Output
+3
+
+
+1004. Sightseeing trip
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+There is a travel agency in Adelton town on Zanzibar island. It has decided to offer its clients, besides many other attractions, sightseeing the town. To earn as much as possible from this attraction, the agency has accepted a shrewd decision: it is necessary to find the shortest route which begins and ends at the same place.
+Problem
+Your task is to write a program which finds such a route. In the town there are N crossing points numbered from 1 to N and M two-way roads numbered from 1 to M. Two crossing points can be connected by multiple roads, but no road connects a crossing point with itself. Each sightseeing route is a sequence of road numbers y_1, ..., y_k, k>2. The road y_i (1<=i<=k-1) connects crossing points x_i and x_{i+1}, the road y_k connects crossing points x_k and x_1. All the numbers x_1,...,x_k should be different. The length of the sightseeing route is the sum of the lengths of all roads on the sightseeing route, i.e. L(y_1)+L(y_2)+...+L(y_k) where L(y_i) is the length of the road y_i (1<=i<=k). Your program has to find such a sightseeing route, the length of which is minimal, or to specify that it is not possible, because there is no sightseeing route in the town.
+Input
+Input contains a series of tests. The first line of each test contains two positive integers: the number of crossing points N<=100 and the number of roads M<=10000. Each of the next M lines describes one road. It contains 3 positive integers: the nwmber of its first crossing point, the number of the second one, and the length of the road (a positive integer less than 500). Input is ended with a '-1' line.
+Output
+Each line of output is an answer. It contains either a string `No solution.' in case there isn't any sightseeing route, or it contains the numbers of all crossing points on the shortest sightseeing route in the order how to pass them (i.e. the numbers x_1 to x_k from our definition of a sightseeing route), separated by single spaces. If there are multiple sightseeing routes of the minimal length, you can output any one of them.
+Sample Input
+5 7
+1 4 1
+1 3 300
+3 1 10
+1 2 16
+2 3 100
+2 5 15
+5 3 20
+4 3
+1 2 10
+1 3 20
+1 4 30
+-1
+Sample Output
+1 3 5 2
+No solution.
+
+
+1005. Stone pile
+Time Limit: 5 second
+Memory Limit: 1000K
+
+You have a number of stones with known weights W1…Wn. Write a program that will rearrange the stones into two piles such that weight difference between the piles is minimal.
+Input
+Input contains the number`of stones N (1 <= N <= 20) and weights of the stones W1…Wn (1 <= Wi <= 100000) delimited by white space (either space characters or new lines).
+Output
+Your program should output a number representing the minimal possible weight difference between stone piles.
+Sample Input
+5
+5
+8
+13
+27
+14
+Sample Output
+3
+
+
+
+1006. Square frames
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Frame consists of the following characters:
+
+N square frames (1 <= N <= 15) were sequentially drawn on screen 50 characters wide 20 lines tall. If parts of some frames intersect, only the part of the frame drawn latter remains visible. Each frame lies fully on the screen.
+You need to write a program that builds a possible sequence of frames that (if drawn sequentially) would produce the same picture on the screen. Your sequence does not have to be the same with the original sequence used to build the picture on the screen. However, it should not contain more than 2000 frames.
+Input
+The screen area was originally filled with dots (ASCII 46). Input contains the final picture on the screen after the sequence of frames is drawn.
+Output
+Your program should write to output the number of frames in the sequence built and the frames coordinates as follows:
+
+K
+X1 Y1 A1
+...
+Xk Yk Ak
+
+Here K is the number of frames, Xi and Yi are coordinates of the upper left frame corner (0 <= Xi <= 49, 0 <= Yi <= 19) and Ai is the length of the frame side (2 <= Ai). All numbers must be delimited with one or more spaces and/or line breaks.
+Sample Input
+
+Sample Output
+6
+16 11 7
+32 14 4
+4 8 8
+11 6 7
+36 11 3
+28 8 3
+
+
+1007. Code words
+Time Limit: 5 second
+Memory Limit: 1000K
+
+A transmitter sends over a noisy line some binary code words. The receiver on the other end uses special technique to recover the original words.
+
+Every word originally consists of symbols 0 and 1. All words have the same length N (4 <= N <= 1000). After travelling through the noisy line one of the following modifications to a word may occur:
+
+1. Any (but only one) symbol 0 is replaced by 1.
+2. Any (but only one) symbol is removed.
+3. A symbol (0 or 1) is inserted at any position.
+
+It is known that the original words all have the following property: the sum of positions where symbols 1 are located is a multiple of (N+1) or equal to zero.
+Input
+Input contains number N followed by received words. The words are delimited with line breaks. There are no more than 1000 words in the file. There is nothing else in the file, except maybe for some extra spaces or line breaks.
+Output
+Your program should print to output the original sequence of words as they were transmitted. The words should be delimited by line breaks.
+Sample Input
+4
+0000
+011
+1011
+11011
+Sample Output
+0000
+0110
+1001
+1111
+
+
+
+1008. Image encoding
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There are several ways to encode an image. In this problem we will consider two representations of an image. We assume that the image consists of black and white pixels. There is at least one black pixel and all black pixels are connected with their sides. Coordinates of black pixels are not less then 1 and not greater then 10. An example of such an image is at the figure.
+
+Both representations describe arrangement of black pixels only.
+At the first representation we specify in the first line number of black pixels and coordinates of each black pixel in the following lines. Pixels are listed in order of increasing X. In case of equality of X they are listed in order of increasing Y. Image at the figure is encoded as follows:
+
+6
+2 3
+2 4
+3 3
+3 4
+4 2
+4 3
+
+At the second representation we specify in the first line coordinates of the lowest left black pixel. Each of the following lines contains a description of neighbors for one of the pixels. At first, neighbors of the lowest left pixel are specified, than neighbors of its first neighbor (if it exists) are specified, than neighbors of its second neighbor (if it also exists) follow. When all its neighbors are described the description of the neighbors of its first neighbor follows. The description of the neighbors of its second neighbor follows than and so on.
+Each descriptive line contains at most one letter for each neighbor: R for the right, T for the top, L for the left, B for the bottom. If the neighbor was already specified it is not included into the descriptive line and vice-versa. Also there is only one descriptive line for each pixel. Neighbors are listed counter-clockwise starting with the right. Each descriptive line ends with ",". Last line ends with "." instead of ",". Image at the figure is encoded as follows:
+
+2 3
+RT,
+RT,
+,
+B,
+,
+.
+
+There are no leading or tailing spaces in any representation. There is exactly one space between X and Y coordinates.
+Input
+One representation of the image will be given to your program in the input.
+Output
+Your program has to write other representation of the image to the output
+Sample Input
+6
+2 3
+2 4
+3 3
+3 4
+4 2
+4 3
+
+
+Sample Output
+2 3
+RT,
+RT,
+,
+B,
+,
+.
+
+
+
+1009. K-bas%d numbers.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Let's consider K-based numbers, containing exactly N digits. We define a number to be valid if its K-based notation doesn't contain two successful zeroes.
+
+Example:
+1010230 is a valid 7-digit number
+1000198 is not a valid number
+0001235 is not a 7-digit number, it is a 4-digit number.
+
+Given two numbers N and K, you are to calculate an amount of valid K based numbers, contaning N digits.
+
+You may assume that 2 <= K <= 10; 2 <= N; 4 <= N+K <= 18.
+Input
+two decimal numbers N and K
+Output
+The result in decimal notation.
+Sample Input
+2
+10
+Sample Output
+90
+
+
+1010. Discrete Function
+Time Limit: 2 second
+Memory Limit: 1000K
+
+There is a discrete function. It is specified for integer arguments from 1 to N (2<=N<=100000). Each value of the function is longint (signed long in C++). You have to find such two points of the function for which all points between them are below than straight line connecting them and inclination of this straight line is the largest.
+Input
+There is an N in the first line. Than N lines follow with the values of the function for the arguments 1, 2, ..., N respectively.
+Output
+A pair of integers, which are abscissas of the desired points, should be written into one line of output. The first number must be less then the second one. If it is any ambiguity your program should write the pair with the smallest first number.
+Sample Input
+3
+2
+6
+4
+
+Sample Output
+1 2
+
+
+1011. Conductors
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+Everyone making translations from English to Russian knows an English phrase "Naked conductor runs along the bus". It has two very different meanings.
+Problem
+Every bus in the Ekaterinburg city has a special man (or woman) called conductor. When you ride the bus, you have to give money to the conductor. We know that there are more then P% conductors and less then Q% conductors. Your task is to determine a minimal possible number of Ekaterinburg citizens.
+Input
+Two numbers P,Q such that 0.01 <= P, Q <= 99.99 numbers are given with 2 digits precision. These numbers are separated by some spaces or "end of line" symbols.
+Output
+The minumal number of Ekaterinburg citizens.
+Sample Input
+13
+14.1
+Sample Output
+15
+
+
+1012. K-based numbers. Version 2.
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Let's consider K-based numbers, containing exactly N digits. We define a number to be valid if its K-based notation doesn't contain two successful zeroes.
+
+Example:
+1010230 is a valid 7-digit number
+1000198 is not a valid number
+0001235 is not a 7-digit number, it is a 4-digit number.
+
+Given two numbers N and K, you are to calculate an amount of valid K based numbers, contaning N digits.
+
+You may assume that 2 <= K <= 10; 2 <= N; 4 <= N+K <= 180.
+Input
+two decimal numbers N and K
+Output
+The result in decimal notation.
+Sample Input
+2
+10
+Sample Output
+90
+
+1013. K-based numbers. Version 3.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Let's consider K-based numbers, containing exactly N digits. We define a number to be valid if its K-based notation doesn't contain two successful zeroes.
+
+Example:
+1010230 is a valid 7-digit number
+1000198 is not a valid number
+0001235 is not a 7-digit number, it is a 4-digit number.
+
+Given two numbers N and K, you are to calculate an amount of valid K based numbers, contaning N digits.
+
+You may assume that 2 <= K <= 10; 2 <= N; 4 <= N+K <= 1800.
+Input
+two decimal numbers N and K
+Output
+The result in decimal notation.
+Sample Input
+2
+10
+Sample Output
+90
+
+
+
+1014. The Product of Digits
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Your task is to find the minimal positive integer number Q so that the product of digits of Q is exactly equal to N.
+Input
+The input contains the single integer number N ( 0 <= N <= 10^9 ).
+Output
+Your program should print to the output the only number Q. If such a number does not exist print -1.
+Sample Input
+10
+Sample Output
+25
+
+
+Problem Source: Ural State University Internal Contes4 '99 #2
+
+
+
+1015. Test the Difference!
+Time Limit: 5 second
+Memory Limit: 1000K
+
+There are N (1<=N<=10**5) dice at the casino's "Royal Flush" storehouse. Some of them are equal, i.e. one can transform one die to another by properly rotating it. Let's say that two dice have the same scheme if it's possible to obtain one of them from another by a series of rotation. In other case (no rotations f the first die lead us to the second die) let's say that dice have different schemes. Your task is to define the dice with the same scheme.
+Input
+The first line of the input contains the number N. Next N lines contain descriptions of the dice. Each line contains exactly one description of the die. A line describes the die in 6 numbers (separated with spaces): the number of points on the left side of the die, then on the right side, on the top, on the forward side, on the bottom and on the backward side. Certainly, those 6 numbers represent a permutation of integer numbers from 1 to 6 inclusively.
+Output
+The first line of the output should contain the only number Q of different die's schemes at the storehouse. Next Q lines should contain the numbers of dice with the same scheme. To be more precisely the second line must begin with 1 and after that (separated by spaces) numbers of dice with the same as die #1 scheme must follow. We assume that all dice from the input are numbered from 1 to N. The third line (if not all the dice have the same scheme) must begin with the smallest possible number with the scheme different from the scheme of the die #1. This number (say P) is followed by numbers of dice with the same scheme as the scheme of the die #P. All next lines must be printed in the same manner. Numbers in each line of the output must be sorted in increasing order.
+Sample Input
+3
+1 2 6 4 5 3
+4 3 6 2 5 1
+4 1 3 6 2 5
+Sample Output
+2
+1 2
+3
+
+
+Problem Source: Ural State University Internal Contest '99 #2
+
+
+
+1016. A Cube on the Walk
+Time Limit: 5 second
+Memory Limit: 1000K
+
+A cube placed on some square of a usual chessboard. A cube completely covers one square of the chessboard but not anything more, i.e. size of cube's edge is equal to the size of square's edge. The integer number N (0<=N<=1000) is written on the each side of the cube. However it does not imply that the same number is written on all sides. On the different sides there are might be different numbers. One can move a cube to the next square by rotating it around the common edge of the cube and the square. During this motion the sum of the numbers on the bottom of the cube is calculated (each number is added as much times as it appeared at the bottom of the cube). Your task is to find the route between two given squares with the minimal sum of numbers on the bottom side. The numbers on the bottom at the beginning and at the end of walk are also counted. The start and the end positions are different.
+Input
+The only line of the input contains the necessary data set (only spaces used as delimiters). First, the start position is given, and then the end position. Each position is composed from the character (from 'a' to 'h' inclusively, it defines the number of the column on the chessboard) and the digit (from '1' to '8' inclusively, it defines the number of the row). That positions are followed by 6 numbers which are currently written on the forward, backward, top, right, bottom and left sides of the cube correspondingly.
+Output
+The only line of the output must contain the minimal sum followed by the optimal route (one of possible routes with minimal sum). The route must be represented by the sequence of cube's positions during the walk. It begins with the start square and ends with the finish square. All square positions on the chessboard should be given in the same format as in input.
+Sample Input
+e2 e3 0 8 1 2 1 1
+Sample Output
+5 e2 d2 d1 e1 e2 e3
+
+
+Problem Source: Ural State University Internal Contest '99 #2
+
+
+1017. The Staircases
+Time Limit: 2 second
+Memory Limit: 1000K
+
+One curious child has a set of N little bricks (5 <= N <= 500). From these bricks he builds different staircases. Staircase consists of steps of different sizes in a strictly descending order. It is not allowed for staircase to have steps equal sizes. Every staircase consists of at least two steps and each step contains at least one brick. Picture gives examples of staircase for N=11 and N=5:
+
+Your task is to write a program that reads from input file one number N and writes to output file the only number Q - amount of different staircases that can be built from exactly N bricks.
+Input
+Number N
+Output
+Number Q
+Sample Input
+212
+Sample Output
+995645335
+
+
+Problem Source: Ural State University Internal Contest '99 #2
+
+
+1018. A Binary Apple Tree
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Let's imagine how apple tree looks in binary computer world. You're right, it looks just like a binary tree, i.e. any biparous branch splits up to exactly two new branches. We will enumerate by natural numbers the root of binary apple tree, points of branching and the ends of twigs. This way we may distinguish different branches by their ending points. We will assume that root of tree always is numbered by 1 and all numbers used for enumerating are numbered in range from 1 to N, where N is the total number of all enumerated points. For instance in the picture below N is equal to 5. Here is an example of an enumerated tree with four branches:
+       2   5
+        \ /
+         3   4
+          \ /
+           1
+
+As you may know it's not convenient to pick an apples from a tree when there are too much of branches. That's why some of them should be removed from a tree. But you are interested in removing branches in the way of minimal loss of apples. So your are given amounts of apples on a branches and amount of branches that should be preserved. Your task is to determine how many apples can remain on a tree after removing of excessive branches.
+Input
+First line of input contains two numbers: N and Q (1 <= Q <= N, 1 < N <= 100). N denotes the number of enumerated points in a tree. Q denotes amount of branches that should be preserved. Next N-1 lines contains descriptions of branches. Each description consists of a three integer numbers divided by spaces. The first two of them define branch by it's ending points. The third number defines the number of apples on this branch. You may assume that no branch contains more than 30000 apples.
+Output
+Output file should contain the only number - amount of apples that can be preserved. And don't forget to preserve tree's root ;-)
+Sample Input
+5 2
+1 3 1
+1 4 10
+2 3 20
+3 5 20
+Sample Output
+21
+
+
+Problem Source: Ural State University Internal Contest '99 #2
+
+
+1019. A Line painting
+Time Limit: 5 second
+Memory Limit: 1000K
+
+The segment of numerical axis from 0 to 10**9 is painted into white color. After that some parts of this segment are painted into black, then some into white again and so on. In total there have been made N re-paintings (1 <= N <= 5000). You are to write a program that finds the longest white segment after this sequence of re-paintings.
+Input
+The first line of input contains the only number N. Next N lines contain information about re-paintings. Each of these lines has a form:
+ai bi ci
+where ai and bi are integers, ci is symbol 'b' or 'w', ai, bi, ci are separated by spaces.
+This triple of parameters represents repainting of segment from ai to bi into color ci ('w' - white, 'b' - black). You may assume that 0 < ai <= bi < 10**9.
+Output
+Output should contain two numbers x and y (x < y) divided by space(s). These numbers should define the longest white segment. If there are more than one such a segment output should contain the one with the smallest x.
+Sample Input
+4
+1 999999997 b
+40 300 w
+300 634 w
+43 47 b
+Sample Output
+47 634
+
+
+Problem Source: Ural State University Internal Contest '99 #2
+
+
+1020. Rope
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+        Plotters have barberically hammered N nails into an innocent plane shape, so that one can see now only heads. Moreover, pursuing their mean object, they have hammered all the nails into the vertices of a convex polygon. After that they…it is awful… have roped off the nails, so that the shape felt upset (the rope was very thin). They've done it as it is shown in the figure.
+
+Problem
+   Your task is to find out a length of the rope.
+Input
+   There two numbers in the first line of the standard input: N - a number of nails (1 <= N <= 100), and a real number R - a radius of heads of nails. All the heads have the same radius. Further there are N lines, each of them contains a pair of real coordinates (separated by a space) of centers of nails. An absolute value of the coordinates doesn't exceed 100. The nails are described in a clockwise order starting from an arbitrary nail. Heads of different nails don't adjoin.
+Output
+   The standard output should contain in its only line a real number with two digits precision (after a decimal point) - a length of the rope.
+Sample Input
+4 1
+0.0 0.0
+2.0 0.0
+2.0 2.0
+0.0 2.0
+Sample Output
+14.28
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Petrov A., Shamgunov N.
+
+
+1021. Sacrament of the sum.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+- The Brother of mine, the Head of Monastic Order wants to know tomorrow about the results long-term researches. He wants to see neither more nor less than the Summering Machine! Even moreover, he wants our Machine - only a machine - to demonstrate its comprehension of the Sacrament of the Sum as deeply as it is possible. He wants our Machine to find two numbers that give the sum equal to the Sacred Number 10 000.
+- Tsh-sh-sh! This is madness that borders on blasphemy! How can the Machine calculate the Sacred Number? Twenty seven years we work on it, but we've could teach it to tell if the sum of two introduced numbers greater or lower than 10 000. Can an ordinary mortal find two numbers that there sum will be equal to 10 000?
+- But we'll have to do it with the help of our Machine, even if it is not capable. Otherwise we'll have… let's say, big problems, if it is possible to call boiling oil like this. However, I have an idea. Do you remember, last week we've entered two numbers -7 and 13 into the Machine, and it answered that their sum is lower than 10 000. I don't know how to check this, but nothing's left for us than to believe to the fruit of our work. Let's enter now a greater number than -7 and start up the Machine again. We'll do like this again and again until we find a number that being added to 13 will give us 10 000. The only thing we are to do is to prepare an ascending list of numbers.
+- I don't believe in this… Let's start with the sum that is obviously greater than the Sacred Number and we'll decrease one of the summand. So we have more chances to avoid boilin… big problems.
+Problem
+Haven't come to an agreement, the Brothers went away to their cells. By next day everyone of them has prepared a list of numbers that, to his opinion, could save them… Can both of the lists save them together?
+Your program should decide, if it is possible to choose from two lists of integers such two numbers that their sum would be equal to 10 000.
+Input
+You are given both of these lists one by one. Format of each of these lists is as follows: in the first line of the list the quantity of numbers Ni of the i-th list is written. Further there is an i-th list of numbers each number in its line (Ni lines).The following conditions are satisfied: 1 <= Ni <= 50 000, each element of the lists lays in the range from -32768 to 32767. The first list is ascending and the second one is descending.
+Output
+You should write "YES" to the standard output if it is possible to choose from the two lists of integers such two numbers that their sum would be equal to 10 000. Otherwise you should write "NO".
+Sample Input
+4
+-175
+19
+19
+10424
+3
+8951
+-424
+-788
+Sample Output
+YES
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Volkov L., Pertrov A.
+
+
+1022. Genealogical tree.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+The system of Martians' blood relations is confusing enough. Actually, Martians bud when they want and where they want. They gather together in different groups, so that a Martian can have one parent as well as ten. Nobody will be surprised by a hundred of children. Martians have got used to this and their style of life seems to them natural.
+And in the Planetary Council the confusing genealogical system leads to some embarrassment. There meet the worthiest of Martians, and therefore in order to offend nobody in all of the discussions it is used first to give the floor to the old Martians, than to the younger ones and only than to the most young childless assessors. However, the maintenance of this order really is not a trivial task. Not always Martian knows all of his parents (and there's nothing to tell about his grandparents!). But if by a mistake first speak a grandson and only than his young appearing great-grandfather, this is a real scandal.
+Problem
+Your task is to write a program, which would define once and for all, an order that would guarantee that every member of the Council takes the floor earlier than each of his descendants.
+Input
+The first line of the standard input contains an only number N, 1 <= N <= 100 - a number of members of the Martian Planetary Council. According to the centuries-old tradition members of the Council are enumerated with the natural numbers from 1 up to N. Further, there are exactly N lines, moreover, the I-th line contains a list of I-th member's children. The list of children is a sequence of serial numbers of children in a arbitrary order separated by spaces. The list of children may be empty. The list (even if it is empty) ends with 0.
+Output
+The standard output should contain in its only line a sequence of speakers' numbers, separated by spaces. If several sequences satisfy the conditions of the problem, you are to write to the standard output any of them. At least one such sequence always exists.
+Sample Input
+5
+0
+4 5 1 0
+1 0
+5 3 0
+3 0
+Sample Output
+2 4 5 3 1
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Volkov L.
+
+
+1023. Buttons
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+As you surely already know, Yekaterinburg has gotten its right to hold The Summer Olympic Games of the 2032. It is planned that it will be allowed to Russia as a country-organizer to emend a program of the games a bit. So, in order to improve the command result it has been decided to replace the competition in gymnastics by the competition in the new game "Buttons".
+The rules of the game are very simple. There's a small heap of K buttons before two players. The players in turns take buttons from the heap, moreover, at a time one can take a number of buttons from 1 up to L. The one who takes the last button is the winner.
+The rules of the Olympic Games will be a bit harder then usual. The one, who is to make a first step according to a lot, has !n opportunity to fix a number K with the following restriction to it: 3 <= K <= 100 000 000 (that is the exact number of buttons that has been prepared for the Olympic tournament). The player who is to make the second step fixes a number L that satisfies the following conditions 2 <= L < K.
+Problem
+A very crucial task is given to your team: you are to write a program that should help the second player to make his choice. In other words, given a number K your program is to find a number L that guaranties a victory to the second player with a proper game of both sides.
+So, for instance, there are only three buttons in the heap, the choice L = 2 provides for the victory of the second player. Really, if the first player takes only one button at his turn, the second one wins, taking the two last buttons. On the contrary, if the first one takes two buttons, the second one wins, taking the last button.
+Input
+The standard input consists of one line, which contains an only integer number K - a number of buttons in the heap, that has fixed the first player at his turn.
+Output
+To the standard output you are to write the only number L - the maximal number of buttons that can be taken at a time which provides for the victory of the second player. If there are several those numbers L, you should write the least. If there are no such numbers, you are to write 0 to the standard output.
+Sample Input
+3
+Sample Output
+2
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Volkov L.
+
+
+1024. Permutations.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+We remind that the permutation of some final set is a one-to-one mapping of the set onto itself. Less formally, that is a way to reorder elements of the set. For example, one can define a permutation of the set {1,2,3,4,5} as follows:
+
+This record defines a permutation P as follows: P(1) = 4, P(2) = 1, P(3) = 5, etc.
+What is the value of the expression P(P(1))? It's clear, that P(P(1)) = P(4) = 2. And P(P(3)) = P(5) = 3. One can easily see that if P(n) is a permutation then P(P(n)) is a permutation as well. In our example (believe us)
+
+It is natural to denote this permutation by P2(n) = P(P(n)). In a general form the defenition is as follows: P(n) = P1(n), Pk(n) = P(Pk-1(n)). Among the permutations there is a very important one - that moves nothing:
+
+It is clear that for every k the following relation is satisfied: (EN)k = EN. The following less trivial statement is correct (we won't prove it here, you may prove it yourself incidentally): Let P(n) be some permutation of an N elements set. Then there exists a natural number k, that Pk = EN. The least natural k such that Pk = EN is called an order of the permutation P.
+Problem
+The problem that your program should solve is formulated now in a very simple manner: "Given a permutation find its order."
+Input
+In the first line of the standard input an only natural number N (1 <= N <= 1000) is contained, that is a number of elements in the set that is rearranged by this permutation. In the second line there are N natural numbers of the range from 1 up to N, separated by a space, that define a permutation - the numbers P(1), P(2),…, P(N).
+Output
+You should write an only natural number to the standard output, that is an order of the permutation. You may consider that an answer shouldn't exceed 109.
+Sample Input
+5
+4 1 5 2 3
+Sample Output
+6
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Shamgunov N.
+
+
+1025. Democracy in danger.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+In one of the countries of Caribbean basin all decisions were accepted by the simple majority of votes at the general meeting of citizens (fortunately, there were no lots of them). One of the local parties, aspiring to come to power as lawfully as possible, got its way in putting into effect some reform of the election system. The main argument was that the population of the island recently had increased and it was to longer easy to hold general meetings.
+The essence of the reform is as follows. From the moment of its coming into effect all the citizens were divided into K (may be not equal) groups. Votes on every question were to be held then in each group, moreover, the group was said to vote "for" if more than half of the group had voted "for", otherwise it was said to vote "against". After the voting in each group a number of group that had voted "for" and "against" was calculated. The answer to the question was positive if the number of groups that had voted "for" was greater than the half of the general number of groups.
+At first the inhabitants of the island accepted this system with pleasure. But when the first delights dispersed, some negative properties became obvious. It appeared that supporters of the party, that had introduced this system, could influence upon formation of groups of voters. Due to this they had an opportunity to put into effect some decisions without a majority of voters "for" it.
+Let's consider three groups of voters, containing 5, 5 and 7 persons, respectively. Then it is enough for the party to have only three supporters in each of the first two groups. So it would be able to put into effect a decision with the help of only six votes "for" instead of nine, that would .be necessary in the case of general votes.
+Problem
+You are to write a program, which would determine according to the given partition of the electors the minimal number of supporters of the party, sufficient for putting into effect of any decision, with some distribution of those supporters among the groups.
+Input
+The input of this problem contains two lines. In the first line an only natural number K <= 101 - a quantity of groups - is written. In the second line there are written K natural numbers, separated with a space. Those numbers define a number of voters in each group. In order to simplify the notion of "the majority of votes" we'll say that the number of groups also as the number of voters in each group is odd. You may also consider, that the population of the island does not exceeds 10001 persons.
+Output
+You should write an only natural number - a minimal quantity of supporters of the party, that can put into effect any decision.
+Sample Input
+3
+5 7 5
+Sample Output
+6
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Volkov L.
+
+
+1026. Questions and answers.
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+The database of the Pentagon contains a top-secret information. We don't know what the information is - you know, it's top-secret, - but we know the format of its representation. It is extremely simple. We don't know why, but all the data is coded by the natural numbers from 1 up to 5000. The size of the main base (we'll denote it be N) is rather big - it may contain up to 100 000 those numbers. The database is to process quickly every query. The most often query is: "Which element is i-th by its value?"- with i being a natural number in a range from 1 to N.
+Problem
+Your program is to play a role of a controller of the database. In the other words, it should be able to process quickly queries like this.
+Input
+The standard input of the problem consists of two parts. At first, a database is written, and then there's a sequence of queries. The format of database is very simple: in the first line there's a number N, in the next N lines there are numbers of the database one in each line in an arbitrary order. A sequence of queries is written simply as well: in the first line of the sequence a number of queries K (1 <= K <= 100) is written, and in the next K lines there are queries one in each line. The query "Which element is i-th by its value?" is coded by the number i. A database is separated from a sequence of queries by the string of three symbols "#".
+Output
+The output should consist of K lines. In each line there should be an answer to the corresponding query. The answer to the query "i" is an element from the database, which is i-th by its value (in the order from the least up to the greatest element).
+Sample Input
+5
+7
+121
+123
+7
+121
+###
+4
+3
+3
+2
+5
+Sample Output
+121
+121
+7
+123
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Volkov L.
+
+
+1027. D++ Again .
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Background
+The language D++, that was perfected by the participants of our March competition, continues improving. Its founders try to make the syntax as clear as it is possible in order to make the programming simpler in the future.
+Of course, some minimal set of rules is to stay without changes. Your program is to check the observance of rules, concerning the arrangement of brackets and comments.
+Problem
+A text of a correct D++ program contains a symbol part, arithmetic expressions and comments. Comments may appear everywhere and may contain every symbol. A comment is always opened by a pair of symbols "(*" and is closed by a pair of symbols "*)". Each comment must be closed. An arithmetic expression in D++ is always opened by "(", is closed by ")" and may contain any of the following symbols: "=+-*/0123456789)(" and, surely, comments. No spaces in arithmetic expressions are allowed, though a carriage return may occur. You may run across embedded brackets in an arithmetic expression. In this case these brackets are to be balanced. It means that "((1)))" as well as "(23))((+)" are not correct arithmetic expressions. An arithmetic expression is correct if and only if brackets placed correctly. At last, all the rest of the program text (the result of rejection of all comments and arithmetic expressions from the initial text of the program) may contain every symbol excluding "(" and ")".
+We would like to especially notice that the spaces are posiible anywhere in a text of a program except when apppeearing in arithmetic expressions.
+Input
+Some text is written in the standard input. There are not more than 10 000 symbols in the text. There may be Latin letters, digits, brackets, symbols of arithmetic operations and the symbols "end of line" and "carriage return".
+Output
+Your program should write "YES" to the output if the introduced text is a correct D++ program, and "NO" otherwise.
+Sample Input
+Hello, here is a sample D++ program. It contains some arithmetical expressions like
+(2+2=4), (2+-/*) and ((3+3)*3=20(*this is not true, but you don't have to verify it :-) *)+8)
+ (* the closing bracket in the previous comment is also in order, since this bracket
+does not belong to any arithmetical expression*)
+Sample Output
+YES
+
+
+Problem Source: Ural State University Internal Contest October'2000 Junior Session
+Author: Volkov L., Lysenko A.
+
+
+1028. Stars.
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Astronomers often examine star maps where stars are represented by points on a plane and each star has Cartesian coordinates. Let the level of a star be an amount of the stars that are not higher and not to the right of the given star. Astronomers want to know the distribution of the levels of the stars.
+
+
+For example, look at the map shown on the figure above. Level of the star number 5 is equal to 3 (it's formed by three stars with a numbers 1, 2 and 4). And the levels of the stars numbered by 2 and 4 are 1. At this map there are only one star of the level 0, two stars of the level 1, one star of the level 2, and one star of the level 3.
+
+You are to write a program that will count the amounts of the stars of each level on a given map.
+Input
+The first line of the input contains a number of stars N (1<=N<=15000). The following N lines describe coordinates of stars (two integers X and Y per line separated by a space, 0<=X,Y<=32000). There can be only one star at one point of the plane. Stars are listed in ascending order of Y coordinate. Stars with equal Y coordinates are listed in ascending order of X coordinate.
+Output
+The output should contain N lines, one number per line. The first line contains amount of stars of the level 0, the second does amount of stars of the level 1 and so on, the last line contains amount of stars of the level N-1.
+Sample Input
+5
+1 1
+5 1
+7 1
+3 3
+5 5
+Sample Output
+1
+2
+1
+1
+0
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Zaletsky P.
+
+
+1029. Ministry.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Mr. F. wants to get a document be signed by a minister. A minister signs a document only if it is approved by his ministry. The ministry is an M-floor building with floors numbered from 1 to M, 1<=M<=100. Each floor has N rooms (1<=N<=500) also numbered from 1 to N. In each room there is one (and only one) official.
+A document is approved by the ministry only if it is signed by at least one official from the M-th floor. An official signs a document only if at least one of the following conditions is satisfied:
+a. the official works on the 1st floor;
+b. the document is signed by the official working in the room with the same number but situated one floor below;
+c. the document is signed by an official working in a neighbouring room (rooms are neighbouring if they are situated on the same floor and their numbers differ by one).
+Each official collects a fee for signing a document. The fee is a positive integer not exceeding 10^9.
+You should find the cheapest way to approve the document.
+Input
+The first line of an input contains two integers, separated by space. The first integer M represents the number of floors in the building, and the second integer N represents the number of rooms per floor. Each of the next M lines contains N integers separated with spaces that describe fees (the k-th integer at l-th line is the fee required by the official working in the k-th room at the l-th floor).
+Output
+You should print the numbers of rooms (one per line) in the order they should be visited to approve the document in the cheapest way. If there are more than one way leading to the cheapest cost you may print an any of them.
+Sample Input
+3 4
+10 10 1 10
+2 2 2 10
+1 10 10 10
+Sample Output
+3
+3
+2
+1
+1
+
+Hint
+You can assume that for each official there always exists a way to get the approval of a document (from the 1st floor to this official inclusively) paying no more than 10^9.
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Frolov S.
+
+
+1030. Titanic.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Background
+It is a historical fact that during the legendary voyage of "Titanic" the wireless telegraph machine had delivered 6 warnings about the danger of icebergs. Each of the telegraph messages described the point where an iceberg had been noticed. The first five warnings were transferred to the captain of the ship. The sixth one came late at night and a telegraph operator did not notice that the coordinates mentioned were very close to the current ship's position.
+Problem
+Write a program that will warn the operator about the danger of icebergs!
+Input
+The input messages are of the following format:
+Message #<n>.
+Received at <HH>:<MM>:<SS>.
+Current ship's coordinates are
+<X1>^<X2>'<X3>" <NL/SL>
+and <Y1>^<Y2>'<Y3>" <EL/WL>.
+An iceberg was noticed at
+<A1>^<A2>'<A3>" <NL/SL>
+and <B1>^<B2>'<B3>" <EL/WL>.
+===
+Here <n> is a positive integer, <HH>:<MM>:<SS> is the time of the message reception, <X1>^<X2>'<X3>" <NL/SL> and <Y1>^<Y2>'<Y3>" <EL/WL> means "X1 degrees X2 minutes X3 seconds of North (South) longitude and Y1 degrees Y2 minutes Y3 seconds of East (West) latitude."
+Output
+Your program should print to the output message in the following format:
+The distance to the iceberg: <s> miles.
+Where <s> should be the distance between the ship and the iceberg, (that is the length of the shortest path on the sphere between the ship and the iceberg). This distance should be printed up to (and correct to) two decimal digits. If this distance is less than (but not equal to!) 100 miles the program should print one more line with the text:
+DANGER!
+Sample Input
+Message #513.
+Received at 22:30:11.
+Current ship's coordinates are
+41^46'00" NL
+and 50^14'00" WL.
+An iceberg was noticed at
+41^14'11" NL
+and 51^09'00" WL.
+===
+Sample Output
+The distance to the iceberg: 52.04 miles.
+DANGER!
+Hint
+For simplicity of calculations assume that the Earth is an ideal sphere with the diameter of 6875 miles completely covered with water. Also you can be sure that lines in the input file break exactly as it is shown in the input samples. The ranges of the ship and the iceberg coordinates are the same as the usual range for geographical coordinates, i.e. from 0 to 90 degrees inclusively for NL/SL and from 0 to 180 degrees inclusively for EL/WL.
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Shtykov E.
+
+
+
+1031. Railway tickets.
+Time Limit: 3 second
+Memory Limit: 1000K
+
+The railway line "Ekaterinburg-Sverdlovsk" with several stations has been built. This railway line can be represented as a line segment, railway stations being points on it. The railway line starts at the station "Ekaterinburg" and finishes at the station "Sverdlovsk", so stations are numbered starting from "Ekaterinburg" (it has number 1) and "Sverdlovsk" is the last station.
+
+
+
+Cost of the ticket between any two stations depends only on a distance between them. The prices for the tickets are specified in the following table.
+distance between stations - X   price for the ticket
+0<X<=L1 C1
+L1<X<=L2        C2
+L2<X<=L3        C3
+
+Direct tickets from one station to another can be booked if and only if the distance between these station does not exceed L3. So sometimes it is necessary to book several tickets to pay for the parts of the whole way between stations.
+
+For example, on the railway line shown at the figure above there are seven stations. The direct ticket from the second station to the sixth one can not be booked. There are several ways to pay for the travel between these stations. One of them is to book two tickets: one ticket at price C2 to travel between the second and the third stations, and other at price C3 to travel between the third and the sixth stations. Note, that though the distance between the second and the sixth stations is equal to 2*L2, the whole travel can not be paid by booking two tickets at price C2, because each ticket is valid for only one travel and each travel should start and end only at stations.
+
+Your task is to write a program, that will find the minimal cost of the travel between two given stations.
+Input
+The first line of the input contains 6 integers L1, L2, L3, C1, C2, C3 (1 <= L1 < L2 < L3 <= 10^9, 1 <= C1 < C2 < C3 <= 10^9) in the specified order with one space between. The second line contains the amount of stations N (2 <= N <= 10000). The third line contains two different integers separated by space. They represent serial numbers of stations, the travel between which must be paid. Next N-1 lines contain distances from the first station ("Ekaterinburg") on the railway line to others. These distances are given as different positive integers and are arranged in the ascending order. The distance from "Ekaterinburg" to "Sverdlovsk" does not exceed 10^9. The distance between any neighboring stations does not exceed L3. The minimal travel cost between two given stations will not exceed 10^9.
+Output
+Program should print to the output the only number, which is the minimal travel cost between two given stations.
+Sample Input
+3 6 8 20 30 40
+7
+2 6
+3
+7
+8
+13
+15
+23
+
+Sample Output
+70
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Zaletsky P.
+
+
+1032. Find a multiple.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+The input file contains N natural (i.e. positive integer) numbers ( N <= 10000 ). Each of that numbers is not greater than 15000. This numbers are not necessarily different (so it may happen that two or more of them will be equal). Your task is to choose a few of given numbers ( 1 <= few <= N ) so that the sum of chosen numbers is multiple for N (i.e. N * k = (sum of chosen numbers) for some natural number k).
+Input
+The first line of the input contains the single number N. Each of next N lines contains one number from the given set.
+Output
+In case your program decides that the target set of numbers can not be found it should print to the output the single number 0. Otherwise it should print the number of the chosen numbers in the first line followed by the chosen numbers themselves (on a separate line each) in arbitrary order.
+
+If there are more than one set of numbers with required properties you should print to the output only one (preferably your favorite) of them.
+Sample Input
+5
+1
+2
+3
+4
+1
+Sample Output
+2
+2
+3
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Filimonenkov D.
+
+
+1033. Labyrinth.
+Time Limit: 2 second
+Memory Limit: 1000K
+
+Administration of the labyrinth has decided to start a new season with new wallpapers. For this purpose they need a program to calculate the square of the walls inside the labyrinth. This job is just for you!
+
+The labyrinth is represented by a matrix N*N (3 <= N <= 33, you see, '3' is a magic digit!). Some matrix cells contain a dot character ('.') that denotes an empty square. Other cells contain a diesis character ('#') that denotes a square filled by monolith block of stone wall. All squares are of the same size 3*3 meters.
+
+The walls are constructed around the labyrinth (except for the upper left and lower right corners, which are used as entrances) and on the cells with a diesis character. No other walls are constructed. There always will be a dot character at the upper left and lower right corner cells of the input matrix.
+
+
+Your task is to calculate the square of visible part of the walls inside the labyrinth. In other words, the square of the walls' surface visible to a visitor of the labyrinth. Note that there's no holes to look or to move through between any two adjacent blocks of the wall. The blocks are considered to be adjacent if they touch each other in any corner. See picture for an example: visible walls inside the labyrinth are drawn with bold lines. The height of all the walls is 3 meters.
+Input
+The first line of the input contains the single number N. The next N lines contain N characters each. Each line describes one row of the labyrinth matrix. In each line only dot and diesis characters will be used and each line will be finished with a new line character. There will be no spaces in the input.
+Output
+Your program should print to the output a single integer - the exact value of the square of the wallpaper needed.
+Sample Input
+5
+.....
+...##
+..#..
+..###
+.....
+Sample Output
+198
+
+
+
+Problem Source: Ural Collegiate Programming Contest '99
+Author: Pinaev V.

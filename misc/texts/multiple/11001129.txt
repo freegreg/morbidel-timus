@@ -1,0 +1,748 @@
+1100. Final Standings
+Time Limit: 3 second
+Memory Limit: 1000K
+
+Old contest software uses bubble sort for generating final standings. But now, there are too many teams and that software works too slow. You are asked to write a program, which generates exactly the same final standings as old software, but fast.
+Input
+The first line of input contains only integer 1 < N < 150000 - number of teams. Each of the next N lines contains two integers 1 <= ID <= 10000000 and 0 <= M <= 100. ID - unique number of team, M - number of solved problems.
+Output
+Output should contain N lines with two integers ID and M on each. Lines should be sorted by M in descending order using bubble sort (or analog).
+Sample Input
+8
+1 2
+16 3
+11 2
+20 3
+3 5
+26 4
+7 1
+22 4
+Sample Output
+3 5
+26 4
+22 4
+16 3
+20 3
+1 2
+11 2
+7 1
+Hint
+Bubble sort works following way:
+while (exists A[i] and A[i+1] such as A[i] < A[i+1]) do
+   Swap(A[i], A[i+1]);
+
+
+
+1101. Robot In The Field
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There is a field [-N..N]x[-N..N] At initial moment, robot stands at point (0, 0). It starts moving in (1, 0) direction. Robot moves according to a program. Program is a correct boolean expression. It contains operators NOT, AND, OR (NOT has highest priority, OR - lowest), brackets '(', ')', constants 'TRUE' and 'FALSE', and registers 'A', ..., 'Z'. Initially, all robot's registers are FALSE. Robot moves forward until it reaches a fork. Then, robot evaluate the expression and turns right if it is TRUE and turns left if it is FALSE. Besides, there are some points in the field, standing on which makes one of robot's registers to invert. You are asked to print robot's route until it falls out of the field.
+Input
+First line contains boolean expression. Second line contains three integers 1 <= N <= 100, 0 <= M <= 100, 0 <= K <= 100 M - number of forks, K - number of register inverting points. Then follows M lines, each of them contains two integers X, Y - coordinates of forks. Then follows K lines, each of them contains two integers X, Y and character C - coordinates of register inverting point and name of register, which inverts. You may assume, that there is no fork at point (0, 0). You may assume, that no two objects (forks or register inverting points) coincide. You may assume, that after some moves robot falls out of the field.
+Output
+You should print robot's route to output, every pair of coordinates in separate line.
+Sample Input
+NOT((A OR NOT B) AND (A OR B)) OR NOT (A AND NOT B OR TRUE)
+1 5 2
+1 0
+1 1
+1 -1
+-1 -1
+-1 1
+0 1 A
+-1 0 D
+Sample Output
+0 0
+1 0
+1 -1
+0 -1
+-1 -1
+-1 0
+-1 1
+0 1
+1 1
+
+
+1102. Strange Dialog
+Time Limit: 2 second
+Memory Limit: 1000K
+
+One entity named "one" tells with his friend "puton" and their conversation is interesting. "One" can say words "out" and "output", besides he calls his friend by name. "Puton" can say words "in", "input" and "one". They understand each other perfect and even write dialogue in strings without spaces.
+
+You have N strings. Some of them are dialogues. You know that each dialogue is important. Empty line is important too. Find important strings.
+Input
+In the first line of input there is one non negative integer N <= 1000. Next N lines contain strings. Each string consists of small latin latters. Total length of all strings is no more then 10^7 characters.
+Output
+Output consists of N lines. Line contains word "YES", if string is imtortant, otherwise "NO".
+Sample Input
+6
+puton
+inonputin
+oneputonininputoutoutput
+oneininputwooutoutput
+outpu
+utput
+Sample Output
+YES
+NO
+YES
+NO
+NO
+NO
+
+
+1103. Pensils and Circles
+Time Limit: 1 second
+Memory Limit: 1000K
+
+One old man and one old woman sit at the table and write letters. On the table in front of them at the coordinates (xi, yi) stay N pensils. Diameter of pensils is 0 and all of them stay verticaly. Man and woman decide to divide pensils into two equal groups. In order to do this old man give thread and put it on the table so that thread lay in a circle. Circle must cross over three pensils. He wants one group to get into the circle and other group not to get into the circle.
+Input
+At the first line of the input is one odd integer 3 <= N <= 5000. At the next N lines are coordinates of pensils. There are no three pensils staying in one line and there are no four pensils staying on one circle. All coordinates are integers.
+Output
+You must output coordinates of three pensils over which cross thread. Inside of circle must be (N-3)/2 pensils. On the circle must be these three pensils. And outside of the circle must be others (N-3)/2 pensils. If there is no solution you must output "No solution". If there are more than one solution output any of them.
+Sample Input
+7
+0 0
+1 0
+2 -1
+2 1
+1 1
+0 2
+-3 -1
+Sample Output
+0 0
+1 0
+2 1
+
+
+
+1104. Don't ask woman about her age.
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Mrs Little likes digits most of all. Every year she tries to make the best number of the year. She tryes to become more and more intelligent and every year studies a new digit. And the number she makes is written in numeric system which base equals to her age. To make her life more beautiful she writes only numbers that are divisible by her age minus one. Mrs Little wants to hold her age in secret.
+
+You are given a number consisting of digits 0,..,9 and latin letters A,..,Z, where A equals 10, B equals 11 etc. Your task is to find the minimal number k satisfying the following condition: the given number, written in k-based system is divisible by k-1.
+Input
+Input file consists of one string containing no more than 10^6 digits or uppercase latin letters.
+Output
+Output file should contain the only number k, or "No solution." if for all 2 <= k <= 36 condition written above can't be satisfyed. By the way, you should write your answer in decimal system.
+Sample Input
+A1A
+Sample Output
+22
+
+
+1105. Observers Coloring
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Nikifor told us that once he solved problem at mathematical tournament of S.Petersburg's secondary school N23i in 1994. Nikifor said that he solved a problem from the moment T0 to the moment T1. He remembers that N observers appeared in the room. The i-th observer entered the room at the moment t0_i and went out at the moment t1_i. At every moment there was al least one observer in the room.
+
+When the tournament was finished, Nikifor claimed that it is possible to color some observers, and the summary time when there was only one colored observer in the room is not less than 2/3 of the time when Nikifor solved problem.
+
+You are to answer whether Nikifor right or not.
+Input
+The first line of input contains real numbers T0 and T1 (T0 < T1). The second line contains number N --- number of observers (N < 10000). Next N lines contain real numbers t0_i and t1_i (T0 <= t0_i < t1_i <= T1).
+Output
+If Nikifor is not right output should contain the only number 0. If Nikifor is right you should write to the first line the quantity of colored observers, and next lines should contain their numbers. Do not write more than one number in a line. You may write theese numbers in any order. If there are more than one solution exist you may find any of them.
+Sample Input
+0.0 20.0
+7
+1.0 1.5
+0.0 10.0
+9.0 10.0
+18.0 20.0
+9.0 18.0
+2.72 3.14
+19.0 20.0
+Sample Output
+3
+2
+5
+7
+
+
+1106. Two Teams
+Time Limit: 1 second
+Memory Limit: 1000K
+
+The group of people consists of N members. Every member has one or more friends in the group. You are to write program that divides this group into two teams. Every member of each team must have friends in another team.
+Input
+The first line of input contains the only number N (N <= 100). Members are numbered from 1 to N. The second, the third,...and the (N+1)th line contain list of friends of the first, the second, ...and the Nth member respectively. This list is finished by zero. Remember that friendship is always mutual in this group.
+Output
+The first line of output should contain the number of people in the first team or zero if it is impossible to divide people into two teams. If the solution exists you should write the list of the first group into the second line of output. Numbers should be divided by unique space. If there are more than one solution you may find any of them.
+Sample Input
+7
+2 3 0
+3 1 0
+1 2 4 5 0
+3 0
+3 0
+7 0
+6 0
+Sample Output
+4
+2 4 5 6
+
+
+
+
+1107. Warehouse Problem
+Time Limit: 3 second
+Memory Limit: 1000K
+
+The are n different types of goods at the warehouse. Types are numbered by numbers 1..n. Employees of this warehouse made k different sets of theese goods. We'll say that two sets are "similar" if one of them is obtained by deleting one good form the second set or by replacing one good to another.
+
+E.g. Set "1 2 3 4" is similar to sets "3 2 1", "1 2 5 3 4", "1 2 3 4 2" and "1 5 4 3" and is not similar to "1 2", "1 1 2 2 3 4" and "4 5 3 6".
+
+This warehouse serves m shops (101 > m > n > 0), sending them sets of goods. Every two sets sent to the shop should not be similar. It is possible not to send any set to one or more shops.
+
+You are to wri4e program that determines how to distribute all k sets to theese m shops.
+Input
+The first line of input contains numbers n, k, m. Then k lines describing every set of goods follow, k<=50000. Each of theese lines is started with the number of goods in the set, then numbers of goods are written. Number of goods in any set is more than 0 and less than 101. All numbers in theese lines are separated by exactly one space.
+Output
+The first line of the output should contain word YES if the solution exists or NO contrary. If the answer is YES write the numbers of the shops where sets should be sent to. In the second line you have to write number of the shop where the first set should be sent to, the third --- for the second set, etc. If there are more than one solution exist you may find any of them.
+Sample Input
+8 20 12
+5 1 3 5 6 4
+5 1 3 5 6 3
+4 5 6 3 3
+4 5 6 3 4
+4 4 6 5 8
+4 7 7 7 7
+3 7 7 7
+2 2 2
+3 2 2 7
+3 1 2 3
+3 1 2 4
+10 1 2 3 4 5 6 7 8 7 6
+10 8 7 6 5 4 3 2 1 2 1
+20 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 1 3 5 7
+5 4 6 4 6 4
+5 6 4 6 4 6
+6 6 6 6 6 6 6
+3 6 6 6
+1 1
+1 2
+Sample Output
+YES
+2
+1
+9
+1
+6
+2
+4
+5
+3
+7
+8
+5
+4
+8
+7
+9
+1
+1
+2
+3
+
+
+
+1108. Heritage
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Your rich uncle died recently, and the heritage needs to be divided among your relatives and the church (your uncle insisted in his will that the church must get something). There are N relatives (N <= 18) that were mentioned in the will. They are sorted in descending order according to their importance (the first one is the most important). Since you are the computer scientist in the family, your relatives asked you to help them. They need help, because there are some blanks in the will left to be filled. Here is how the will looks:
+Relative #1 will get 1  / … of the whole heritage,
+Relative #2 will get 1  / … of the whole heritage,
+………………………………………………………...
+Relative #n will get 1 /  … of the whole heritage.
+The logical desire of the relatives is to fill the blanks in such way that the unale's will is preserved (i.e the fractions are non-ascending and the church gets something) and the amount of heritage left for the church is minimized.
+Input
+The only line of input contains the single integer N (1 <= N <= 18).
+Output
+Output the numbers that the blanks need to be filled (on separate lines), so that the heritage left for the church is minimized.
+Sample Input
+2
+Sample Output
+2
+3
+
+
+
+
+1109. Conference
+Time Limit: 0.5 second
+Memory Limit: 1350K
+
+On the upcoming conference were sent M representatives of country A and N representatives of country B (M and N <= 1000). The representatives were identified with 1, 2, ..., M for country A and 1, 2, ..., N for country B. Before the conference K pairs of representatives were choosen. Every such pair consists of one member of delegation A and one of delegation B. If there exists a pair in which both member #i of A and member #j of B are included then #i and #j can negotiate. Everyone attending the conference was included in at least one pair. The CEO of the congress center wants to build direct telephone connections between the rooms of the delegates, so that everyone is connected with at least one representative of the other side, and every connection is made between people that can negotiate. The CEO also wants to minimize the amount of telephone connections. Write a program which given M, N, K and K pairs of representatives, finds the minimum number of needed connections.
+Input
+The first line of the input contains M, N and K. The following K lines contain the choosen pairs in the form of two integers p1 and p2, p1 is member of A and p2 is member of B.
+Output
+The output file should contain the minimum numer of needed telephone connections.
+Sample Input
+3 2 4
+1 1
+2 1
+3 1
+3 2
+Sample Output
+3
+
+
+1110. Power
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+You are given the whole numbers N, M and Y. Write a program that will find all whole numbers X in the interval [0, M-1] such that X^N mod M = Y.
+Input
+The input contains a single line with N, M and Y (0<N<999, 1<M<999, 0<Y<99) separated with one space.
+Output
+Output all numbers X separated with space on one line. The numbers must be written in ascending order. If no such numbers exist then output -1.
+Sample Input
+2 6 4
+Sample Output
+2 4
+
+
+1111. Squares
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+You are given N (0 < N < 100) squares and point P. The distance between P and square is the shortest line segment that connects P with the contour or the internal area of the square. If P is inside the square then the distance is zero. It is possible some squares to be points i.e. to have vertices that coincide. Write a program that will sort the squares in ascending order according the distance from P.
+Input
+The first line contains the whole number N. The following N lines contain four whole number in the range (-9999, 9999). The first two of these numbers define the x and y coordinate of one of the vertices of the square, the next two numbers defines the opposite vertex. In the last line of the input are written the x and y coordinates of P.
+Output
+The output should be a line containing the ids of the squares sorted according to the distance from P.The ids are defined according to the order in which the squares are given in the input. Use ids to break ties i.e. if two squares are the same distance from P then write the square with the lowest id first. Using 1E-14 precision when comparing the distances is accurate enough.
+Sample Input
+2
+0 0 1 1
+0 3 1 4
+0 0
+Sample Output
+1 2
+
+
+
+1112. Cover
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+You are given N (0 < N < 100) line segments on a line. Every segment is defined with its endpoints Ai and Bi (Ai <> Bi, i=1..N). The endpoints are integer coordinates in the interval (-999,999). Some of the segments probably intersect. Write a program, which removes minimum number of the given segments, so that none of the left segments have common interior point.
+Input
+The first line of input contains the integer N. Each of the following N lines, contains two integers (Ai and Bi), separated with one space.
+Output
+On the first line write the integer P, equal to the number of segments, which are left after your program removes the excess segmets. The following P lines should containt the coordinates of the left and the right endpoints of the segments which are left. These coordinates must be separated with one space Coordinates of the left endpoints must be written in their ascending order. If the problem has more the one solution, write only one of them no matter which.
+Sample Input
+3
+6 3
+1 3
+2 5
+Sample Output
+2
+1 3
+3 6
+
+
+
+1113. Jeep
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+Our jeep is in the desert and must reach a point which is N kilometres away from it. The terrain is tough, the car is old, and it seems like the fuel flows out, and because of this on every kilometre travelled, one litre of fuel is spent. But the jeep has fuel-cans and fuel tank with total capacity of M < N litres. On other hand, at the beginning of the road there is unlimited amount of fuel, and everywhere in the desert there are empty cisterns, in which the jeep, passing near them, can leave unlimited amount of fuel. Write a program which calculates the minimum amount of fuel in litres which is needed to reach the destination point.
+Input
+Two integers N and M are written on the only line of input. It is known that 5 * M >= N > 0. (N < 32000).
+Output
+The result (the minimum liters of fuel, eventually rounded up), must be written on the only line of output.
+Sample Input
+1000 500
+Sample Output
+3837
+
+
+1114. Boxes
+Time Limit: 0.6 second
+Memory Limit: 1000K
+
+N boxes are lined up in a sequence (1 <= N <= 20). You have A red balls and B blue balls (0 <= A <= 15, 0 <= B <= 15). The red balls (and the blue ones) are exactly the same. You can place the balls in the boxes. It is allowed to put in a box, balls of the two kinds, or only from one kind. You can also leave some of the boxes empty. It's not necessary to place all the balls in the boxe3. Write a program, which finds the number of different ways to place the balls in the boxes in the described way.
+Input
+Input contains one line with three integeres N, A and B separated by space.
+Output
+The result of your program must be an integer writen on the only line of output.
+Sample Input
+2 1 1
+Sample Output
+9
+
+
+
+1115. Ships
+Time Limit: 2 second
+Memory Limit: 1000K
+
+The military intelligence of one country found out that N (N < 100) battle ships of neighboring enemy country are situated in M rows (1 < M < 10). The intelligence knows the lengths l1, l2, ..., lN of the battle ships which are whole numbers in the interval [1, 100], and wants to know in which rows the ships are situated. The only thing that is known about the M rows are their lengths - L1, L2, ..., LM. Assume that the ships touch their neighbours in the rows and that every row contains at least one ship. Write program that will find one possible ordering of the ships in rows.
+Input
+The first line of the input contains N and M. The next N lines contain the lengths of the ships. The next M lines contain the lengths of the rows.
+Output
+The output should contain M pairs of lines. The first line of each pair should contain the amount of the ships in the current row, the following line should contain the lengths of the ships from the current row. The order of the M row descriptions should be the same as the order in which the rows are given in the input.
+Sample Input
+5 2
+4
+10
+2
+5
+3
+11
+13
+Sample Output
+3
+5 4 2
+2
+10 3
+
+
+1116. Piecewise constant function
+Time Limit: 3 second
+Memory Limit: 1000K
+
+"SKB-Kontur" has been developing a new "SKB-Kontur Framework" for the last three months . One of the latest wrinkles is that data will be presented with the help of piecewise constant functions. Your team is to implement an operation of "subsettraction" of the functions. A function is called piecewise constant if its domain can be divided into intervals and the function is constant on each interval. We also assume that the function value at the left-end point of each interval of constancy is equal to its value on the interval. In fig.1 there is a piecewise constant function with three intervals of constancy. Note that the function value at the point B is U and at the points C, E and on the interval (C,D) - the function value is not defined.
+A result of the subsettraction operation of two piecewise constant functions F1 @ F2 is a piecewise constant function F defined as follows:
+·       F(x) = F1(x) if F1 is defined and F2 is not defined;
+·       F(x) is not defined if F1 and F2 are defined both;
+·       F(x) is not defined if F1 is not defined.
+In Fig.3 there is the result of the operation of the subsettraction of the two functions from Fig.1 and Fig.2.
+Input
+contains two lines of the same format. Each line characterizes one piecewise constant function. A line begins with a natural number N (N < 15000). Then characterizations of constancy intervals follow in the ascending order with respect to their left ends. Each ilterval is given by three integer numbers A, B, Y (|A| < 32000, |B| < 32000, |Y| <= 100, A < B), where A is the left end of an interval, B is the right end of an interval and Y is the function value on the interval. It's known that that no two intervals from one line intersect. If two intervals are adjacent, the function values on the intervals are different.
+Output
+contains one line of the same format (see the input specification). This line should describe a result of the operation of subsettraction of the two input piecewise constant functions.
+Sample Input
+3 -1 1 2 1 3 4 4 6 3
+2 -2 2 1 5 7 5
+Sample Output
+2 2 3 4 4 5 3
+
+
+
+1117. Hierarchy
+Time Limit: 1 second
+Memory Limit: 1000K
+
+
+During long years of work in "SKB-Kontur" a certain hierarchy of employees has been developed. Each person except ordinary employees has exactly two direct subordinates and not more than one direct superior. There is no subordinate of ordinary employees (see figure).
+Each employee has his own number. Of course, different employees have different numbers. It's known as well that either an employee has the maximal number or there is another employee whose number is greater by one. Similarly, either an employee has a number "1" or there is another employee whose number is less by one. The number of intermediate levels of employees between an arbitrary employee who has subordinates (an ordinary employee) and the employee who has no superiors (the main superior) is the same for all ordinary employees.
+The things have come round so that each employee who has subordinates has got a number greater than the number of one of his subordinates and less than the number of the other. Moreover, if his number is greater than his superior's then the numbers of his subordinates are also greater than the number of his superior. And conversly, if his number is less, then his subordinates' numbers are less too.
+A special system of intracorporate message exchange has been worked out. A message from an employee with the number i can be addressed directly only to the employees i-1 and i+1. Moreover, this is done the same day (it takes 0 days to do that) if the employees are direct superior and subordinate. Otherwise, the message delivery takes an amount of days that is equal to the number of intermediate employees between the sender and recipient. For example, a message from the employee 2 to the employee 4 is being delivered as follows. The employee 2 sends the message to the employee 3, and the employee 3 addresses it to the employee 4. This process takes one day because the first step (2->3) takes 0 days, and the second one (3->4) takes 1 day.
+Input
+contains two natural numbers: the number of an employee who sends a message and the number of the recipient. Each of the numbers doesn't exceed 231-1.
+Output
+You should output the only number - the number of days necessary to deliver the message.
+Sample Input
+1 5
+Sample Output
+2
+
+
+
+1118. Nontrivial numbers
+Time Limit: 5 second
+Memory Limit: 1000K
+
+Specialists of "SKB-Kontur" have developed a unique cryptographic algorithm for needs of information protection while transmitting data over the Internet. The main advantage of the algorithm is that you needn't use big numbers as keys; you may easily do with natural numbers not exceeding a million. However, in order to strengthen endurance of the cryptographic system it is recommended to use special numbers - those that psychologically seem least "natural". We introduce a notion of triviality in order to define and emphasize those numbers.
+Triviality of a natural number N is the ratio of the sum of all its proper divisors to the number itself. Thus, for example, triviality of the natural number 10 is equal to 0.8 = (1 + 2 + 5) / 10 and triviality of the number 20 is equal to 1.1 = (1 + 2 + 4 + 5 + 10) / 20. Recall that a proper divisor of a natural number is the divisor that is strictly less than the number.
+Thus, it is recommended to use as nontrivial numbers as possible in the cryptographic protection system of "SKB-Kontur". You are to write a program that will find the less trivial number in a given range.
+Input
+contains two numbers I and J, 0 < I <= J < 1000000, separated with a space.
+Output
+should contain the only natural number N satisfying the following conditions:
+1.      I <= N <= J;
+2.      N is the least trivial number among the ones that obey the first condition.
+Sample Input
+24 28
+Sample Output
+25
+
+
+
+
+1119. Metro
+Time Limit: 1 second
+Memory Limit: 1000K
+
+Many of "SKB-Kontur" programmers like to get to work by Metro because the main office is situated quite close the station "Uralmash". So, since a sedentary life requires active exercises off-duty, many of the staff - Nikanor among them - walk from their homes to Metro stations on foot.
+Nikanor lives in a part of our city where streets form a grid of residational quarters. All the quarters are squares with side 100 meters. A Metro entrance is situated at one of the crossroads. Nikanor starts his way from another crossroad which is south and west of the Metro entrance. Naturally, Nikanor, starting from his home, walks along the streets leading either to the north or to the east. On his way he may cross some quarters diagonally from their south-western corners to the north-eastern ones. Thus, some of the routes are shorter than others. Nikanor wonders, how long is the shortest route.
+You are to write a program that will calculate the length of the shortest route from the south-western corner of the grid to the north-eastern one.
+Input
+There are two integers in the first line: N and M (0 < N,M <= 1000) - west-east and south-north sizes of the grid. Nikanor starts his way from a crossroad which is situated south-west of the quarter with coordinates (1,1). A Metro station is situated north-east of the quarter with coordinates (N,M). The second input line contains a number K (0 <= K <= 100) which is a number of quarters that can be crossed diagonally. Then K lines with pairs of numbers separated with a space follow - these are the coordinates of those quarters.
+Output
+Your program is to output a length of the shortest route from Nikanor's home to the Metro station in meters, rounded to the integer amount of meters.
+Sample Input
+3 2
+3
+1 1
+3 2
+1 2
+Sample Output
+383
+
+
+1120. Sum of sequential numbers
+Time Limit: 1 second
+Memory Limit: 1000K
+
+There is no involute formulation concerning factitiously activity of "SKB-Kontur" in this problem. Moreover, there is no formulation at all.
+Input
+There is the only number N, 0 < N <= 109.
+Output
+Your program is to output two natural numbers A and P separated with a space such that:
+1.      N = A + (A + 1) + ... + (A + P - 1);
+2.      you are to choose a pair with the maximal possible value of P.
+Sample Input
+14
+Sample Output
+2 4
+
+
+1121. Branches
+Time Limit: 1 second
+Memory Limit: 1000K
+
+"SKB Kontur" has a lot of branches scattered all over the city. The company management decided to create a guide that will help clients to choose which of the branches they need. You are asked for help in this work.
+The city is represented in the form of a grid of blocks. Each block is a square whose sides are streets and whose corners are cross-roads. We suppose that all branches are located exactly at cross-roads. The branches of "SKB Kontur" are of different types: service centers, warehouses, shops, training centers and so on. Let's mark service centers with number 1, warehouses with number 2, shops with number 4, training centers with number 8 and so on. There are not more than 11 types of branches, and two branches of the same type cannot be located at the same cross-road. Each cross-road is assigned a number equal to the sum of numbers with which the branches located at this cross-road are marked. Crossroads at which there are no branches of "SKB Kontur" are assigned 0.
+Let the distance between two cross-roads be equal to the number of street segments which one has to go from the first cross-road to the second (see picture). For example, the distance from a corner of a block to the opposite corner of this block is 2. For each cross-road at which there are no branches of "SKB Kontur" you have to find the sum of the numbers corresponding to the types of the branches nearest to this cross-road. For example, suppose that there are no branches at a given cross-road and at distance 1 from it, there is a branch of type 16 at distance 2, there are also two branches of type 8 and one of type 4 at distance 2 in other directions and there are no more branches at distance 2 from this cross-road. Then we should output number 28=16+8+4 for this cross-road. We do not take into consideration branches that are at distances greater than 5 from a given cross-road. Thus, if a cross-road does not have branches of "SKB Kontur" that are located at distances less than 6 from it then we should output 0 for this cross-road.
+Input
+The first line contains two natural numbers not exceeding 150 : H and W. They are numbers of "vertical" and "horizontal" streets, correspondingly. The next H lines contain W numbers each, the i-th number in the j-th line describing types of the branches located at the cross-road of the i-th "vertical" and the j-th "horizontal" street.
+Output
+You should output H lines containing W numbers each, the i-th number in the j-th line being equal to the sum of the numbers corresponding to the types of the branches nearest to the corresponding cross-road if there are no branches at this cross-road and -1 otherwise.
+Sample Input
+5 5
+0 0 2 0 2
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 5 0
+1 0 0 4 0
+Sample Output
+2 2 -1 2 -1
+3 2 2 7 2
+1 7 7 5 7
+1 5 5 -1 5
+-1 1 4 -1 4
+
+
+
+1122. Game
+Time Limit: 1 second
+Memory Limit: 1000K
+
+At "SKB Kontur" we have to work much. So there is no sin in taking a rest and playing from time to time. Consider for example the following famous one-player game.
+We have a 4x4 field. There are chips with one side painted white and another side painted black on the field. Some of the chips are with their white side up and the others are with their white side down at the moment. Each move consists in turning over a chip together with all the chips that are adjacent to it vertically and horizontally (i.e. 5 chips altogether). The aim is to come to the position in which all the chips are with the same side up.
+Naturally, one is easily bored with this game because interesting and unexpected positions become fewer as time goes on. That is why a modified version of the game is now more popular at "SKB Kontur". In this version a move consists in turning over a fixed combination of chips within a 3x3 square. For example, a move may consist in turning over all the diagonal neighbors of a chosen chip.
+The combination of chips is chosen arbitrarily; it may be assigned in the form of a 3x3 field in which the central cell corresponds to the cell at which a move as made. For example, in picture at the left the upper combination corresponds to a standart game and the lower combination is for the game described in the previous paragraph. Note that a combination can be asymmetrical. Each move is made at one of the cells of the playing field (i.e. the central cell of the 3x3 move-defining square is selected among the field's cells). Prescriptions to turn over chips at cells which are outside the 4x4 field are ignored.
+In this game it would be nice to know if it is possible to reach a position in which all the chips are with the same side up and if it's possible to do this then in how many moves. You are to write a program which answers these questions.
+Input
+The first four lines describe the initial arrangement of chips. A symbol "W" stands for a chip which lies with its white side up and a symbol "B" stands for a chip which lies with its black side up.
+The next three lines describe a move: the chips that are to be turned over are shown by "1" and others are shown by "0".
+Output
+If it is impossible to reach the aim of the game you should output the word "Impossible", otherwise you should output the minimal number of moves necessary to come to the final position.
+Sample Input
+WWWW
+WBBW
+WBWW
+WWWW
+101
+010
+101
+Sample Output
+Impossible
+
+
+1123. Salary
+Time Limit: 1 second
+Memory Limit: 1000K
+
+All employees of "SKB Kontur" like to get their salaries. Often and in large quantities. But the company management is of a bit different opinion and pays out strictly once a month. After some consultations the employees decided that if one of the parameters (frequency of payment) was fixed it was possible to change the second parameter (amount of the money paid out). They contrived the following scheme. A group of employees who proudly call themselves mathematics and mechanics faculty graduates visits the management and using their mathematical authority claims that the computers in the company's accounts department will work more efficiently if salaries of all the employees take the form of palindromes. As you know, a numerical palindrome is a number that does not change when you read it from right to left. For example, 12344544321 is a palindrome and 12345543210 is not. Of course, the management had to agree with this proposall but upon one condition: each employee had to re-count his or her salary so that the salary took the form of the least possible palindrome that is greater than or equal to the original salary. You are asked to help the employees of "SKB Kontur".
+Input
+consists of one string containg the original salary of an employee. The string is not longer than 2001 symbols.
+Output
+Output should consist of one string containing the new salary calculated according to the above rules.
+Sample Input
+12341321
+Sample Output
+12344321
+
+
+
+1124. Mosaic
+Time Limit: 0.1 second
+Memory Limit: 1000K
+
+There's no doubt that one of the most important and crucial things to do in this world is to bring up children. May be, if you study properly and reach good results at the competition you'll get a position of nanny in a kindergarten. But you are to get ready for it! Let's consider some problems that a nanny has to solve in a kindergarten.
+Everyone knows the game "Mosaic". Playing the game, one is to lay out pictures of different colored pieces. Let there be M different boxes and N mosaic pieces of each of the M colors.
+After playing the game children rarely put the pieces back to their boxes correctly so that the color of the box and the colors of its pieces would be the same. A nanny has to do that.
+Children have already put the mosaic pieces to the boxes but possibly not correctly. There are N pieces in each box. Some pieces (possibly all of them) are located in wrong boxes (i.e. boxes with pieces of a different color).
+Moving a hand once one can take a piece from one box to another or simply move the hand to another box. You may start from any box you like. The movement towards the first box is not taken into account. Find out the minimal number of movements one needs to put all the mosaic pieces to their boxes.
+Input
+The first line contains integers 2 <= M <= 500 (the number of colors) and 2 <= N <= 50 (the number of pieces of each color), Each of the next M lines contains N numbers in the range from 1 to M (the i+1-st line contains colors of pieces located in the i-th box). The numbers are separated with a space.
+Output
+the minimal possible number of hand movements that one has to make in order to take all the pieces to their boxes.
+Sample Input
+4 3
+1 3 1
+2 3 3
+1 2 2
+4 4 4
+Sample Output
+6
+
+
+
+
+1125. Hopscotch
+Time Limit: 0.2 second
+Memory Limit: 1000K
+
+Nikifor likes to play hopscotch in the kindergarten. The playing field is a rectangle m × n partitioned into cells 1 × 1 meter. Nikifor hops from one cell to another possibly not adjacent cell. Each cell is colored black or white. Each time Nikifor hops into a cell, all cells whose centers are at an integer amount of meters away from Nikifor's cell center reverse their colors. You are given the final colors of the playing field cells. You also know the number of times Nikifor has been at each cell. Your task is to restore the initial colors of the cells.
+Input
+The first line contains two nonnegative integers m and n that do not exceed 50. The next m linec contain a character table mxn. This table describes the final coloring of the field. Character 'W' denotes the white color of the cell, and 'B' denotes the black color. There are no other characters in the table. The next m lines contain a matrix with nonnegative integer elements. Each element shows how many times Nikifor has been at the corresponding cell. Numbers in the lines are separated with a space and do not exceed 2000000000.
+Output
+should consist of m lines. The lines should contain a character table that shows the initial coloring of the playing field.
+Sample Input
+6 6
+BWBBWW
+BWBBWB
+BBWWBW
+BBBBBW
+BBWWWW
+BBWBBW
+2 0 12 46 2 0
+3 0 0 0 0 200
+4 2 1 1 4 2
+4 2 1 1 4 4
+0 0 0 0 0 0
+2 56 24 4 2 2
+Sample Output
+WWBBWW
+WBWWBW
+WBBBBW
+WBWWBW
+WBWWBW
+WBWWBW
+
+
+
+
+1126. Magnetic storms
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+The directory of our kindergarten decided to be attentive to the children's health and not to let them walk outdoors during magnetic storms. Special devices that measure and display magnetic intensity were ordered. If the readout exceeded some certain level the children were told to go indoors. They disliked it because they couldn't play their games up to the end. The nannies hated it because they had to dress and undress children many times.
+After a while it became clear that one could try to forecast magnetic intensity because long periods of quietude alternated with short periods of plenty of sharp peaks (this is called a magnetic storm). Hence a new modification of the devices was ordered.
+The new devices were to remember the situation within several last hours and to display the maximal intensity during the period. If the intensity was low within the last 6 hours the magnetic field was regarded to be quiet; the children were let outdoors and played all the prescript time. Otherwise new peaks were probable and the children spent their time indoors.
+Your task is to write a program for a new version of the device. As a matter of fact you are to solve just the main problem of modification. All the rest is already done.
+You are given a number M which is length of a period (in seconds) within which peaks are to be stored and displayed. A sequence of measured magnetic intensity values is given to you as well. Each measurement is a number within the range from 0 to 100000.
+Your are to output a sequence of values displayed by the device. The first number of the sequence is the maximal element of the first M input numbers, the second number is the maximal element of the 2nd, ..., M+1-st input numbers and so on.
+We hope that the new devices with your program won't go back on nannies and children will not walk during magnetic storms.
+Input
+The first line contains a number M, 1 < M <= 14000. Then values (integer) measured by the device follow each one in its line. There is a number -1 in the end. The number of measurements doesn't exceed 25000.
+Output
+a sequence of readouts, each one in its line.
+Sample Input
+3
+10
+11
+10
+0
+0
+0
+1
+2
+3
+2
+-1
+Sample Output
+11
+11
+10
+0
+1
+2
+3
+3
+
+
+
+
+1127. Colored bricks
+Time Limit: 0.4 second
+Memory Limit: 1000K
+
+There are lots of cubic bricks in the kindergarten. Children like to build toy brick towers and then to drop them. It is clear that the higher tower has been built the more interesting it is to drop it. The tower is built by placing bricks one onto another and aligning their sides. The tower is based on one brick. Thus the height of a tower is the number of the bricks it is built of.
+Each side of a brick is painted in one color. So the kids build colored towers. In order to train the children's sense of beauty nannies teach them to build the towers in such a way that each side of the tower would be one-color. Thus the kids would like to build a tower with one-color sides as high as possible.
+Every nanny can easily solve this problem. Try your best to do it as well.
+Input
+The first input line contains a number N (1 < N <= 103) - the number of bricks. The next N lines contain descriptions of bricks. Each brick is described with a string of 6 capital latin letters denoting the color of the corresponsding side (A - Azure, B - Blue, C - Cyan, G - Green, O - Orange, R - Red, S - Scarlet, V - Violet, W - White, Y - Yellow). The colors of the sides are given in the following order: front, right, left, rear, top, bottom. A brick never has two sides of the same color.
+Output
+Output file should contain the only number - the maximal height of a toy tower that can be built of the given brick set.
+Sample Input
+4
+GYVABW
+AOCGYV
+CABVGO
+OVYWGA
+Sample Output
+3
+
+
+
+
+1128. Partition into groups
+Time Limit: 0.5 second
+Memory Limit: 1000K
+
+There are n children in the kindergarten. Unfortunately, the children quarrel though not often. Each child has not more than three adversaries. Is it possible to partition the children into two groups (possibly not equal), so that each child would have not more than one adversary in his or her group?
+Input
+The first line contains an integer n, n <= 7163. The next n lines contain lists of adversaries of each child. A line starts with the amount of the corresponding child's adversaries, then the numbers of the adversaries follow. The numbers in each line are separated with a space.
+Output
+The first line contains the number of children in the smaller group. The next line contains the list of children in the group. The numbers in the second line are separated with a space. If the groups are of the same size then you are to describe the group that contains the child number one. Note that the output may contain the only number 0. If there are several possible partitions it's sufficient to output an arbitrary one. If there's no possible partition you are to output the only string 'NO SOLUTION'.
+Sample Input
+8
+3 2 3 7
+3 1 3 7
+3 1 2 7
+1 6
+0
+2 4 8
+3 1 2 3
+1 6
+Sample Output
+4
+1 2 5 6
+
+
+
+1129. Door painting
+Time Limit: 0.1 second
+Memory Limit: 1000K
+
+There are many rooms, corridors and doors between them in the kindergarten. Some repairs are planned to be made soon. The doors are agreed to be painted in bright cheerful colors - green and yellow.
+The matron of the kindergarten wants the doors to satisfy the following condition: the sides of an arbitrary door must have the different colors. The number of green doors in each of the lodgings must differ from the number of yellow doors not more than by one. Given the plan of the kindergarten suggest your scheme of door painting.
+Input
+The first line contains the number of lodgings N <=100 in the kindergarten. The next N lines contain description of the door configuration (k+1-st line contains a description of the k-th lodging). Each of the N lines starts with the number of doors that connect this lodging with adjacent ones. Then there are numbers of adjacent lodgings separated with a space (these numbers follow in ascending order).
+Output
+should contain a required painting scheme or the word "Impossible" if it is impossible to satisfy the requirements. The colors of the K-th room doors should be put in the K-th line in the same order as they were in the input data. The green color is denoted by G, yellow - by Y.
+Sample Input
+5
+3 2 3 4
+3 1 3 5
+4 1 2 4 5
+3 1 3 5
+3 2 3 4
+Sample Output
+G Y G
+Y G Y
+G Y Y G
+Y G G
+G Y Y
+

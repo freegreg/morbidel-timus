@@ -1,0 +1,31 @@
+Average Common Prefix
+Time Limit: 3.0 second
+Memory Limit: 16 MB
+Let T denote some string of length n consisting of capital Latin letters. Let Shift(T, k) denote the left cyclic shift of T by k-1 positions. The permutation array for T is an array P[1..n] such that Shift(T, P[1]), Shift(T, P[2]), ..., Shift(T, P[n]) is a list of cyclic shifts of T sorted in lexicographical order. 
+For given two strings v and w we define LCP(v, w) as the length of their longest common prefix. The Average LCP of the string T is the average length of longest common prefix between two consecutive shifts: 
+ 
+Example, T = 'MISSISSIPPI', n = 11: 
+i	P[i]	Shift(T, P[i])	LCP
+1	11	'IMISSISSIPP'	1
+2	8	'IPPIMISSISS'	1
+3	5	'ISSIPPIMISS'	4
+4	2	'ISSISSIPPIM'	0
+5	1	'MISSISSIPPI'	0
+6	10	'PIMISSISSIP'	1
+7	9	'PPIMISSISSI'	0
+8	7	'SIPPIMISSIS'	2
+9	4	'SISSIPPIMIS'	1
+10	6	'SSIPPIMISSI'	3
+11	3	'SSISSIPPIMI'	 
+Average LCP of 'MISSISSIPPI' is 1.3 
+Input
+The first line of the input contains integer n (1 < n < 250001). The second line contains string T. 
+Output
+The only line of the output should contain the Average LCP of T with 3 digits after decimal point. 
+Sample Input
+11
+MISSISSIPPI
+Sample Output
+1.300
+________________________________________
+Problem Author: Ilya Grebnov
