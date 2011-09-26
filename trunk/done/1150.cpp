@@ -5,8 +5,8 @@
 // solutie: rezolvam o problema mai simpla: de cate ori apare cifra x (0..9)
 // in intervalul 1..N ?
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstring>
 
 long n, flag[500], nr[500], cat[500], l1, l2;
 struct set

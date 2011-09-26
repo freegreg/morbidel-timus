@@ -28,7 +28,7 @@ void add(HUGE &a, HUGE b)      // a += b
 	if (k) a[++a[0]] = k;
 }
 
-void main()
+int main()
 {
 	int i;
 	scanf( "%d %d", &n, &k);
