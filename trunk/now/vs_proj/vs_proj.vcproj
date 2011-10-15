@@ -171,7 +171,11 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath="..\1860.cpp"
+				RelativePath=".\input.txt"
+				>
+			</File>
+			<File
+				RelativePath="..\..\misc\Online Contests\2011, October 15\j.cpp"
 				>
 			</File>
 		</Filter>
