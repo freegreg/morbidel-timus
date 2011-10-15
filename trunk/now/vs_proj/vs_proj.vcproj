@@ -174,10 +174,6 @@
 				RelativePath=".\input.txt"
 				>
 			</File>
-			<File
-				RelativePath="..\..\misc\Online Contests\2011, October 15\j.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
