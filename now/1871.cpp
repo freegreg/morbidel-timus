@@ -43,18 +43,21 @@ void DF(int n, std::string mes)
 void Dijkstra()
 {
 	int i, j, k, min, nod;
+  int src = 0;
 
-
-	D[0] = 0;
-	Flag[0] = 1;
+	D[src] = 0;
+	Flag[src] = 1;
 
 	for (i = 1; i < N; i++)
+  {
 		D[i] = INF;
+  }
 
-	for (i = 0; i < Followers[0].size(); i++)
+	for (i = 0; i < Followers[src].size(); i++)
 	{
-		nod = Map[Followers[0][i]];
+		nod = Map[Followers[src][i]];
 		D[nod] = Mes.size();
+    Flag[nod] = 1;
 	}
 
 	for (i = 0; i < N; i++)
