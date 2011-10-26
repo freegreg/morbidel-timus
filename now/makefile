@@ -1,5 +1,5 @@
 FLAGS = -Wall
-SRC = 1605.cpp
+SRC = 1878.cpp
 
 clean:
 	rm ./binary
