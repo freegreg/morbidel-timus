@@ -1,0 +1,15 @@
+TODO pentru timus.ru
+
+Chestii generale:
+ - de insistat pe problemele cu adevărat interesante (structuri de date mai speciale sau greu de
+   implementat, grafuri mai greuțe decât un DF/BF - chiar și Dijkstra e bine de implementat mai des
+   și bine din prima).
+ - probleme muncitorești din când în când (manipulare string-uri, back-uri sofisticate, B&B, etc)
+
+Probleme:
+ - 1835 - Swamp Doctor -> regândit totul
+ - 1844 - Warlord of the Army Mages -> de ce nu merge ideea straight-forward?
+ - 1846 - GCD 2010 -> implementat cu grijă abordarea cu AVL și gândit pt una separată cu factorii
+   primi.
+ - 1834 - Tennis Racket -> interesantă
+ - 1764 - Expert Flea -> hardest problem interesant

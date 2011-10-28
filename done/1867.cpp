@@ -1,6 +1,12 @@
 /*
  * ACM Timus Online
  * Problem 1867 - Nanotechnologies
+ *
+ * Soluție: știind distanța dintre două puncte și cu un punct fixat, pot obține toate potențialele
+ * soluții pentru al doilea punct (toate triunghiurile cu ipotenuza dată). Backtracking încercând
+ * toate aceste soluții, cu mențiunea că atunci când am 3 puncte necolineare, nu mai am nicio axă de
+ * simetrie deci pot determina restul punctelor în mod unic. Altfel, dacă am un set de puncte
+ * colineare, trebuie backtracking.
  */
 
 #include <cstdio>
@@ -66,33 +72,6 @@ int GetSolutions(int n, std::vector<point> &v)
   }
 
   return sol;
-  /*
-  signed x = 0;
-  signed m = sqrtl(n / 2);
-  for (signed y = sqrtl(n); y >= m; y--)
-  {
-    unsigned _y = y * y;
-    while (x * x + _y < n)
-    {
-      x++;
-    }
-    if (x * x + _y == n)
-    {
-      // valid (x, y)
-      v.push_back(point(x, y));
-      v.push_back(point(-x, y));
-      v.push_back(point(x, -y));
-      v.push_back(point(-x, -y));
-
-      if (x != y)
-      {
-        v.push_back(point(y, x));
-        v.push_back(point(-y, x));
-        v.push_back(point(y, -x));
-        v.push_back(point(-y, -x));
-      }
-    }
-  }*/
 }
 
 bool Collinear(point &p1, point &p2, point &p3)
@@ -157,7 +136,6 @@ bool ComputePoint(int a, int b, int c, int n)
 
   if (v.size() != 1)
   {
-    // TODO: suntem siguri de asta?
     return false;
   }
 
@@ -323,7 +301,7 @@ int main()
   srand(time(NULL));
 
 #ifndef ONLINE_JUDGE
-  //gen();
+  gen();
   freopen("input.txt", "rt", stdin);
 #endif
   int i, j;
