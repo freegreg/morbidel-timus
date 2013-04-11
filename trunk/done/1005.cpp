@@ -2,58 +2,48 @@
  *  ACM Timus Online
  *  Stone Pile - Problem 1005
  *
- *  solutie: dinamica: facem rucsac pana la jumatate din suma...
+ *  solutie: generam toate cfg
  */
 
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
 
-long n, v[50], max, suma = 0;
-unsigned char s[126000L];
+#define ABS(x) ((x) > 0 ? (x) : -(x))
 
-
-long val(long x) /*  ret s[x]  */
-{
-	return (s[x / 8] >> (x % 8)) & 1;
-}
-
-void check(long x)  /*  s[x] = 1  */
-{
-	s[x / 8] |= (1 << (x % 8));
-}
+int V[20];
+int N, S;
 
 int main()
 {
-	long i, j;
+#ifndef ONLINE_JUDGE
+  freopen("input.txt", "rt", stdin);
+#endif
 
-	memset(s, 0, sizeof(s));
+  S = 0;
+  scanf("%d", &N);
+  for (int i = 0; i < N; ++i)
+  {
+    scanf("%d", V + i);
+    S += V[i];
+  }
 
-	scanf("%ld", &n);
-	for (i = 0; i < n; i++)
-		scanf("%ld", &v[i]), suma += v[i];
+  int minDif = 1000000;
 
-	check(v[0]);
-	max = v[0];
-	for (i = 1; i < n; i++)
-	{
-		for (j = max; j; j--)
-			if (val(j))
-			{
-				check(j + v[i]);
-				if (j + v[i] > max) 
-					max = j + v[i];
-			}
-		check(v[i]);
-		
-		if (max > suma / 2) 
-			max = suma / 2;
-		if (val(suma / 2)) break;
-	}
-	for (i = max; i; i--)
-		if (val(i)) break;
+  for (int i = 0; i < (1 << (N - 1)); ++i)
+  {
+    int cur_sum = 0;
 
-	j = suma - 2 * i;
-	printf("%ld\n", j > 0 ? j : -j);
+    for (int j = 0; j < N - 1; ++j)
+      if (i & (1 << j))
+      {
+        cur_sum += V[j];
+      }
+    if (ABS(S - 2 * cur_sum) < minDif)
+    {
+      minDif = ABS(S - 2 * cur_sum);
+    }
+  }
 
-    return 0;
+  printf("%d", minDif);
+
+  return 0;
 }
